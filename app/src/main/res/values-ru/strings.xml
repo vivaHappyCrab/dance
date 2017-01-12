@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Danceprog</string>
+    <string name="Aus">Вы уверены?</string>
+    <string name="Back">Назад</string>
+    <string name="Cnl">Нет</string>
+    <string name="Heats">Заходов:</string>
+    <string name="Rfr">Обновить</string>
+    <string name="Send">Отправить</string>
+    <string name="Yes">Да</string>
+    <string name="wrongkey">Неверный пароль</string>
+    <string name="restore">Отправить данные</string>
+    <string name="clearing">Удалить временные файлы</string>
+    <string name="ip">Имя хоста</string>
+    <string name="Pass">Пароль</string>
+    <string name="Username">Логин</string>
+    <string name="sett">Настройки</string>
+    <string name="fullclear">Удалить все файлы с SD</string>
+    <string name="r_u">%s - это вы?</string>
+    <string name="Debug">Дебаг:</string>
+    <string name="On">Включен</string>
+    <string name="Off">Выключен</string>
+    <string name="SmRefresh">R</string>
+</resources>

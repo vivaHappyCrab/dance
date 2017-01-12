@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:screenOrientation="portrait"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:id="@+id/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/jnom"
+            android:layout_marginLeft="30dp"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="755dp"
+        android:id="@+id/sa_2">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/judges"
+            android:layout_gravity="center_horizontal"
+            android:choiceMode="singleChoice"
+            android:background="@color/button_material_light"
+            android:layout_margin="10dp" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/Aus"
+        android:id="@+id/desc"
+        android:textSize="60sp"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:textAlignment="center" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/sa_3"
+        android:visibility="gone"
+        android:layout_marginTop="40dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Yes"
+            android:id="@+id/sa_yes"
+            android:textSize="60sp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:layout_marginRight="10dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Cnl"
+            android:id="@+id/sa_no"
+            android:textSize="60sp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/sa_1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="5dp">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="&lt;&lt;"
+                android:id="@+id/s_back"
+                android:clickable="true"
+                android:enabled="true"
+                android:layout_below="@+id/next"
+                android:layout_centerHorizontal="true"
+                android:textSize="24dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="6" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="Ok"
+                android:id="@+id/next"
+                android:clickable="true"
+                android:enabled="true"
+                android:layout_below="@+id/frameLayout"
+                android:layout_centerHorizontal="true"
+                android:textSize="24dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="3"
+                android:layout_marginRight="10dp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="@string/SmRefresh"
+                android:id="@+id/jrefresh"
+                android:textSize="24sp"
+                android:layout_weight="6"
+                android:layout_marginLeft="10dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

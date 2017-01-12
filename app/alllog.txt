@@ -1,0 +1,7614 @@
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.55 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.55 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Directory for nomination cannot be created
+Directory for results cannot be created
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 249.74 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 411.18 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 415.28 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 412.54 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.29 Mbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+Read Judges ended with success
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+8 file exists
+Init upload
+Init upload
+Upload to FTP ended
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+failed to connect to /192.168.0.17 (port 30044) after 90000ms: isConnected failed: ECONNREFUSED (Connection refused)
+Lost connection, can't upload /airdance/1/judges/2_8.txt
+Upload to FTP ended
+failed to connect to /192.168.0.17 (port 30044) after 90000ms: isConnected failed: ECONNREFUSED (Connection refused)
+Lost connection, can't upload /airdance/1/judges/2_8.txt
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.53 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Directory for nomination cannot be created
+Directory for results cannot be created
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 248.93 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 408.50 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 420.88 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 408.50 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.45 Mbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+Read Judges ended with success
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+0 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.68 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Directory for nomination cannot be created
+Directory for results cannot be created
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 256.47 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 412.54 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 411.18 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 419.46 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.64 Mbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+Read Judges ended with success
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+0 file exists
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name 2_0.txt founded 1
+/airdance/1/judges/2_0.txt
+Download 2_0.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 6.04 Kbytes per second
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name t02j00_S.txt founded 1
+/airdance/1/results/t02j00_S.txt
+Download t02j00_S.txt:226 File successfully transferred
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.68 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Directory for nomination cannot be created
+Directory for results cannot be created
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 253.91 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 416.67 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 429.55 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 422.30 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.61 Mbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+Read Judges ended with success
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+8 file exists
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name 2_8.txt founded 1
+/airdance/1/judges/2_8.txt
+Download 2_8.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 8.09 Kbytes per second
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name t02j08_J.txt founded 1
+/airdance/1/results/t02j08_J.txt
+Download t02j08_J.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 53.36 Kbytes per second
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.71 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Directory for nomination cannot be created
+Directory for results cannot be created
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 253.91 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 418.06 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 412.54 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 422.30 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.61 Mbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+Read Judges ended with success
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+1 file exists
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name 2_1.txt founded 1
+/airdance/1/judges/2_1.txt
+Download 2_1.txt:226-File successfully transferred
+226 0.743 seconds (measured here), 4.04 bytes per second
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name t02j01_J.txt founded 1
+/airdance/1/results/t02j01_J.txt
+Download t02j01_J.txt:226 File successfully transferred
+
+Download from FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.68 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Directory for nomination cannot be created
+Directory for results cannot be created
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 255.61 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 415.28 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 413.91 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 416.67 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.58 Mbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+Read Judges ended with success
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+3 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.68 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Directory for nomination cannot be created
+Directory for results cannot be created
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 197.32 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.89 Mbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+Read Judges ended with success
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.71 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Directory for nomination cannot be created
+Directory for results cannot be created
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 253.91 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 418.06 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 425.17 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 412.54 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.60 Mbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+Read Judges ended with success
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.71 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.54 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 249.74 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 405.84 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 403.23 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 407.17 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.41 Mbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+4 judge clicked
+4 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Could not parse passive host information.
+Server Reply: 226-File successfully transferred
+Lost connection, can't upload /airdance/1/judges/04.stat
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Could not parse passive host information.
+Server Reply: 226-File successfully transferred
+Upload to FTP ended
+Lost connection, can't upload /airdance/1/judges/04.stat
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.68 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 247.31 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 404.53 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 407.17 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 399.36 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.57 Mbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.54 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 244.14 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 346.26 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 405.84 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 411.18 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.40 Mbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+5 judge clicked
+6 file exists
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name 2_6.txt founded 1
+Init upload
+Upload to FTP ended
+/airdance/1/judges/2_6.txt
+Download 2_6.txt:227 Entering Passive Mode (192,168,0,17,119,124)
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Could not parse passive host information.
+Server Reply: 226-File successfully transferred
+Upload to FTP ended
+Lost connection, can't upload /airdance/1/judges/06.stat
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.67 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 250.57 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.001 seconds (measured here), 238.10 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 420.88 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 415.28 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.61 Mbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+4 judge clicked
+4 judge clicked
+5 file exists
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.54 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 157.00 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.002 seconds (measured here), 164.98 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.002 seconds (measured here), 168.11 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.002 seconds (measured here), 165.95 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.002 seconds (measured here), 166.50 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.002 seconds (measured here), 212.63 Kbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.002 seconds (measured here), 144.48 Kbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.002 seconds (measured here), 50.68 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.001 seconds (measured here), 83.72 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.001 seconds (measured here), 83.61 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.002 seconds (measured here), 82.95 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.002 seconds (measured here), 344.26 Kbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+2 judge clicked
+3 file exists
+5 judge clicked
+6 file exists
+8 judge clicked
+7 judge clicked
+8 file exists
+8 judge clicked
+9 file exists
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+6 judge clicked
+7 file exists
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+4 judge clicked
+5 file exists
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+3 judge clicked
+4 file exists
+2 judge clicked
+3 file exists
+4 judge clicked
+5 file exists
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+2 judge clicked
+3 file exists
+0 judge clicked
+1 file exists
+1 judge clicked
+2 judge clicked
+3 judge clicked
+4 file exists
+4 judge clicked
+5 file exists
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.55 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 252.22 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 412.54 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 415.28 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 357.14 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.44 Mbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+5 judge clicked
+6 file exists
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.54 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 253.91 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 415.28 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 355.11 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 422.30 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.44 Mbytes per second
+
+Download from FTP ended
+0 file exists
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+5 judge clicked
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.53 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 246.51 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 398.09 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 403.23 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 399.36 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.40 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+3 judge clicked
+4 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.66 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 250.57 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 396.83 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.002 seconds (measured here), 82.95 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 407.17 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.55 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+2 judge clicked
+3 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.54 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 244.14 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 408.50 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 408.50 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 401.93 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.40 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.68 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Main menu created
+************App is closing****************
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.54 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 253.91 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 425.17 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 419.46 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 420.88 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.45 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+5 judge clicked
+6 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.68 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 253.91 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 416.67 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 413.91 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 411.18 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.61 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.70 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.55 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.54 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.52 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 248.93 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 412.54 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 409.84 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 416.67 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.44 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.68 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 194.00 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.02 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+0 judge clicked
+1 file exists
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name 3_1.txt founded 1
+/airdance/123/judges/3_1.txt
+Download 3_1.txt:226-File successfully transferred
+226 2.794 seconds (measured here), 1.07 bytes per second
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name t03j01_S.txt founded 1
+/airdance/123/results/t03j01_S.txt
+Download t03j01_S.txt:226 File successfully transferred
+
+Download from FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Could not parse passive host information.
+Server Reply: 226-File successfully transferred
+Lost connection, can't upload /airdance/123/results/t03j01_Ch.txt
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.68 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.54 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 251.39 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 412.54 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 405.84 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 415.28 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.40 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.67 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 193.35 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.04 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+8 judge clicked
+9 file exists
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name 3_9.txt founded 1
+/airdance/123/judges/3_9.txt
+Download 3_9.txt:226-File successfully transferred
+226 2.348 seconds (measured here), 1.28 bytes per second
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name t03j09_R.txt founded 1
+/airdance/123/results/t03j09_R.txt
+Download t03j09_R.txt:226-File successfully transferred
+226 2.789 seconds (measured here), 26.18 bytes per second
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.69 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+5 nomination clicked
+2 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 2 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/2/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 255.61 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/2/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 215.91 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/2/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 217.75 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/2/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 215.17 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/2/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 211.59 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/2/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.02 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.69 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 192.70 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.02 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+4 judge clicked
+5 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Could not parse passive host information.
+Server Reply: 226-File successfully transferred
+Lost connection, can't upload /airdance/123/judges/05.stat
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Could not parse passive host information.
+Server Reply: 226-File successfully transferred
+Lost connection, can't upload /airdance/123/results/t03j05_R.txt
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Could not parse passive host information.
+Server Reply: 226-File successfully transferred
+Lost connection, can't upload /airdance/123/results/t03j05_R.txt
+Init upload
+Upload to FTP ended
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Upload to FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.66 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.53 Mbytes per second
+
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+Download from FTP ended
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+5 nomination clicked
+2 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 2 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/2/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 252.22 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/2/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 214.45 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/2/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 212.72 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/2/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 206.76 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/2/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 212.30 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/2/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.01 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.68 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 187.68 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.00 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+2 judge clicked
+3 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.68 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 192.06 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.01 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+8 judge clicked
+9 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Could not parse passive host information.
+Server Reply: 226-File successfully transferred
+Upload to FTP ended
+Lost connection, can't upload /airdance/123/results/t03j09_S.txt
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Could not parse passive host information.
+Server Reply: 226-File successfully transferred
+Upload to FTP ended
+Lost connection, can't upload /airdance/123/judges/09.stat
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Could not parse passive host information.
+Server Reply: 226-File successfully transferred
+Lost connection, can't upload /airdance/123/judges/09.stat
+Upload to FTP ended
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.70 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 497.16 Kbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 245.72 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 416.67 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 411.18 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 412.54 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.43 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.69 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 193.35 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.00 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+0 judge clicked
+1 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.67 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 190.79 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.03 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+1 file exists
+0 judge clicked
+1 file exists
+1 file exists
+1 judge clicked
+2 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Could not parse passive host information.
+Server Reply: 226-File successfully transferred
+Lost connection, can't upload /airdance/123/judges/02.stat
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.68 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 188.91 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.01 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+0 judge clicked
+1 file exists
+2 judge clicked
+3 file exists
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name 3_3.txt founded 1
+/airdance/123/judges/3_3.txt
+Download 3_3.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 7.94 Kbytes per second
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name t03j03_Ch.txt founded 1
+/airdance/123/results/t03j03_Ch.txt
+Download t03j03_Ch.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 157.51 Kbytes per second
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.68 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 192.06 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.99 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+3 judge clicked
+4 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.69 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 189.53 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.00 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+4 judge clicked
+5 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Could not parse passive host information.
+Server Reply: 226-File successfully transferred
+Lost connection, can't upload /airdance/123/judges/05.stat
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.70 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 194.65 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.02 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+0 judge clicked
+1 file exists
+1 judge clicked
+2 file exists
+2 judge clicked
+3 file exists
+3 judge clicked
+4 file exists
+4 judge clicked
+5 file exists
+5 judge clicked
+6 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.67 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 188.29 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.87 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+0 judge clicked
+1 file exists
+1 file exists
+8 judge clicked
+9 file exists
+9 file exists
+9 file exists
+9 file exists
+9 file exists
+7 judge clicked
+8 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.68 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 190.16 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.69 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.01 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+2 judge clicked
+3 file exists
+3 judge clicked
+6 judge clicked
+7 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Could not parse passive host information.
+Server Reply: 226-File successfully transferred
+Lost connection, can't upload /airdance/123/judges/07.stat
+Upload to FTP ended
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.55 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 192.70 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.01 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+6 judge clicked
+7 file exists
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name 3_7.txt founded 1
+/airdance/123/judges/3_7.txt
+Download 3_7.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 7.98 Kbytes per second
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name t03j07_S.txt founded 1
+/airdance/123/results/t03j07_S.txt
+Download t03j07_S.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 69.95 Kbytes per second
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.55 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 194.65 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.89 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.54 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 184.08 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.81 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.99 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+6 judge clicked
+7 file exists
+1 judge clicked
+2 file exists
+0 judge clicked
+1 file exists
+3 judge clicked
+4 file exists
+2 judge clicked
+3 file exists
+5 judge clicked
+6 file exists
+4 judge clicked
+5 file exists
+6 judge clicked
+7 file exists
+8 judge clicked
+9 file exists
+7 judge clicked
+8 file exists
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name 3_8.txt founded 1
+/airdance/123/judges/3_8.txt
+Download 3_8.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 7.81 Kbytes per second
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name t03j08_S.txt founded 1
+/airdance/123/results/t03j08_S.txt
+Download t03j08_S.txt:226 File successfully transferred
+
+Download from FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Could not parse passive host information.
+Server Reply: 226-File successfully transferred
+Lost connection, can't upload /airdance/123/judges/08.stat
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.69 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 194.65 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.82 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.03 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+7 judge clicked
+8 file exists
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name 3_8.txt founded 1
+/airdance/123/judges/3_8.txt
+Download 3_8.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 8.12 Kbytes per second
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name t03j08_S.txt founded 1
+/airdance/123/results/t03j08_S.txt
+Download t03j08_S.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 44.03 Kbytes per second
+
+Download from FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.54 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 192.06 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.00 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file exists
+11 file exists
+12 file exists
+13 file exists
+14 file exists
+15 file exists
+16 file exists
+17 file exists
+18 file exists
+19 file exists
+20 file exists
+21 file exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+6 judge clicked
+7 file exists
+5 judge clicked
+6 file exists
+7 judge clicked
+8 file exists
+8 judge clicked
+9 file exists
+5 judge clicked
+6 file exists
+3 judge clicked
+4 file exists
+4 file exists
+4 judge clicked
+5 file exists
+0 judge clicked
+1 judge clicked
+2 file exists
+3 judge clicked
+4 file exists
+3 judge clicked
+4 file exists
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.67 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 258.21 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 422.30 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 425.17 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 423.73 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.48 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+4 judge clicked
+5 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Init upload
+Upload to FTP ended
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Upload to FTP ended
+Upload to FTP ended
+Upload to FTP ended
+Init upload
+Init upload
+Init upload
+sendto failed: ECONNRESET (Connection reset by peer)
+Lost connection, can't upload /airdance/1/judges/05.stat
+Upload to FTP ended
+failed to connect to /192.168.0.17 (port 31321) after 90000ms: isConnected failed: ECONNREFUSED (Connection refused)
+Lost connection, can't upload /airdance/1/judges/05.stat
+Upload to FTP ended
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+failed to connect to /192.168.0.17 (port 30801) after 90000ms: isConnected failed: ECONNREFUSED (Connection refused)
+Lost connection, can't upload /airdance/1/judges/05.stat
+Upload to FTP ended
+Init upload
+failed to connect to /192.168.0.17 (port 31504) after 90000ms: isConnected failed: ECONNREFUSED (Connection refused)
+Lost connection, can't upload /airdance/1/results/t02j05_Ch.txt
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Init upload
+Creating main menu
+Errors detected. No connection
+Deleting .android_secure failed
+Main menu created
+Exception in run of coonecter:/storage/sdcard0/2_5.txt: open failed: ENOENT (No such file or directory)
+Refresh inited
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Creating main menu
+No errors detected
+Download nomination list
+Exception in run of coonecter:/storage/sdcard0/2_5.txt: open failed: ENOENT (No such file or directory)
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.54 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 257.34 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 423.73 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 420.88 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 412.54 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.44 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+5 judge clicked
+6 file exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.55 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 256.47 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 412.54 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 418.06 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 419.46 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.46 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+5 judge clicked
+6 file exists
+3 judge clicked
+4 judge clicked
+5 file exists
+New session..........................................
+Config found
+Init new FTP session
+Time to connect has expired
+Recconect thread started
+Init completed
+Exception in run of coonecter:failed to connect to /192.168.0.17 (port 21) after 90000ms: isConnected failed: ETIMEDOUT (Connection timed out)
+Exception in run of coonecter:failed to connect to /192.168.0.17 (port 21) after 90000ms: isConnected failed: ETIMEDOUT (Connection timed out)
+Creating main menu
+Errors detected. No connection
+Deleting .android_secure failed
+Main menu created
+Refresh inited
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.55 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 251.39 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 408.50 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 413.91 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 407.17 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.43 Mbytes per second
+
+Download from FTP ended
+1 file doesn't exists
+2 file doesn't exists
+3 file doesn't exists
+4 file doesn't exists
+5 file exists
+6 file exists
+7 file doesn't exists
+8 file doesn't exists
+9 file doesn't exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+5 judge clicked
+6 file exists
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.53 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+3 nomination clicked
+1 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 1 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/1/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 250.57 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/1/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 408.50 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/1/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 409.84 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/1/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 413.91 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/1/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.44 Mbytes per second
+
+Download from FTP ended
+1 file doesn't exists
+2 file doesn't exists
+3 file doesn't exists
+4 file doesn't exists
+5 file exists
+6 file exists
+7 file doesn't exists
+8 file doesn't exists
+9 file doesn't exists
+Read Judges ended with success;paroled=true
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+5 judge clicked
+6 file exists
+6 file exists
+New session..........................................
+Config found
+Init new FTP session
+Init result is true
+230-This server supports FXP transfers
+230 OK. Current restricted directory is /
+
+Init sucssesful
+Conection has established
+Recconect thread started
+Init completed
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.55 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+4 nomination clicked
+123 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 123 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/123/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 189.53 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/123/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/123/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.80 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/123/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/123/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.79 Mbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/123/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.01 Mbytes per second
+
+Download from FTP ended
+1 file exists
+2 file exists
+3 file exists
+4 file exists
+5 file exists
+6 file exists
+7 file exists
+8 file exists
+9 file exists
+10 file doesn't exists
+11 file doesn't exists
+12 file doesn't exists
+13 file doesn't exists
+14 file doesn't exists
+15 file doesn't exists
+16 file doesn't exists
+17 file doesn't exists
+18 file doesn't exists
+19 file doesn't exists
+20 file doesn't exists
+21 file doesn't exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+Creating main menu
+No errors detected
+Download nomination list
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.67 Mbytes per second
+
+Download from FTP ended
+Download completed
+New nomination:﻿13:Fin Юноши, девушки 12-1
+New nomination:14:Fin Юноши, девушки 14-15
+New nomination:15:Fin Юниоры, юниорки 16-1
+New nomination:1:NeFin Test
+New nomination:123:NeFin Test2
+New nomination:2:1234567890123456789012345
+Deleting .android_secure failed
+Main menu created
+5 nomination clicked
+2 nom has chosen
+Directory for nomination cannot be created
+Directory for results cannot be created
+Enter in 2 nomination
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name gruppa.txt founded 1
+/airdance/2/gruppa.txt
+Download gruppa.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 250.57 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance01.txt founded 1
+/airdance/2/dance01.txt
+Download dance01.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 210.19 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance02.txt founded 1
+/airdance/2/dance02.txt
+Download dance02.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 213.42 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance03.txt founded 1
+/airdance/2/dance03.txt
+Download dance03.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 210.19 Kbytes per second
+
+Download from FTP ended
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name dance04.txt founded 1
+/airdance/2/dance04.txt
+Download dance04.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 211.59 Kbytes per second
+
+Download from FTP ended
+Read Judges started
+Init download
+226-Options: -a -l 
+226 1 matches total
+
+With name judge.txt founded 1
+/airdance/2/judge.txt
+Download judge.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 1.02 Mbytes per second
+
+Download from FTP ended
+1 file doesn't exists
+2 file doesn't exists
+3 file doesn't exists
+4 file doesn't exists
+5 file doesn't exists
+6 file doesn't exists
+7 file doesn't exists
+8 file doesn't exists
+9 file doesn't exists
+10 file doesn't exists
+11 file doesn't exists
+12 file doesn't exists
+13 file doesn't exists
+14 file doesn't exists
+15 file doesn't exists
+16 file doesn't exists
+17 file doesn't exists
+18 file doesn't exists
+19 file doesn't exists
+20 file doesn't exists
+21 file doesn't exists
+Read Judges ended with success;paroled=false
+CreateJudgeListeners started
+CreateJudgeListeners ended successfully
+4 judge clicked
+5 file doesn't exists
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Init upload
+Upload to FTP ended
+Creating main menu
+No errors detected
+Download nomination list
+Download completed
+File not found
+Init download
+Deleting .android_secure failed
+Main menu created
+226-Options: -a -l 
+226 1 matches total
+
+With name nominations.txt founded 1
+/airdance/nominations.txt
+Download nominations.txt:226-File successfully transferred
+226 0.000 seconds (measured here), 0.69 Mbytes per second
+
+Download from FTP ended

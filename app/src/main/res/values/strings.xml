@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Danceprog</string>
+    <string name="Back">Back</string>
+    <string name="Aus">Are you sure?</string>
+    <string name="Send">Send</string>
+    <string name="Heats">Heats:</string>
+    <string name="Cnl">Cancel</string>
+    <string name="Rfr">Refresh</string>
+    <string name="Yes">Ok</string>
+    <string name="wrongkey">Wrong key</string>
+    <string name="restore">Send local data</string>
+    <string name="clearing">Delete temporary files</string>
+    <string name="ip">Host Name</string>
+    <string name="Pass">Password</string>
+    <string name="Username">Login</string>
+    <string name="sett">Settings</string>
+    <string name="fullclear">Clear all files from SD</string>
+    <string name="r_u">Are you %s?</string>
+    <string name="Debug">Debug:</string>
+    <string name="On">On</string>
+    <string name="Off">Off</string>
+    <string name="SmRefresh">R</string>
+</resources>

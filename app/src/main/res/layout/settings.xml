@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/s_fullclear"
+        android:layout_gravity="center_horizontal"
+        android:textSize="26sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:minHeight="90dp"
+        android:text="@string/fullclear" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/clearing"
+        android:id="@+id/s_clear"
+        android:layout_gravity="center_horizontal"
+        android:textSize="26sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:minHeight="90dp" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/restore"
+        android:id="@+id/s_restore"
+        android:layout_gravity="center_horizontal"
+        android:textSize="26sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:minHeight="90dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/ip"
+            android:id="@+id/textView2"
+            android:textSize="24sp"
+            android:maxWidth="200dp"
+            android:minWidth="200dp"
+            android:background="@color/button_material_light" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/s_hn"
+            android:textSize="24sp"
+            android:singleLine="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="2dp"
+            android:enabled="true"
+            android:editable="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/Username"
+            android:id="@+id/textView3"
+            android:textSize="24sp"
+            android:maxWidth="200dp"
+            android:minWidth="200dp"
+            android:background="@color/button_material_light" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/s_lg"
+            android:textSize="24sp"
+            android:singleLine="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="2dp"
+            android:enabled="true"
+            android:editable="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/Pass"
+            android:id="@+id/textView7"
+            android:textSize="24sp"
+            android:maxWidth="200dp"
+            android:minWidth="200dp"
+            android:background="@color/button_material_light" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/s_ps"
+            android:textSize="24sp"
+            android:singleLine="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="2dp"
+            android:enabled="true"
+            android:editable="true" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/s_debug"
+        android:textSize="26sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:longClickable="false"
+        android:minHeight="90dp" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Back"
+        android:id="@+id/s_tomain"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textSize="26sp"
+        android:minHeight="90dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_marginTop="330dp"
+        android:layout_marginBottom="0dp" />
+
+</LinearLayout>
