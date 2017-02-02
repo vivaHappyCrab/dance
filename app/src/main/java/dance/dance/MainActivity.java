@@ -46,6 +46,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Locale;
 import java.util.Stack;
+import java.util.Map;
 
 
 public class MainActivity extends Activity {
@@ -55,6 +56,8 @@ public class MainActivity extends Activity {
     ArrayList<String> judges=new ArrayList<>();
     ArrayList<String> sha=new ArrayList<>();
     ArrayList<String> dord=new ArrayList<>();
+    ArrayList<Pair> allnums=new ArrayList<>();
+    ArrayList<Integer> totals=new ArrayList<>();
     byte[] shas;
     String finsha;
     String[] gruppa;
@@ -87,7 +90,16 @@ public class MainActivity extends Activity {
     boolean restore,lang,newinit;
     Thread th=null;
 
-
+    class Pair{
+        public int[] value;
+        public int turn=0;
+        public String name="";
+        Pair(int _turn,String _name,int dnum){
+            value=new int[dnum];
+            for(int i=0;i<dnum;++i)value[i]=0;
+            turn=_turn;
+            name=_name;}
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -504,18 +516,11 @@ public class MainActivity extends Activity {
                             findViewById(R.id.sa_1).setVisibility(View.GONE);
                             bck1.setOnClickListener(new View.OnClickListener() {
                                 public void onClick(View v) {
-                            danceNumber = 1;
+                            turnNumber = 0;
+                            danceNumber=0;
                             restore = CheckJudge();
                             SendLock(false);
-                            if (round != 1) {
-                                ReadDance();
-                            } else {
-                                setContentView(R.layout.fin);
-                                state = 4;
-                                ReadDanceF();
-                                SendInfo();
-                                CreateEventsF();
-                            }
+                            ReadAll();
                                 }
                             });
                         } else {
@@ -529,18 +534,11 @@ public class MainActivity extends Activity {
                             bck.setOnClickListener(new View.OnClickListener() {
                                 public void onClick(View v) {
                                     if ((t_parol[judge_num-1].equals(t_key)) || (t_key.equals("2222"))) {
-                                        danceNumber = 1;
+                                        turnNumber = 0;
+                                        danceNumber=0;
                                         restore = CheckJudge();
                                         SendLock(false);
-                                        if (round != 1) {
-                                            ReadDance();
-                                        } else {
-                                            setContentView(R.layout.fin);
-                                            state = 4;
-                                            ReadDanceF();
-                                            SendInfo();
-                                            CreateEventsF();
-                                        }
+                                        ReadAll();
                                     } else if (t_key.equals(""))
                                         ((EditText) findViewById(R.id.txt)).setText(t_key);
                                     else {
@@ -754,6 +752,42 @@ public class MainActivity extends Activity {
         return totalCount;
     }
 
+    private void ReadAll(){
+        allnums.clear();
+        turnCount=0;
+        yMarksDone=0;
+        addPairs.clear();
+        totals.clear();
+        try {
+            File sdFile = new File(sdPath, "tdance" + Integer.toString(danceNumber) + ".txt");
+            BufferedReader br = new BufferedReader(new FileReader(sdFile));
+            String str;
+            while ((str = br.readLine()) != null) {
+                String[] tmp = str.split(";");
+                tmp[0]=tmp[0].substring(tmp[0].charAt(0) == '\uFEFF' ? 2 : 1, tmp[0].length() - 1);
+                Integer j=1;
+                while((j<tmp.length)&&(!tmp[j].equals("0"))){
+                    j++;
+                    allnums.add(new Pair(turnCount,tmp[j],danceNumber));
+                }
+                turnCount++;
+                totals.add(j);
+            }
+            br.close();
+            CreateEventsNF();
+            state = 3;
+            strt=1;
+            end=danceCount-4;
+            if(end<=0)end=1;
+            tek=1;
+            SendInfo();
+            FillTitles(0);
+            FillPairs();
+        } catch (Exception e) {
+            log("Exception in ReadDance:"+e.getMessage());
+        }
+    }
+
     private boolean setPair(String pairnum){
         boolean q=false;
         for(int i=0;i<pairsNum.size();++i)
@@ -775,72 +809,47 @@ public class MainActivity extends Activity {
         ((TextView)findViewById(R.id.desc2)).setText(getResources().getString(R.string.Heats));
         ((TextView)findViewById(R.id.desc3)).setText(String.format("%s;", Integer.toString(turnCount)));
         ((TextView)findViewById(R.id.desc4)).setText(String.format("%s->%s", Integer.toString(totalCount), Integer.toString(yMarks)));
+        findViewById(R.id.desc4).setVisibility(View.INVISIBLE);
         ((TextView)findViewById(R.id.counter)).setText(Integer.toString(yMarksDone));
-        ((TextView)findViewById(R.id.dance)).setText((pairsNum.get(turnNumber)[0]));
+        ((TextView)findViewById(R.id.dance)).setText(turnNumber);
         for(int i=0;i<5;++i){
-            findViewById(R.id.button55+i).setVisibility(i < pairsNum.size() ? View.VISIBLE : View.INVISIBLE);
+            findViewById(R.id.button55+i).setVisibility(i < danceCount ? View.VISIBLE : View.INVISIBLE);
         }
         findViewById(R.id.button54).setEnabled(false);
-        findViewById(R.id.button60).setEnabled(turnNumber>5);
+        findViewById(R.id.button60).setEnabled(danceNumber>5);
     }
 
     private boolean Questioned(int turn){
-        turn--;
-        boolean f=false;
-        if(turn>=turnCount)return false;
-        for(int i=0;i<pairsState.get(turn).length;++i)
-            if(pairsState.get(turn)[i]==2)
-                f=true;
-        return f;
+        return false;
+//        turn--;
+//        boolean f=false;
+//        if(turn>=danceCount)return false;
+//        for(int i=0;i<pairsState.get(turn).length;++i)
+//            if(pairsState.get(turn)[i]==2)
+//                f=true;
+//        return f;
     }
 
     private void FillPairs(){
         log("Fill pairs{dance:"+danceNumber+";turn:"+turnNumber+";Ymarks:"+posCounters+";Declined:"+declined+";}");
         findViewById(R.id.button54).setEnabled(!(tek == strt));
         findViewById(R.id.button60).setEnabled(!(tek >= end));
-        if(declined+yMarks==totalAmount){for(int i=0;i<pairsState.size();i++)for(int j=0;j<size;j++)
-            if((pairsState.get(i)[j]<3)&&(!pairsNum.get(i)[j+1].equals("0")))
-                pairsState.get(i)[j]+=3;}
-        else for(int i=0;i<pairsState.size();i++)for(int j=0;j<size;j++)if((pairsState.get(i)[j]>2)&&(pairsState.get(i)[j]<6))pairsState.get(i)[j]-=3;
-        for(int i=0;i<size;++i) {
-            String s=((i+1)<pairsNum.get(turnNumber).length)?pairsNum.get(turnNumber)[i + 1]:"0";
-            if(s.equals("0")) {
-                ((Button) findViewById(startButton+i)).setText("");
-                findViewById(startButton+i).setVisibility(View.INVISIBLE);
+        int j=0;
+        for(int i=0;i<allnums.size();++i)
+            if(allnums.get(i).turn==turnNumber){
+                if(allnums.get(i).value[danceNumber]==0)findViewById(startButton + j).setBackgroundResource(android.R.color.background_light);
+                else if(allnums.get(i).value[danceNumber]==2)findViewById(startButton + j).setBackgroundResource(R.color.tvYes);
+                else if(allnums.get(i).value[danceNumber]==1)findViewById(startButton + j).setBackgroundResource(R.color.tvMb);
+                findViewById(startButton+j).setVisibility(View.VISIBLE);
+                j++;
             }
-            else {
-                ((Button) findViewById(startButton + i)).setText(pairsNum.get(turnNumber)[i + 1]);
-                findViewById(startButton+i).setVisibility(View.VISIBLE);
-            }
-            if(pairsState.get(turnNumber)[i]==1)findViewById(startButton + i).setBackgroundResource(R.color.tvYes);
-            else if(pairsState.get(turnNumber)[i]==4)findViewById(startButton + i).setBackgroundResource(R.color.tvYes);
-            else if(pairsState.get(turnNumber)[i]==2)findViewById(startButton + i).setBackgroundResource(R.color.tvMb);
-            else if(pairsState.get(turnNumber)[i]==5)findViewById(startButton + i).setBackgroundResource(R.color.tvYes);
-            else if(pairsState.get(turnNumber)[i]==0)findViewById(startButton + i).setBackgroundResource(android.R.color.background_light);
-            else if(pairsState.get(turnNumber)[i]==3)findViewById(startButton + i).setBackgroundResource(R.color.tvYes);
-            else findViewById(startButton + i).setBackgroundResource(R.color.tvRed);
-        }
-        posCounters=0;
-        if(declined!=0) {
-            for (int i = 0; i < pairsState.size(); i++)
-                for (int j = 0; j < size; j++)
-                    if (((pairsState.get(i)[j] > 2) && (pairsState.get(i)[j] < 6)) || (pairsState.get(i)[j] == 1))
-                        posCounters++;
-        }
-        else posCounters=yMarksDone;
+        for(;j<size;++j)
+            findViewById(startButton+j).setVisibility(View.INVISIBLE);
         ((TextView)findViewById(R.id.counter)).setText(Integer.toString(posCounters));
-        if(posCounters == yMarks)((TextView)findViewById(R.id.counter)).setTextColor(Color.argb(255, 0, 0, 0));
-        if(posCounters < yMarks)((TextView)findViewById(R.id.counter)).setTextColor(Color.argb(255,0,0,0));
-        if(posCounters > yMarks)((TextView)findViewById(R.id.counter)).setTextColor(Color.argb(255, 180, 10, 10));
-        findViewById(R.id.counter).setBackgroundResource((posCounters == yMarks) ? R.color.tvYes : R.color.material_grey_300);
-        findViewById(R.id.nf_send).setEnabled(posCounters == yMarks);
-        findViewById(R.id.nf_send).setBackgroundResource((posCounters == yMarks) ? R.color.tvYes : R.color.material_grey_300);
+        findViewById(R.id.nf_send).setEnabled(yMarks>0);
         for(int i=0;i<5;++i){
-            if(Integer.valueOf((String)((Button) findViewById(R.id.button55 + i)).getText())==turnNumber+1)
+            if(Integer.valueOf((String)((Button) findViewById(R.id.button55 + i)).getText())==danceNumber+1)
                 findViewById(R.id.button55 + i).setBackgroundResource(android.R.color.darker_gray);
-            else
-            if(Questioned(Integer.valueOf((String)((Button) findViewById(R.id.button55 + i)).getText())))
-                findViewById(R.id.button55 + i).setBackgroundResource(R.color.tvMb);
             else
                 findViewById(R.id.button55 + i).setBackgroundResource(android.R.color.background_light);
         }
@@ -851,8 +860,10 @@ public class MainActivity extends Activity {
             Button bck = (Button) findViewById(R.id.button55+i);
             bck.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    turnNumber = Integer.valueOf((String)(((Button)v).getText()))-1;
-                    log("Turn setted to "+turnNumber);
+                    for(int i=0;i<5;++i)
+                        if(v==findViewById(R.id.button55+i))
+                            danceNumber = Integer.valueOf(tek+i);
+                    log("Turn setted to "+danceNumber);
                     WriteBackup();
                     SendInfo();
                     Send();
@@ -899,11 +910,11 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 tek = tek + 5;
                 //if(tek>end)tek=end;
-                turnNumber = tek - 1;
-                log("Turn setted to "+turnNumber);
+                danceNumber = tek - 1;
+                log("Turn setted to "+danceNumber);
                 for (int i = 0; i < 5; ++i) {
                     ((Button) findViewById(R.id.button55 + i)).setText(Integer.toString(tek + i));
-                    if (tek + i > turnCount)
+                    if (tek + i > danceCount)
                         findViewById(R.id.button55 + i).setVisibility(View.INVISIBLE);
                     else findViewById(R.id.button55 + i).setVisibility(View.VISIBLE);
                 }
@@ -914,11 +925,11 @@ public class MainActivity extends Activity {
         bck.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 tek = tek - 5;
-                turnNumber = tek + 3;
-                log("Turn setted to " + turnNumber);
+                danceNumber = tek + 3;
+                log("Turn setted to " + danceNumber);
                 for (int i = 0; i < 5; ++i) {
-                    ((Button) findViewById(R.id.button55 + i)).setText(Integer.toString(tek + i));
-                    if (tek + i > turnCount)
+                    ((Button) findViewById(R.id.button55 + i)).setText(pairsNum.get(tek + i)[0]);
+                    if (tek + i > danceCount)
                         findViewById(R.id.button55 + i).setVisibility(View.INVISIBLE);
                     else findViewById(R.id.button55 + i).setVisibility(View.VISIBLE);
                 }
@@ -930,34 +941,12 @@ public class MainActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     log("Button clicked");
-                    int n = v.getId() - startButton;
-                    if (pairsState.get(turnNumber)[n] == 8) {declined--;red.remove(pairsNum.get(turnNumber)[n+1]);log("Declined "+n+" removed");}
-                    pairsState.get(turnNumber)[n] = (pairsState.get(turnNumber)[n] + 1) % 3;
-                    if (pairsState.get(turnNumber)[n] == 1) {yMarksDone++;log("Ymark "+n+" added");}
-                    if (pairsState.get(turnNumber)[n] == 2) {yMarksDone--;log("Ymark "+n+" removed");}
+                    yMarks++;
+                    for(int i=0;i<allnums.size();++i)
+                        if(allnums.get(i).name.equals(((Button)v).getText()))
+                            allnums.get(i).value[danceNumber]=(allnums.get(i).value[danceNumber]+2)%3;
                     FillPairs();
-                    if(turnCount==1)Send();
-                    //WriteBackup();
-                }
-            });
-            findViewById(startButton+ i).setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    log("Button longclicked");
-                    int n = v.getId() - startButton;
-                    if (pairsState.get(turnNumber)[n] != 8) {
-                        if (pairsState.get(turnNumber)[n] == 1) {
-                            yMarksDone--;
-                            log("Ymark " + n + " removed");
-                        }
-                        pairsState.get(turnNumber)[n] = 8;
-                        declined++;
-                        log("Declined " + n + " added");
-                        red.add(pairsNum.get(turnNumber)[n + 1]);
-                    }
-                    FillPairs();
-                    WriteBackup();
-                    return true;
+                    if(danceCount==1)Send();
                 }
             });
         }
@@ -978,13 +967,13 @@ public class MainActivity extends Activity {
                         findViewById(R.id.nf_n).setVisibility(View.INVISIBLE);
                         (findViewById(R.id.nf_tb)).setVisibility(View.VISIBLE);
                         if (posCounters != yMarks) return;
-                        if (isSha) addsha();
+                        //if (isSha) addsha();
                         Send();
-                        if (danceNumber != danceCount) {
-                            danceNumber++;
-                            log("Next dance is " + danceNumber);
-                            int n = ReadDance();
-                            FillTitles(n);
+                        if (turnNumber != turnCount) {
+                            turnNumber++;
+                            danceNumber=0;
+                            log("Next turn is " + turnNumber);
+                            FillTitles(0);
                             FillPairs();
                             WriteBackup();
                             SendInfo();
@@ -1019,35 +1008,36 @@ public class MainActivity extends Activity {
         bck = (Button) findViewById(R.id.nf_add);
         bck.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                setContentView(R.layout.keyboard);
-                t_key = "";
-                ((EditText) findViewById(R.id.txt)).setText(t_key);
-                mask = 3;
-                auto = false;
-                CreateKeyBoard();
-                Button bck = (Button) findViewById(R.id.bo);
-                bck.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        boolean q = setPair(t_key);
-                        if (!q) {
-                            addPairs.add(t_key);
-                            yMarksDone++;
-                        }
-                        setContentView(nfLayout);
-                        CreateEventsNF();
-                        FillTitles(tc);
-                        FillPairs();
-                    }
-                });
-                bck = (Button) findViewById(R.id.key_back);
-                bck.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        setContentView(nfLayout);
-                        CreateEventsNF();
-                        FillTitles(tc);
-                        FillPairs();
-                    }
-                });
+                return;
+//                setContentView(R.layout.keyboard);
+//                t_key = "";
+//                ((EditText) findViewById(R.id.txt)).setText(t_key);
+//                mask = 3;
+//                auto = false;
+//                CreateKeyBoard();
+//                Button bck = (Button) findViewById(R.id.bo);
+//                bck.setOnClickListener(new View.OnClickListener() {
+//                    public void onClick(View v) {
+//                        boolean q = setPair(t_key);
+//                        if (!q) {
+//                            addPairs.add(t_key);
+//                            yMarksDone++;
+//                        }
+//                        setContentView(nfLayout);
+//                        CreateEventsNF();
+//                        FillTitles(tc);
+//                        FillPairs();
+//                    }
+//                });
+//                bck = (Button) findViewById(R.id.key_back);
+//                bck.setOnClickListener(new View.OnClickListener() {
+//                    public void onClick(View v) {
+//                        setContentView(nfLayout);
+//                        CreateEventsNF();
+//                        FillTitles(tc);
+//                        FillPairs();
+//                    }
+//                });
             }
         });
     }
@@ -1153,286 +1143,6 @@ public class MainActivity extends Activity {
             e.printStackTrace();}
     }
 
-    private void SendF(){
-        try{
-            //((Button)findViewById(R.id.f_send)).setText("Working...");
-            String name="t01j"+((judge_num<=9)?"0":"")+Integer.toString(judge_num)+"_"+pairsNum.get(0)[0].substring(1,pairsNum.get(0)[0].length()-1)+".txt";
-            File f=new File(nomPath+"/results",name);
-            BufferedWriter bw=new BufferedWriter(new FileWriter(f));
-            for(int i=0;i<finAmount;++i)
-                bw.write(pairsNum.get(0)[marksDone[i]]+"\r\n");
-            bw.close();
-            if(!lostconncetion) {
-                c.setFile(f);
-                c.setUFile(name);
-                c.setUPath("/airdance/" + String.valueOf(nomination_num) + "/results");
-                c.setState(3);
-                lostconncetion = SynWait(2);
-            }
-            if(lostconncetion)c.addreupload(f,"/airdance/" + String.valueOf(nomination_num) + "/results/"+name);
-        }catch (Exception e){
-            log("Exception in SendF:"+e.getMessage());
-            e.printStackTrace();}
-    }
-
-    private void WriteBackupF(){
-        try {
-            bWriter=new BufferedWriter(new FileWriter(backup));
-            bWriter.write(t_nomination + '\n');
-            bWriter.append(t_judge).append('\n');
-            bWriter.append(Integer.toString(danceNumber)).append('\n');
-            bWriter.append(Integer.toString(turnNumber)).append('\n');
-            for(int i=0;i<pairsState.size();++i)
-                for(int j=0;j<9;++j)
-                    bWriter.append((j < pairsState.get(i).length) ? Integer.toString(pairsState.get(i)[j]) : "0").append('\n');
-            bWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void ReadDanceF() {
-        Integer[] x=new Integer[9];
-        for(int i=0;i< 9;++i) {
-            x[i] = 0;
-            marksDone[i]=0;
-        }
-        pairsState.clear();
-        pairsState.add(x);
-        pairsNum.clear();
-        yMarksDone=0;
-        File sdFile = new File(sdPath, "tdance"+Integer.toString(danceNumber)+".txt");
-        try{
-            BufferedReader br =new BufferedReader(new FileReader(sdFile));
-            String str = br.readLine();
-            String[] tmp = str.split(";");
-            finAmount=-1;
-            while((finAmount+1<tmp.length)&&(!tmp[finAmount+1].equals("0")))
-                finAmount++;
-            if(finAmount>9)finAmount=9;
-            if(tmp.length<10) {
-                String[] newtmp = new String[10];
-                int i=0;
-                for(;i<tmp.length;++i)newtmp[i]=tmp[i];
-                for(;i<10;++i)newtmp[i]="0";
-                pairsNum.add(newtmp);
-            }
-            else
-                pairsNum.add(tmp);
-            if(restore){
-                try{
-                    restore=false;
-                    BufferedReader rs = new BufferedReader(new FileReader(backup));
-                    rs.readLine();rs.readLine();rs.readLine();
-                    turnNumber=Integer.valueOf(rs.readLine());
-                    for(int j=0;j<9;++j) {
-                        int t = Integer.valueOf(rs.readLine());
-                        if(t!=0)yMarksDone++;
-                        pairsState.get(0)[j] = t;
-                        if(t!=0)marksDone[t-1]=j+1;
-                    }
-                    br.close();
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
-            }
-            else
-                turnNumber=0;
-            ((TextView)findViewById(R.id.finfo)).setText(t_nomination);
-            ((TextView)findViewById(R.id.ffam)).setText(String.format("%s. %s", Integer.toString(judge_num), t_judge));
-            ((TextView)findViewById(R.id.fdance)).setText((pairsNum.get(turnNumber)[0]).subSequence(1, pairsNum.get(turnNumber)[0].length() - 1));
-            findViewById(R.id.textView26).setVisibility((pairsNum.get(0)[1].equals("0")) ? View.INVISIBLE : View.VISIBLE);
-            findViewById(R.id.textView27).setVisibility((pairsNum.get(0)[2].equals("0")) ? View.INVISIBLE : View.VISIBLE);
-            findViewById(R.id.textView28).setVisibility((pairsNum.get(0)[3].equals("0")) ? View.INVISIBLE : View.VISIBLE);
-            findViewById(R.id.textView29).setVisibility((pairsNum.get(0)[4].equals("0")) ? View.INVISIBLE : View.VISIBLE);
-            findViewById(R.id.textView31).setVisibility((pairsNum.get(0)[5].equals("0")) ? View.INVISIBLE : View.VISIBLE);
-            findViewById(R.id.textView32).setVisibility((pairsNum.get(0)[6].equals("0")) ? View.INVISIBLE : View.VISIBLE);
-            findViewById(R.id.textView33).setVisibility((pairsNum.get(0)[7].equals("0")) ? View.INVISIBLE : View.VISIBLE);
-            findViewById(R.id.textView34).setVisibility((pairsNum.get(0)[8].equals("0")) ? View.INVISIBLE : View.VISIBLE);
-            findViewById(R.id.textView35).setVisibility((pairsNum.get(0)[9].equals("0")) ? View.INVISIBLE : View.VISIBLE);
-            ((TextView)findViewById(R.id.textView26)).setText(pairsNum.get(0)[1]);
-            ((TextView)findViewById(R.id.textView27)).setText(pairsNum.get(0)[2]);
-            ((TextView)findViewById(R.id.textView28)).setText(pairsNum.get(0)[3]);
-            ((TextView)findViewById(R.id.textView29)).setText(pairsNum.get(0)[4]);
-            ((TextView)findViewById(R.id.textView31)).setText(pairsNum.get(0)[5]);
-            ((TextView)findViewById(R.id.textView32)).setText(pairsNum.get(0)[6]);
-            ((TextView)findViewById(R.id.textView33)).setText(pairsNum.get(0)[7]);
-            ((TextView)findViewById(R.id.textView34)).setText(pairsNum.get(0)[8]);
-            ((TextView)findViewById(R.id.textView35)).setText(pairsNum.get(0)[9]);
-            int mxheight=((720/finAmount)>80)?80:(720/finAmount);
-            for(int i=0;i<9;++i){
-                LinearLayout.LayoutParams lp=(LinearLayout.LayoutParams)findViewById(flines[i]).getLayoutParams();
-                lp.height=(i<finAmount)?(mxheight):0;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void CreateEventsF(){
-        (findViewById(R.id.f_y)).setVisibility(View.GONE);
-        (findViewById(R.id.f_n)).setVisibility(View.GONE);
-        (findViewById(R.id.f_ag)).setVisibility(View.GONE);
-        Button[][] mrks=new Button[9][9];
-        for(int i=0;i<finAmount;++i)
-            for(int j=0;j<finAmount;++j) {
-                mrks[i][j] = (Button) findViewById(fbutton[i] + j);
-                findViewById(fbutton[i] + j).setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        boolean q=true;
-                        for (int i = 0; (i < finAmount)&&q; ++i)
-                            for (int j = 0; (j < finAmount)&&q; ++j)
-                                if (v == findViewById(fbutton[i] + j)) {
-                                    q=false;
-                                    if (pairsState.get(0)[i] == 0) {
-                                        pairsState.get(0)[i] = j + 1;
-                                        marksDone[j] = i+1;
-                                        yMarksDone++;
-                                    } else {
-                                        pairsState.get(0)[i] = 0;
-                                        marksDone[j] = 0;
-                                        yMarksDone--;
-                                    }
-                                }
-                        FillFinal();
-                        Send();
-                        //WriteBackupF();
-                    }
-                });
-            }
-        Button bck = (Button) findViewById(R.id.f_ex);
-        bck.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Button bck1 = (Button) findViewById(R.id.f_y);
-                bck1.setVisibility(View.VISIBLE);
-                findViewById(R.id.f_n).setVisibility(View.VISIBLE);
-                findViewById(R.id.f_ag).setVisibility(View.VISIBLE);
-                for (int i = 0; i < flines.length; ++i)
-                    findViewById(flines[i]).setVisibility(View.GONE);
-                bck1.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        v.setEnabled(false);
-                        WriteBackupF();
-                        SendF();
-                        c.setDeletefiles("/airdance/" + String.valueOf(nomination_num) + "/judges", ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + ".lock");
-                        c.setState(6);
-                        SynWait(1);
-                        state = 0;
-                        setContentView(R.layout.activity_main);
-                        recurseMain();
-                    }
-                });
-            }
-        });
-        bck = (Button) findViewById(R.id.f_n);
-        bck.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                (findViewById(R.id.f_y)).setVisibility(View.GONE);
-                (findViewById(R.id.f_n)).setVisibility(View.GONE);
-                (findViewById(R.id.f_ag)).setVisibility(View.GONE);
-                for (int i = 0; i < flines.length; ++i)
-                    findViewById(flines[i]).setVisibility(View.VISIBLE);
-                findViewById(R.id.f_send).setEnabled(yMarksDone == finAmount);
-            }
-        });
-        bck = (Button) findViewById(R.id.f_send);
-        bck.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                v.setEnabled(false);
-                Button bck1 = (Button) findViewById(R.id.f_y);
-                bck1.setVisibility(View.VISIBLE);
-                findViewById(R.id.f_n).setVisibility(View.VISIBLE);
-                findViewById(R.id.f_ag).setVisibility(View.VISIBLE);
-                for (int i = 0; i < flines.length; ++i)
-                    findViewById(flines[i]).setVisibility(View.GONE);
-                bck1.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        (findViewById(R.id.f_y)).setVisibility(View.GONE);
-                        (findViewById(R.id.f_n)).setVisibility(View.GONE);
-                        (findViewById(R.id.f_ag)).setVisibility(View.GONE);
-                        for (int fline : flines) findViewById(fline).setVisibility(View.VISIBLE);
-                        if (yMarksDone != finAmount) return;
-                        SendF();
-                        if (isSha) addshaF();
-                        if (danceNumber != danceCount) {
-                            danceNumber++;
-                            ReadDanceF();
-                            FillFinal();
-                            WriteBackupF();
-                            SendInfo();
-                        } else {
-                            if (isSha) mainsha();
-                            SendLock(true);
-                            c.setDeletefiles("/airdance/" + String.valueOf(nomination_num) + "/judges", ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + ".lock");
-                            c.setState(6);
-                            SynWait(1);
-                            if (isSha) {
-                                setContentView(R.layout.sha1);
-                                ((TextView) findViewById(R.id.sha1)).setText(finsha);
-                                Button bck = (Button) findViewById(R.id.returnmain);
-                                bck.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        state = 0;
-                                        setContentView(R.layout.activity_main);
-                                        recurseMain();
-                                    }
-                                });
-                            } else {
-                                state = 0;
-                                setContentView(R.layout.activity_main);
-                                recurseMain();
-                            }
-                        }
-                    }
-                });
-            }
-        });
-        FillFinal();
-    }
-
-    private void FillFinal(){
-        //((Button)findViewById(R.id.f_send)).setText("Send");
-        for(int i=0;i<9;++i){
-            for(int j=0;j<9;++j) {
-                if ((i >= finAmount) || (j >= finAmount)){
-                    ((Button) findViewById(fbutton[i] + j)).setWidth(0);
-                    continue;}
-                if(pairsState.get(0)[i]==0)
-                    if(marksDone[j]==0) {
-                        ((Button) findViewById(fbutton[i] + j)).setWidth(470 / (finAmount - yMarksDone));
-                        findViewById(fbutton[i] + j).setBackgroundResource(android.support.v7.appcompat.R.color.material_grey_100);
-                        LinearLayout.LayoutParams lp=(LinearLayout.LayoutParams)findViewById(fbutton[i] + j).getLayoutParams();
-                        lp.leftMargin=1;lp.rightMargin=1;
-                    }
-                    else {
-                        ((Button) findViewById(fbutton[i] + j)).setWidth(0);
-                        LinearLayout.LayoutParams lp=(LinearLayout.LayoutParams)findViewById(fbutton[i] + j).getLayoutParams();
-                        lp.leftMargin=0;lp.rightMargin=0;
-                    }
-                else
-                if(pairsState.get(0)[i]==(j+1)){
-                    ((Button) findViewById(fbutton[i] + j)).setWidth(470);
-                    findViewById(fbutton[i] + j).setBackgroundResource(R.color.tvYes);
-                    LinearLayout.LayoutParams lp=(LinearLayout.LayoutParams)findViewById(fbutton[i] + j).getLayoutParams();
-                    lp.leftMargin=1;lp.rightMargin=1;
-                }
-                else {
-                    ((Button) findViewById(fbutton[i] + j)).setWidth(0);
-                    LinearLayout.LayoutParams lp=(LinearLayout.LayoutParams)findViewById(fbutton[i] + j).getLayoutParams();
-                    lp.leftMargin=0;lp.rightMargin=0;
-                }
-            }
-        }
-        ((TextView)findViewById(R.id.fcount)).setText(Integer.toString(yMarksDone));
-        findViewById(R.id.f_send).setEnabled(yMarksDone == finAmount);
-        findViewById(R.id.f_send).setBackgroundResource((yMarksDone == finAmount) ? R.color.tvYes : R.color.material_grey_300);
-        String logtest="";
-        for(int ij=0;ij<finAmount;++ij)
-            logtest+=Integer.toString(pairsState.get(0)[ij])+";";
-
-    }
-
     private boolean isOnline() {
         try {
             String cs = Context.CONNECTIVITY_SERVICE;
@@ -1476,17 +1186,6 @@ public class MainActivity extends Activity {
                 }
         Collections.sort(x);
         for(int i=0;i<x.size();++i)start+=Integer.toString(x.get(i));
-        try {
-            sha.add(sha1(start));
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void addshaF(){
-        String start= "";
-        for(int i=0;i<finAmount;++i)
-            start+=pairsNum.get(0)[marksDone[i]];
         try {
             sha.add(sha1(start));
         } catch (NoSuchAlgorithmException e) {
