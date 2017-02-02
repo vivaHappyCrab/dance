@@ -759,7 +759,7 @@ public class MainActivity extends Activity {
         addPairs.clear();
         totals.clear();
         try {
-            File sdFile = new File(sdPath, "tdance" + Integer.toString(danceNumber) + ".txt");
+            File sdFile = new File(sdPath, "tdance1.txt");
             BufferedReader br = new BufferedReader(new FileReader(sdFile));
             String str;
             while ((str = br.readLine()) != null) {
@@ -767,13 +767,25 @@ public class MainActivity extends Activity {
                 tmp[0]=tmp[0].substring(tmp[0].charAt(0) == '\uFEFF' ? 2 : 1, tmp[0].length() - 1);
                 Integer j=1;
                 while((j<tmp.length)&&(!tmp[j].equals("0"))){
+                    allnums.add(new Pair(turnCount,tmp[j],danceCount));
                     j++;
-                    allnums.add(new Pair(turnCount,tmp[j],danceNumber));
                 }
                 turnCount++;
                 totals.add(j);
             }
             br.close();
+            if(totals.get(danceNumber)>19) {
+                setContentView(R.layout.prom);
+                nfLayout=R.layout.prom;
+                size = 25;
+                startButton=R.id.button;
+            }
+            else {
+                setContentView(R.layout.prom16);
+                nfLayout=R.layout.prom16;
+                size=20;
+                startButton=R.id.button61;
+            }
             CreateEventsNF();
             state = 3;
             strt=1;
@@ -807,11 +819,11 @@ public class MainActivity extends Activity {
         ((TextView)findViewById(R.id.desc_fam)).setText(String.format("%s. %s", Integer.toString(judge_num), t_judge));
         ((TextView)findViewById(R.id.desc)).setText(String.format("1/%s %s", Integer.toString(pow(round)), t_nomination));
         ((TextView)findViewById(R.id.desc2)).setText(getResources().getString(R.string.Heats));
-        ((TextView)findViewById(R.id.desc3)).setText(String.format("%s;", Integer.toString(turnCount)));
+        ((TextView)findViewById(R.id.desc3)).setText(String.format("%s;", Integer.toString(danceCount)));
         ((TextView)findViewById(R.id.desc4)).setText(String.format("%s->%s", Integer.toString(totalCount), Integer.toString(yMarks)));
         findViewById(R.id.desc4).setVisibility(View.INVISIBLE);
         ((TextView)findViewById(R.id.counter)).setText(Integer.toString(yMarksDone));
-        ((TextView)findViewById(R.id.dance)).setText(turnNumber);
+        ((TextView)findViewById(R.id.dance)).setText(Integer.toString(turnNumber+1));
         for(int i=0;i<5;++i){
             findViewById(R.id.button55+i).setVisibility(i < danceCount ? View.VISIBLE : View.INVISIBLE);
         }
@@ -821,13 +833,6 @@ public class MainActivity extends Activity {
 
     private boolean Questioned(int turn){
         return false;
-//        turn--;
-//        boolean f=false;
-//        if(turn>=danceCount)return false;
-//        for(int i=0;i<pairsState.get(turn).length;++i)
-//            if(pairsState.get(turn)[i]==2)
-//                f=true;
-//        return f;
     }
 
     private void FillPairs(){
@@ -837,6 +842,7 @@ public class MainActivity extends Activity {
         int j=0;
         for(int i=0;i<allnums.size();++i)
             if(allnums.get(i).turn==turnNumber){
+                ((Button)findViewById(startButton + j)).setText(allnums.get(i).name);
                 if(allnums.get(i).value[danceNumber]==0)findViewById(startButton + j).setBackgroundResource(android.R.color.background_light);
                 else if(allnums.get(i).value[danceNumber]==2)findViewById(startButton + j).setBackgroundResource(R.color.tvYes);
                 else if(allnums.get(i).value[danceNumber]==1)findViewById(startButton + j).setBackgroundResource(R.color.tvMb);
@@ -848,7 +854,8 @@ public class MainActivity extends Activity {
         ((TextView)findViewById(R.id.counter)).setText(Integer.toString(posCounters));
         findViewById(R.id.nf_send).setEnabled(yMarks>0);
         for(int i=0;i<5;++i){
-            if(Integer.valueOf((String)((Button) findViewById(R.id.button55 + i)).getText())==danceNumber+1)
+            ((Button) findViewById(R.id.button55 + i)).setText(gruppa[i+4+tek]);
+            if(tek+i-1==danceNumber)
                 findViewById(R.id.button55 + i).setBackgroundResource(android.R.color.darker_gray);
             else
                 findViewById(R.id.button55 + i).setBackgroundResource(android.R.color.background_light);
@@ -862,7 +869,7 @@ public class MainActivity extends Activity {
                 public void onClick(View v) {
                     for(int i=0;i<5;++i)
                         if(v==findViewById(R.id.button55+i))
-                            danceNumber = Integer.valueOf(tek+i);
+                            danceNumber = Integer.valueOf(tek+i-1);
                     log("Turn setted to "+danceNumber);
                     WriteBackup();
                     SendInfo();
@@ -966,40 +973,36 @@ public class MainActivity extends Activity {
                         v.setVisibility(View.INVISIBLE);
                         findViewById(R.id.nf_n).setVisibility(View.INVISIBLE);
                         (findViewById(R.id.nf_tb)).setVisibility(View.VISIBLE);
-                        if (posCounters != yMarks) return;
-                        //if (isSha) addsha();
+                        if (yMarks==0) return;
                         Send();
-                        if (turnNumber != turnCount) {
-                            turnNumber++;
+                        turnNumber++;
+                        if (turnNumber < turnCount) {
                             danceNumber=0;
                             log("Next turn is " + turnNumber);
                             FillTitles(0);
                             FillPairs();
                             WriteBackup();
                             SendInfo();
+                            if(totals.get(danceNumber)>19) {
+                                setContentView(R.layout.prom);
+                                nfLayout=R.layout.prom;
+                                size = 25;
+                                startButton=R.id.button;
+                            }
+                            else {
+                                setContentView(R.layout.prom16);
+                                nfLayout=R.layout.prom16;
+                                size=20;
+                                startButton=R.id.button61;
+                            }
                         } else {
                             c.setDeletefiles("/airdance/" + String.valueOf(nomination_num) + "/judges", ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + ".lock");
                             c.setState(6);
                             SynWait(1);
-                            if (isSha) mainsha();
                             SendLock(true);
-                            if (isSha) {
-                                setContentView(R.layout.sha1);
-                                ((TextView) findViewById(R.id.sha1)).setText(finsha);
-                                Button bck = (Button) findViewById(R.id.returnmain);
-                                bck.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        state = 0;
-                                        setContentView(R.layout.activity_main);
-                                        recurseMain();
-                                    }
-                                });
-                            } else {
-                                state = 0;
-                                setContentView(R.layout.activity_main);
-                                recurseMain();
-                            }
+                            state = 0;
+                            setContentView(R.layout.activity_main);
+                            recurseMain();
                         }
                     }
                 });
@@ -1060,16 +1063,17 @@ public class MainActivity extends Activity {
 
     private void Send(){
         try{
-            String name="t"+((round<=9)?"0":"")+Integer.toString(round)+"j"+((judge_num<=9)?"0":"")+Integer.toString(judge_num)+"_"+pairsNum.get(0)[0]+".txt";
+            String name="t"+((round<=9)?"0":"")+Integer.toString(round)+"j"+((judge_num<=9)?"0":"")+Integer.toString(judge_num)+"_"+(turnNumber+1)+".txt";
             File f=new File(nomPath+"/results",name);
             BufferedWriter bw=new BufferedWriter(new FileWriter(f));
-            for(int i=0;i<pairsState.size();++i)
-                for(int j=0;j<25;++j)
-                    if((pairsState.get(i)[j]==1)||((pairsState.get(i)[j]>2)&&(pairsState.get(i)[j]<6))) {
-                        bw.write(pairsNum.get(i)[j + 1]);
+            for(int i=0;i<allnums.size();++i)
+                if(allnums.get(i).turn==turnNumber) {
+                    for(int j=0;j<danceCount;++j) {
+                        bw.write(String.format("%s%s",allnums.get(i).value[j]+1,allnums.get(i).name));
                         bw.write(13);
                         bw.write(10);
                     }
+                }
             for(int j=0;j<addPairs.size();++j){
                 bw.write(addPairs.get(j));
                 bw.write(13);
