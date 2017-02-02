@@ -481,14 +481,6 @@ public class MainActivity extends Activity {
                 c.setState(9);
                 lostconncetion = SynWait(2);
                 if (exists(judge_num)) {
-//                    if(j_timer!=null) {
-//                        j_timer.cancel();
-//                        j_timer=null;
-//                    }
-//                    j_timer=new Timer();
-//                    j_timer.schedule(jdg, 3000);
-//                    ((TextView)findViewById(R.id.jnom)).setText("Вы уже в системе");
-//                    ((TextView) findViewById(R.id.jnom)).setTextColor(Color.rgb(200,0,0));
                     return;
                 }
                         if (!paroled) {
@@ -754,7 +746,6 @@ public class MainActivity extends Activity {
             state = 3;
             SetRed();
             SendInfo();
-            StartLock();
             FillTitles(totalCount);
             FillPairs();
         } catch (Exception e) {
@@ -1109,22 +1100,24 @@ public class MainActivity extends Activity {
 
     private void SendLock(boolean last){
         try{
-            String name;
+            String name,path;
             if(last){
-                c.setUPath("/airdance/" + String.valueOf(nomination_num) + "/results");
+                path="/airdance/" + String.valueOf(nomination_num) + "/results";
                 name="t"+((round<9)?"0":"")+Integer.toString(round)+"j"+((judge_num<=9)?"0":"")+Integer.toString(judge_num) +".lock";}
             else{
-                c.setUPath("/airdance/" + String.valueOf(nomination_num) + "/judges");
+                path="/airdance/" + String.valueOf(nomination_num) + "/judges";
                 name=((judge_num<=9)?"0":"")+Integer.toString(judge_num) +".lock";}
-            File f=new File(sdPath,name);
+            File f=new File(nomPath,name);
             BufferedWriter bw=new BufferedWriter(new FileWriter(f));
             if(last)bw.write("tour lock\n"+finsha);
             bw.close();
             if(!lostconncetion) {
                 c.setFile(f);
                 c.setUFile(name);
+                c.setUPath(path);
                 c.setState(3);
                 lostconncetion = SynWait(2);
+                CreateLocker(path,name);
             }
             if(lostconncetion)c.addreupload(f,"/airdance/" + String.valueOf(nomination_num) + "/results/"+name);
         }catch (Exception e){
@@ -1134,7 +1127,7 @@ public class MainActivity extends Activity {
     private void SendInfo(){
         try{
             String name=Integer.toString(round)+"_"+Integer.toString(judge_num) +".txt";
-            File f=new File(sdPath,name);
+            File f=new File(nomPath,name);
             BufferedWriter bw=new BufferedWriter(new FileWriter(f));
             bw.write(Integer.toString(danceNumber) + ":" + Integer.toString(turnNumber + 1));
             bw.close();
@@ -1199,7 +1192,6 @@ public class MainActivity extends Activity {
     }
 
     private void ReadDanceF() {
-        StartLock();
         Integer[] x=new Integer[9];
         for(int i=0;i< 9;++i) {
             x[i] = 0;
@@ -1814,22 +1806,20 @@ public class MainActivity extends Activity {
         });
     }
 
-    public void StartLock() {
-        String pthloc="/airdance/"+String.valueOf(nomination_num)+"/judges";
-        String nameloc=((judge_num<=9)?"0":"")+Integer.toString(judge_num) +".lock";
-        CreateLocker(pthloc,nameloc);
-    }
     public void CreateLocker(final String filepath,final String filename){
         (th=new Thread(new Runnable() {
             @Override
         public void run() {
                 File f=new File(sdPath,filename);
-            while(!c.exists(filepath,filename)&&state>=1)
+                if(!f.exists())return;
+                int count=0;
+            while(!c.exists(filepath,filename)&&state>=1&&count<10)
                 try {
                     c.setFile(f);
                     c.setUPath(filepath);
                     c.setUFile(filename);
                     c.setState(3);
+                    count++;
                     Thread.sleep(5000);
                 }catch (Exception e){}
             }
@@ -1889,6 +1879,7 @@ public class MainActivity extends Activity {
                 br.close();
             }catch(Exception e){}
     }
+
 }
 
 class Connecter implements Runnable{
@@ -2112,12 +2103,18 @@ class Connecter implements Runnable{
                     case 8: {
                         mac.log("Start reuploading " + upfiles.size() + " files");
                         int errors=0;
+                        ArrayList<File> newfiles=new ArrayList<>();
+                        ArrayList<String> newnames=new ArrayList<>();
                         for(int i=0;i<upfiles.size();++i) {
-                            if(upfiles.get(i)!=null) {
+                            if(upfiles.get(i)!=null&&upfiles.get(i).exists()) {
                                 FileInputStream fis = new FileInputStream(upfiles.get(i));
                                 try {
                                     ftp.storeFile(unames.get(i), fis);
                                     logger.write(ftp.getReplyString());
+                                    if(ftp.listFiles(unames.get(i)).length==0){
+                                        newnames.add(unames.get(i));
+                                        newfiles.add(upfiles.get(i));
+                                    }
                                     cl = true;
                                 } catch (Exception e) {
                                     mac.log(e.getMessage());
@@ -2128,7 +2125,13 @@ class Connecter implements Runnable{
                             }
                         }
                         tstate=0;
-                        if(errors==0){upfiles.clear();unames.clear();}
+                        if(errors==0){upfiles.clear();unames.clear();upfiles=newfiles;unames=newnames;}
+                        if(unames.size()>0) {
+                            try {
+                                Thread.sleep(5000);
+                            }catch(Exception e){}
+                            this.setState(8);
+                        }
                         mac.log("Reuploading ends with " + errors + "errors");
                         break;
                     }
