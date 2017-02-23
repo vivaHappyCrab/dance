@@ -11,6 +11,7 @@ import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,7 @@ import java.net.*;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Stack;
 
 
@@ -86,6 +88,7 @@ public class MainActivity extends Activity {
     Connecter c=new Connecter();
     boolean restore,lang,newinit;
     Thread th=null;
+    Random rnd=new Random();
 
 
     @Override
@@ -171,6 +174,7 @@ public class MainActivity extends Activity {
                 lostconncetion=false;
                 log("Conection has established");
             }
+            Thread.sleep(rnd.nextInt(3000));
             c.setState(8);
             SynWait(5);
         } catch (Exception e) {log("Error detected in Connect:"+e.getMessage());}
@@ -1769,6 +1773,11 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Rescue();
+                LinearLayout ll=(LinearLayout)findViewById(R.id.s_layout);
+                final int childcount = ll.getChildCount();
+                for (int i = 0; i < childcount; i++)
+                    ll.getChildAt(i).setVisibility(View.GONE);
+                findViewById(R.id.s_ok).setVisibility(View.VISIBLE);
             }
             });
         btn = (Button) findViewById(R.id.s_clear);
@@ -1783,6 +1792,11 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 DeleteAll();
+                LinearLayout ll=(LinearLayout)findViewById(R.id.s_layout);
+                final int childcount = ll.getChildCount();
+                for (int i = 0; i < childcount; i++)
+                    ll.getChildAt(i).setVisibility(View.GONE);
+                findViewById(R.id.s_ok).setVisibility(View.VISIBLE);
             }
         });
         btn = (Button) findViewById(R.id.s_debug);
@@ -1796,6 +1810,15 @@ public class MainActivity extends Activity {
             }
         });
         btn = (Button) findViewById(R.id.s_tomain);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (newinit) Init();
+                setContentView(R.layout.activity_main);
+                CreteMainListeners();
+            }
+        });
+        btn = (Button) findViewById(R.id.s_ok);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -2192,6 +2215,7 @@ class Reconnect implements Runnable{
     Reconnect(Connecter f,int cd,MainActivity ma){ftp=f;cooldown=cd;dnce=ma;}
     @Override
     synchronized public void run() {
+        Random rnd=new Random();
         while(ftp!=null) {
             try {
                 if (dnce.lostconncetion) {
@@ -2204,7 +2228,10 @@ class Reconnect implements Runnable{
                         }
                     } catch (InterruptedException e) {dnce.log("Run of reconnect failed");}
                     dnce.lostconncetion = (count == 0);
-                    if(!dnce.lostconncetion)ftp.setState(8);
+                    if(!dnce.lostconncetion) {
+                        ftp.setState(8);
+                        Thread.sleep(rnd.nextInt(300));
+                    }
                 }
                 Thread.sleep(cooldown*1000);
             }catch(Exception e){dnce.log("Run of reconnect failed");}
