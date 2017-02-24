@@ -9,4 +9,6 @@
     <color name="selected">#ffa4a9a4</color>
     <color name="tvRed">#ee4444</color>
     <color name="black_overlay">#66000000</color>
+    <color name="grey300">#ffe0e0e0</color>
+    <color name="grey100">#fff5f5f5</color>
 </resources>

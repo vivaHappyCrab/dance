@@ -11,7 +11,6 @@ import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.os.BatteryManager;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +39,6 @@ import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import org.apache.commons.net.ftp.*;
-import org.w3c.dom.Text;
 
 import java.net.*;
 import java.util.Calendar;
@@ -143,7 +141,7 @@ public class MainActivity extends Activity {
             c.init(this);
         }catch(Exception e){log("Error in Init:"+e.getMessage());}
         Connect();
-        c.startReconnect(this);
+        //c.startReconnect(this);
         log("Init completed");
         lang=false;
         newinit=false;
@@ -172,7 +170,7 @@ public class MainActivity extends Activity {
             else{
                 error=false;
                 lostconncetion=false;
-                log("Conection has established");
+                log("Connection has established");
             }
             Thread.sleep(rnd.nextInt(3000));
             c.setState(8);
@@ -232,7 +230,7 @@ public class MainActivity extends Activity {
                 text.setMaxLines(1);
                 text.setTypeface(null, Typeface.BOLD);
                 text.setTextSize(28);
-                text.setBackgroundResource(R.color.material_grey_300);
+                text.setBackgroundResource(R.color.grey300);
                 return view;
             }
 
@@ -255,7 +253,7 @@ public class MainActivity extends Activity {
                         if(!(new File(path+"/"+val+"/results")).mkdir())log("Directory for results cannot be created");
                         t_nomination = strs.get(position).substring(t + 1);
                         for(int i=0;i<nominationList.getChildCount();++i)
-                            nominationList.getChildAt(i).setBackgroundResource(R.color.material_grey_300);
+                            nominationList.getChildAt(i).setBackgroundResource(R.color.grey300);
                         itemClicked.setBackgroundResource(R.color.selected);
                     }
                 }
@@ -361,7 +359,8 @@ public class MainActivity extends Activity {
         try {
             log("Read Judges started");
             File sdFile = new File(sdPath, "tjudges.txt");
-            sdFile.delete();
+            boolean result=sdFile.delete();
+            if(!result)log("Tjudjes doesn't exists");
             c.setDFile("judge.txt");
             c.setDPath("/airdance/" + String.valueOf(nomination_num));
             c.setFile(sdFile);
@@ -451,7 +450,7 @@ public class MainActivity extends Activity {
                     if (judg_num == position)
                         entered = false;
                 text.setTextColor(entered ? Color.rgb(100, 100, 100) : Color.rgb(0, 0, 0));
-                text.setBackgroundResource(R.color.material_grey_300);
+                text.setBackgroundResource(R.color.grey300);
                 return view;
             }
         };
@@ -466,7 +465,7 @@ public class MainActivity extends Activity {
                     t_judge = judges.get(position).substring(4);
                 ListView judge_lv=((ListView) findViewById(R.id.judges));
                 for(int i=0;i<judge_lv.getChildCount();++i)
-                    judge_lv.getChildAt(i).setBackgroundResource(R.color.material_grey_300);
+                    judge_lv.getChildAt(i).setBackgroundResource(R.color.grey300);
                 itemClicked.setBackgroundResource(R.color.selected);
             }
         });
@@ -774,12 +773,12 @@ public class MainActivity extends Activity {
 
     private void FillTitles(int totalCount){
         totalAmount=totalCount;
-        ((TextView)findViewById(R.id.desc_fam)).setText(String.format("%s. %s", Integer.toString(judge_num), t_judge));
-        ((TextView)findViewById(R.id.desc)).setText(String.format("1/%s %s", Integer.toString(pow(round)), t_nomination));
+        ((TextView)findViewById(R.id.desc_fam)).setText(String.format("%d. %s", judge_num, t_judge));
+        ((TextView)findViewById(R.id.desc)).setText(String.format("1/%d %s", pow(round), t_nomination));
         ((TextView)findViewById(R.id.desc2)).setText(getResources().getString(R.string.Heats));
         ((TextView)findViewById(R.id.desc3)).setText(String.format("%s;", Integer.toString(turnCount)));
         ((TextView)findViewById(R.id.desc4)).setText(String.format("%s->%s", Integer.toString(totalCount), Integer.toString(yMarks)));
-        ((TextView)findViewById(R.id.counter)).setText(Integer.toString(yMarksDone));
+        ((TextView)findViewById(R.id.counter)).setText(String.format("%d",yMarksDone));
         ((TextView)findViewById(R.id.dance)).setText((pairsNum.get(turnNumber)[0]));
         for(int i=0;i<5;++i){
             findViewById(R.id.button55+i).setVisibility(i < pairsNum.size() ? View.VISIBLE : View.INVISIBLE);
@@ -832,13 +831,13 @@ public class MainActivity extends Activity {
                         posCounters++;
         }
         else posCounters=yMarksDone;
-        ((TextView)findViewById(R.id.counter)).setText(Integer.toString(posCounters));
+        ((TextView)findViewById(R.id.counter)).setText(String.format("%d",posCounters));
         if(posCounters == yMarks)((TextView)findViewById(R.id.counter)).setTextColor(Color.argb(255, 0, 0, 0));
         if(posCounters < yMarks)((TextView)findViewById(R.id.counter)).setTextColor(Color.argb(255,0,0,0));
         if(posCounters > yMarks)((TextView)findViewById(R.id.counter)).setTextColor(Color.argb(255, 180, 10, 10));
-        findViewById(R.id.counter).setBackgroundResource((posCounters == yMarks) ? R.color.tvYes : R.color.material_grey_300);
+        findViewById(R.id.counter).setBackgroundResource((posCounters == yMarks) ? R.color.tvYes : R.color.grey300);
         findViewById(R.id.nf_send).setEnabled(posCounters == yMarks);
-        findViewById(R.id.nf_send).setBackgroundResource((posCounters == yMarks) ? R.color.tvYes : R.color.material_grey_300);
+        findViewById(R.id.nf_send).setBackgroundResource((posCounters == yMarks) ? R.color.tvYes : R.color.grey300);
         for(int i=0;i<5;++i){
             if(Integer.valueOf((String)((Button) findViewById(R.id.button55 + i)).getText())==turnNumber+1)
                 findViewById(R.id.button55 + i).setBackgroundResource(android.R.color.darker_gray);
@@ -906,7 +905,7 @@ public class MainActivity extends Activity {
                 turnNumber = tek - 1;
                 log("Turn setted to "+turnNumber);
                 for (int i = 0; i < 5; ++i) {
-                    ((Button) findViewById(R.id.button55 + i)).setText(Integer.toString(tek + i));
+                    ((Button) findViewById(R.id.button55 + i)).setText(String.format("%d", tek + i));
                     if (tek + i > turnCount)
                         findViewById(R.id.button55 + i).setVisibility(View.INVISIBLE);
                     else findViewById(R.id.button55 + i).setVisibility(View.VISIBLE);
@@ -921,7 +920,7 @@ public class MainActivity extends Activity {
                 turnNumber = tek + 3;
                 log("Turn setted to " + turnNumber);
                 for (int i = 0; i < 5; ++i) {
-                    ((Button) findViewById(R.id.button55 + i)).setText(Integer.toString(tek + i));
+                    ((Button) findViewById(R.id.button55 + i)).setText(String.format("%d",tek + i));
                     if (tek + i > turnCount)
                         findViewById(R.id.button55 + i).setVisibility(View.INVISIBLE);
                     else findViewById(R.id.button55 + i).setVisibility(View.VISIBLE);
@@ -1311,8 +1310,7 @@ public class MainActivity extends Activity {
                 bck1.setVisibility(View.VISIBLE);
                 findViewById(R.id.f_n).setVisibility(View.VISIBLE);
                 findViewById(R.id.f_ag).setVisibility(View.VISIBLE);
-                for (int i = 0; i < flines.length; ++i)
-                    findViewById(flines[i]).setVisibility(View.GONE);
+                for (int fline : flines) findViewById(fline).setVisibility(View.GONE);
                 bck1.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         v.setEnabled(false);
@@ -1334,8 +1332,7 @@ public class MainActivity extends Activity {
                 (findViewById(R.id.f_y)).setVisibility(View.GONE);
                 (findViewById(R.id.f_n)).setVisibility(View.GONE);
                 (findViewById(R.id.f_ag)).setVisibility(View.GONE);
-                for (int i = 0; i < flines.length; ++i)
-                    findViewById(flines[i]).setVisibility(View.VISIBLE);
+                for (int fline : flines) findViewById(fline).setVisibility(View.VISIBLE);
                 findViewById(R.id.f_send).setEnabled(yMarksDone == finAmount);
             }
         });
@@ -1347,8 +1344,7 @@ public class MainActivity extends Activity {
                 bck1.setVisibility(View.VISIBLE);
                 findViewById(R.id.f_n).setVisibility(View.VISIBLE);
                 findViewById(R.id.f_ag).setVisibility(View.VISIBLE);
-                for (int i = 0; i < flines.length; ++i)
-                    findViewById(flines[i]).setVisibility(View.GONE);
+                for (int fline : flines) findViewById(fline).setVisibility(View.GONE);
                 bck1.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         (findViewById(R.id.f_y)).setVisibility(View.GONE);
@@ -1405,7 +1401,7 @@ public class MainActivity extends Activity {
                 if(pairsState.get(0)[i]==0)
                     if(marksDone[j]==0) {
                         ((Button) findViewById(fbutton[i] + j)).setWidth(470 / (finAmount - yMarksDone));
-                        findViewById(fbutton[i] + j).setBackgroundResource(android.support.v7.appcompat.R.color.material_grey_100);
+                        findViewById(fbutton[i] + j).setBackgroundResource(R.color.grey100);
                         LinearLayout.LayoutParams lp=(LinearLayout.LayoutParams)findViewById(fbutton[i] + j).getLayoutParams();
                         lp.leftMargin=1;lp.rightMargin=1;
                     }
@@ -1428,12 +1424,13 @@ public class MainActivity extends Activity {
                 }
             }
         }
-        ((TextView)findViewById(R.id.fcount)).setText(Integer.toString(yMarksDone));
+        ((TextView)findViewById(R.id.fcount)).setText(String.format("%d",yMarksDone));
         findViewById(R.id.f_send).setEnabled(yMarksDone == finAmount);
-        findViewById(R.id.f_send).setBackgroundResource((yMarksDone == finAmount) ? R.color.tvYes : R.color.material_grey_300);
-        String logtest="";
+        findViewById(R.id.f_send).setBackgroundResource((yMarksDone == finAmount) ? R.color.tvYes : R.color.grey300);
+        String logTest="";
         for(int ij=0;ij<finAmount;++ij)
-            logtest+=Integer.toString(pairsState.get(0)[ij])+";";
+            logTest+=Integer.toString(pairsState.get(0)[ij])+";";
+        log(logTest);
 
     }
 
@@ -1463,8 +1460,8 @@ public class MainActivity extends Activity {
         MessageDigest mDigest = MessageDigest.getInstance("SHA1");
         byte[] result = mDigest.digest(input.getBytes());
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < result.length; i++) {
-            sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
+        for (byte aResult : result) {
+            sb.append(Integer.toString((aResult & 0xff) + 0x100, 16).substring(1));
         }
 
         return sb.toString();
@@ -1520,8 +1517,8 @@ public class MainActivity extends Activity {
             MessageDigest mDigest = MessageDigest.getInstance("SHA1");
             byte[] result = mDigest.digest(shas);
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < result.length; i++)
-                sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
+            for (byte aResult : result)
+                sb.append(Integer.toString((aResult & 0xff) + 0x100, 16).substring(1));
             String str=sb.toString().substring(sb.length()-4);
             finsha=Integer.toString(Integer.parseInt(str, 16) % 10000);
         }catch (Exception e){log("Exception in mainsha:" + e.getMessage());}
@@ -1679,7 +1676,7 @@ public class MainActivity extends Activity {
             try {
                 if(debug) {
                     BufferedWriter b = new BufferedWriter(new FileWriter(logger2, true));
-                    b.append(Calendar.getInstance().getTime() + "$");
+                    b.append(String.format("%s$", Calendar.getInstance().getTime()));
                     b.append(s);
                     b.newLine();
                     b.close();
@@ -1844,7 +1841,7 @@ public class MainActivity extends Activity {
                     c.setState(3);
                     count++;
                     Thread.sleep(5000);
-                }catch (Exception e){}
+                }catch (Exception e){log(e.getMessage());}
             }
         })).start();
     }
@@ -1856,7 +1853,7 @@ public class MainActivity extends Activity {
                 public void run() {
                     TextView charge = (TextView) findViewById(R.id.charge);
                     if(charge!=null) {
-                        charge.setText(battery_lvl + "%");
+                        charge.setText(String.format("%d",battery_lvl)+"%");
                         if(battery_lvl>60)charge.setBackgroundResource(R.color.tvYes);
                         else if(battery_lvl>30)charge.setBackgroundResource(R.color.tvMb);
                         else charge.setBackgroundResource(R.color.tvRed);
@@ -1865,19 +1862,18 @@ public class MainActivity extends Activity {
             };
             @Override
             public void run() {
-                while (true) {
+                while (state>=0) {
                     try {
                         runOnUiThread(settext);
                         Thread.sleep(30000);
-                        //c.setState(10);
-                    } catch (Exception e) {}
+                    } catch (Exception e) {log(e.getMessage());}
                     try {
                         URL url = new URL(c.host);
                         URLConnection con = url.openConnection();
                         con.setConnectTimeout(2000);
                         con.setReadTimeout(2000);
                         con.connect();
-                    } catch (Exception e) {}
+                    } catch (Exception e) {log(e.getMessage());}
                 }
             }
         })).start();
@@ -1890,7 +1886,7 @@ public class MainActivity extends Activity {
             BufferedReader br = new BufferedReader(new FileReader(settings));
             debug = Boolean.valueOf(br.readLine());
             br.close();
-        }catch(Exception e){}
+        }catch(Exception e){log(e.getMessage());}
     }
 
     public void SaveSettings(){
@@ -1900,7 +1896,7 @@ public class MainActivity extends Activity {
                 br.write(Boolean.toString(debug));
                 br.newLine();
                 br.close();
-            }catch(Exception e){}
+            }catch (Exception e){log(e.getMessage());}
     }
 
 }
@@ -1922,17 +1918,29 @@ class Connecter implements Runnable{
     private BufferedWriter logger;
     private MainActivity mac;
     public ArrayList<String> strs=new ArrayList<>();
+
     public boolean Done(){return cl;}
+
     public synchronized void setState(int st){state=st;(new Thread(this)).start();cl=false;}
+
     public void setFile(File f){locfile=f;}
+
     public void setLog(BufferedWriter f){logger=f;}
+
     public void setDFile(String f){dfile=f;}
+
     public void setDPath(String f){dpath=f;}
+
     public void setUFile(String f){ufile=f;}
+
     public void setUPath(String f){upath=f;}
+
     public void setCPath(String f){pth=f;}
+
     public void setGlobals(String h,String u, String p){host=h;user=u;pass=p;}
+
     public void setDeletefiles(String dlpath,String dlname){deletefiles.push(dlpath+"/"+dlname);}
+
     public boolean exists(String _pth,String _f)  {
         q=false;
         pth=_pth;
@@ -1946,10 +1954,12 @@ class Connecter implements Runnable{
         catch (Exception e){mac.log("Exception when try to check file:"+e.getMessage());}
         return q;
     }
+
     public void startReconnect(MainActivity ma){
         new Thread(new Reconnect(this,20,ma)).start();
-        mac.log("Recconect thread started");
+        mac.log("Reconnect thread started");
     }
+
     public void addreupload(File f,String name){
         int n=-1;
         for(int i=0;i<unames.size();++i){
@@ -1963,6 +1973,7 @@ class Connecter implements Runnable{
             unames.add(name);
         }
     }
+
     public void init(MainActivity ma){
         mac=ma;
         try {
@@ -1974,7 +1985,7 @@ class Connecter implements Runnable{
         try {
             try {
                 ftp.disconnect();
-            }catch(Exception e){}
+            }catch(Exception e){mac.log(e.getMessage());}
             ftp = new FTPClient();
             ftp.connect(addr);
             boolean sucs = ftp.login(user, pass);
@@ -1985,14 +1996,17 @@ class Connecter implements Runnable{
                 if(sucs)
                     ftp.enterLocalPassiveMode();
             }
-            if(sucs)run();
-        }catch (Exception e){}
+        }catch (Exception e){mac.log(e.getMessage());}
     }
+
     @Override
     public void run() {
+        int count=0;
         try {
         int tstate=state;
-            while (tstate != 0) {
+            while (tstate != 0 && count<20) {
+                count++;
+
                 switch (tstate) {
                     case 1: {
                         mac.log("Start new session:" + addr.getHostAddress());
@@ -2016,9 +2030,12 @@ class Connecter implements Runnable{
                             cl=sucs2;
                             if (sucs2) {
                                 tstate = 0;
+                                ftp.disconnect();
                                 mac.log("Init sucssesful");
                             }
                             else {
+                                ftp.logout();
+                                ftp.disconnect();
                                 mac.log("No logon");
                             }
                         }
@@ -2027,6 +2044,8 @@ class Connecter implements Runnable{
                     case 2:
                         FTPFile[] files;
                     {
+                        Connect();
+
                         mac.log("Init download");
                         files = ftp.listFiles(dpath+'/'+dfile);
                         mac.log(ftp.getReplyString());
@@ -2043,9 +2062,14 @@ class Connecter implements Runnable{
                         tstate = 0;
                         cl=true;
                         mac.log("Download from FTP ended");
+
+                        ftp.logout();
+                        ftp.disconnect();
                         break;
                     }
                     case 3: {
+                        Connect();
+
                         mac.log("Init upload");
                         FileInputStream fis = new FileInputStream(locfile);
                         try {
@@ -2061,26 +2085,31 @@ class Connecter implements Runnable{
                         }
                         fis.close();
                         mac.log("Upload to FTP ended");
+
+                        ftp.logout();
+                        ftp.disconnect();
                         break;
                     }
                     case 4: {
-                        ftp.logout();
-                        mac.log(ftp.getReplyString());
-                        ftp.disconnect();
-                        mac.log(ftp.getReplyString() + '\n');
-                        tstate = 0;
                         break;
                     }
                     case 5: {
+                        Connect();
+
                         mac.log("Check " + f);
                         files = ftp.listFiles(pth+"/"+f);
                         mac.log(ftp.getReplyString());
                         q = files.length != 0;
                         ex=false;
                         tstate = 0;
+
+                        ftp.logout();
+                        ftp.disconnect();
                         break;
                     }
                     case 6: {
+                        Connect();
+
                         for (String s : deletefiles) {
                             mac.log("Trying to delete " + s);
                             files = ftp.listFiles(s);
@@ -2094,6 +2123,9 @@ class Connecter implements Runnable{
                         if(deletefiles.empty()){tstate=0;cl=true;}
                         else Thread.sleep(5000);
                         mac.log("Deleting ends");
+
+                        ftp.logout();
+                        ftp.disconnect();
                         break;
                     }
                     case 7:{
@@ -2121,9 +2153,14 @@ class Connecter implements Runnable{
                             else
                                 mac.log("No logon");
                         }
+
+                        ftp.logout();
+                        ftp.disconnect();
                         break;
                     }
                     case 8: {
+                        Connect();
+
                         mac.log("Start reuploading " + upfiles.size() + " files");
                         int errors=0;
                         ArrayList<File> newfiles=new ArrayList<>();
@@ -2152,20 +2189,30 @@ class Connecter implements Runnable{
                         if(unames.size()>0) {
                             try {
                                 Thread.sleep(5000);
-                            }catch(Exception e){}
+                            }catch(Exception e){mac.log(e.getMessage());}
+
+                            ftp.logout();
+                            ftp.disconnect();
                             this.setState(8);
                         }
+
+                        ftp.logout();
+                        ftp.disconnect();
                         mac.log("Reuploading ends with " + errors + "errors");
                         break;
                     }
                     case 9: {
+                        Connect();
+
                         files = ftp.listFiles(pth);
                         mac.log(ftp.getReplyString());
-                        for(int i=0;i< files.length;++i)
-                            strs.add(files[i].getName());
+                        for (FTPFile file : files) strs.add(file.getName());
                         mac.log("Exist lock " + files.length + " files");
                         tstate = 0;
                         cl=true;
+
+                        ftp.logout();
+                        ftp.disconnect();
                         break;
                     }
                     case 10:{
@@ -2178,7 +2225,7 @@ class Connecter implements Runnable{
             }
             if(state==10){
                 FTPFile[] test = ftp.listFiles("/airdance/");
-                SimpleDateFormat sf=new SimpleDateFormat("HH:mm:ss");
+                SimpleDateFormat sf=new SimpleDateFormat("HH:mm:ss",Locale.UK);
                 mac.log(sf.format(Calendar.getInstance().getTime())+((test.length>0)?":connection ready":":connection lost"));
                 if(test.length==0) {
                     ftp = new FTPClient();
@@ -2196,14 +2243,14 @@ class Connecter implements Runnable{
                         mac.log("Init result is " + r_sucs2);
                         mac.log(ftp.getReplyString());
                         if (r_sucs2) {
-                            mac.log("Init sucssesful");
+                            mac.log("Init successful");
                         } else {
                             mac.log("No logon");
                         }
                     }
                 }
             }
-        } catch (Exception e) {mac.log("Exception in run of connecter:"+e.getMessage());Connect();}
+        } catch (Exception e) {mac.log("Exception in run of connector:"+e.getMessage());Connect();}
     }
 
 }
@@ -2215,10 +2262,11 @@ class Reconnect implements Runnable{
     Reconnect(Connecter f,int cd,MainActivity ma){ftp=f;cooldown=cd;dnce=ma;}
     @Override
     synchronized public void run() {
-        Random rnd=new Random();
+        //Random rnd=new Random();
         while(ftp!=null) {
             try {
-                if (dnce.lostconncetion) {
+                ftp.setState(8);
+                /*if (dnce.lostconncetion) {
                     ftp.setState(7);
                     int count = 100;
                     try {
@@ -2233,7 +2281,7 @@ class Reconnect implements Runnable{
                         Thread.sleep(rnd.nextInt(300));
                     }
                 }
-                Thread.sleep(cooldown*1000);
+                Thread.sleep(cooldown*1000);*/
             }catch(Exception e){dnce.log("Run of reconnect failed");}
         }
     }
