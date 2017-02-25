@@ -83,7 +83,7 @@ public class MainActivity extends Activity {
     File sdPath,nomPath,resPath;
     File backup,logger,config,logger2;
     BufferedWriter bWriter,logWriter;
-    Connecter c=new Connecter();
+    Conecter c=new Conecter();
     boolean restore,lang,newinit;
     Thread th=null;
     Random rnd=new Random();
@@ -133,7 +133,7 @@ public class MainActivity extends Activity {
                 h="192.168.0.13";
                 u="test";
                 p="1234";
-                log("Config setted to default");
+                log("Config set to default");
             }
             for(int i=0;i<6;++i)marksDone[i]=0;
             c.setGlobals(h, u, p);
@@ -1853,7 +1853,7 @@ public class MainActivity extends Activity {
                 public void run() {
                     TextView charge = (TextView) findViewById(R.id.charge);
                     if(charge!=null) {
-                        charge.setText(String.format("%d",battery_lvl)+"%");
+                        charge.setText(String.format("%d%",battery_lvl));
                         if(battery_lvl>60)charge.setBackgroundResource(R.color.tvYes);
                         else if(battery_lvl>30)charge.setBackgroundResource(R.color.tvMb);
                         else charge.setBackgroundResource(R.color.tvRed);
@@ -1901,7 +1901,7 @@ public class MainActivity extends Activity {
 
 }
 
-class Connecter implements Runnable{
+class Conecter implements Runnable{
     private int state=0;
     private InetAddress addr;
     private FTPClient ftp;
@@ -1955,10 +1955,10 @@ class Connecter implements Runnable{
         return q;
     }
 
-    public void startReconnect(MainActivity ma){
-        new Thread(new Reconnect(this,20,ma)).start();
-        mac.log("Reconnect thread started");
-    }
+//    public void startReconnect(MainActivity ma){
+//        new Thread(new Reconnect(this,20,ma)).start();
+//        mac.log("Reconnect thread started");
+//    }
 
     public void addreupload(File f,String name){
         int n=-1;
@@ -1991,10 +1991,13 @@ class Connecter implements Runnable{
             boolean sucs = ftp.login(user, pass);
             if (sucs) {
                 ftp.enterLocalPassiveMode();
+                ftp.setControlKeepAliveTimeout(1800);
             } else {
                 sucs=ftp.login("anonymous", "");
-                if(sucs)
+                if(sucs) {
                     ftp.enterLocalPassiveMode();
+                    ftp.setControlKeepAliveTimeout(1800);
+                }
             }
         }catch (Exception e){mac.log(e.getMessage());}
     }
@@ -2255,18 +2258,20 @@ class Connecter implements Runnable{
 
 }
 
+/*
 class Reconnect implements Runnable{
-    private Connecter ftp;
-    private int cooldown;
-    private MainActivity dnce;
-    Reconnect(Connecter f,int cd,MainActivity ma){ftp=f;cooldown=cd;dnce=ma;}
+    //private Conecter ftp;
+    //private int cooldown;
+    //private MainActivity dnce;
+    //Reconnect(Conecter f,int cd,MainActivity ma){ftp=f;cooldown=cd;dnce=ma;}
     @Override
     synchronized public void run() {
         //Random rnd=new Random();
         while(ftp!=null) {
             try {
                 ftp.setState(8);
-                /*if (dnce.lostconncetion) {
+                */
+/*if (dnce.lostconncetion) {
                     ftp.setState(7);
                     int count = 100;
                     try {
@@ -2281,9 +2286,10 @@ class Reconnect implements Runnable{
                         Thread.sleep(rnd.nextInt(300));
                     }
                 }
-                Thread.sleep(cooldown*1000);*/
+                Thread.sleep(cooldown*1000);*//*
+
             }catch(Exception e){dnce.log("Run of reconnect failed");}
         }
     }
 
-}
+}*/
