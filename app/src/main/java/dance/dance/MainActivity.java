@@ -11,7 +11,6 @@ import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.os.BatteryManager;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +39,6 @@ import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import org.apache.commons.net.ftp.*;
-import org.w3c.dom.Text;
 
 import java.net.*;
 import java.util.Calendar;
@@ -232,7 +230,7 @@ public class MainActivity extends Activity {
                 text.setMaxLines(1);
                 text.setTypeface(null, Typeface.BOLD);
                 text.setTextSize(28);
-                text.setBackgroundResource(R.color.material_grey_300);
+                text.setBackgroundResource(R.color.grey300);
                 return view;
             }
 
@@ -255,7 +253,7 @@ public class MainActivity extends Activity {
                         if(!(new File(path+"/"+val+"/results")).mkdir())log("Directory for results cannot be created");
                         t_nomination = strs.get(position).substring(t + 1);
                         for(int i=0;i<nominationList.getChildCount();++i)
-                            nominationList.getChildAt(i).setBackgroundResource(R.color.material_grey_300);
+                            nominationList.getChildAt(i).setBackgroundResource(R.color.grey300);
                         itemClicked.setBackgroundResource(R.color.selected);
                     }
                 }
@@ -361,7 +359,7 @@ public class MainActivity extends Activity {
         try {
             log("Read Judges started");
             File sdFile = new File(sdPath, "tjudges.txt");
-            sdFile.delete();
+            if(sdFile.delete())log("Delete wasn't successful");
             c.setDFile("judge.txt");
             c.setDPath("/airdance/" + String.valueOf(nomination_num));
             c.setFile(sdFile);
@@ -451,7 +449,7 @@ public class MainActivity extends Activity {
                     if (judg_num == position)
                         entered = false;
                 text.setTextColor(entered ? Color.rgb(100, 100, 100) : Color.rgb(0, 0, 0));
-                text.setBackgroundResource(R.color.material_grey_300);
+                text.setBackgroundResource(R.color.grey300);
                 return view;
             }
         };
@@ -466,7 +464,7 @@ public class MainActivity extends Activity {
                     t_judge = judges.get(position).substring(4);
                 ListView judge_lv=((ListView) findViewById(R.id.judges));
                 for(int i=0;i<judge_lv.getChildCount();++i)
-                    judge_lv.getChildAt(i).setBackgroundResource(R.color.material_grey_300);
+                    judge_lv.getChildAt(i).setBackgroundResource(R.color.grey300);
                 itemClicked.setBackgroundResource(R.color.selected);
             }
         });
@@ -779,7 +777,7 @@ public class MainActivity extends Activity {
         ((TextView)findViewById(R.id.desc2)).setText(getResources().getString(R.string.Heats));
         ((TextView)findViewById(R.id.desc3)).setText(String.format("%s;", Integer.toString(turnCount)));
         ((TextView)findViewById(R.id.desc4)).setText(String.format("%s->%s", Integer.toString(totalCount), Integer.toString(yMarks)));
-        ((TextView)findViewById(R.id.counter)).setText(Integer.toString(yMarksDone));
+        ((TextView)findViewById(R.id.counter)).setText(String.format("%d",yMarksDone));
         ((TextView)findViewById(R.id.dance)).setText((pairsNum.get(turnNumber)[0]));
         for(int i=0;i<5;++i){
             findViewById(R.id.button55+i).setVisibility(i < pairsNum.size() ? View.VISIBLE : View.INVISIBLE);
@@ -832,13 +830,13 @@ public class MainActivity extends Activity {
                         posCounters++;
         }
         else posCounters=yMarksDone;
-        ((TextView)findViewById(R.id.counter)).setText(Integer.toString(posCounters));
+        ((TextView)findViewById(R.id.counter)).setText(String.format("%d",posCounters));
         if(posCounters == yMarks)((TextView)findViewById(R.id.counter)).setTextColor(Color.argb(255, 0, 0, 0));
         if(posCounters < yMarks)((TextView)findViewById(R.id.counter)).setTextColor(Color.argb(255,0,0,0));
         if(posCounters > yMarks)((TextView)findViewById(R.id.counter)).setTextColor(Color.argb(255, 180, 10, 10));
-        findViewById(R.id.counter).setBackgroundResource((posCounters == yMarks) ? R.color.tvYes : R.color.material_grey_300);
+        findViewById(R.id.counter).setBackgroundResource((posCounters == yMarks) ? R.color.tvYes : R.color.grey300);
         findViewById(R.id.nf_send).setEnabled(posCounters == yMarks);
-        findViewById(R.id.nf_send).setBackgroundResource((posCounters == yMarks) ? R.color.tvYes : R.color.material_grey_300);
+        findViewById(R.id.nf_send).setBackgroundResource((posCounters == yMarks) ? R.color.tvYes : R.color.grey300);
         for(int i=0;i<5;++i){
             if(Integer.valueOf((String)((Button) findViewById(R.id.button55 + i)).getText())==turnNumber+1)
                 findViewById(R.id.button55 + i).setBackgroundResource(android.R.color.darker_gray);
@@ -906,7 +904,7 @@ public class MainActivity extends Activity {
                 turnNumber = tek - 1;
                 log("Turn setted to "+turnNumber);
                 for (int i = 0; i < 5; ++i) {
-                    ((Button) findViewById(R.id.button55 + i)).setText(Integer.toString(tek + i));
+                    ((Button) findViewById(R.id.button55 + i)).setText(String.format("%d", (tek + i)));
                     if (tek + i > turnCount)
                         findViewById(R.id.button55 + i).setVisibility(View.INVISIBLE);
                     else findViewById(R.id.button55 + i).setVisibility(View.VISIBLE);
@@ -921,7 +919,7 @@ public class MainActivity extends Activity {
                 turnNumber = tek + 3;
                 log("Turn setted to " + turnNumber);
                 for (int i = 0; i < 5; ++i) {
-                    ((Button) findViewById(R.id.button55 + i)).setText(Integer.toString(tek + i));
+                    ((Button) findViewById(R.id.button55 + i)).setText(String.format("%d", (tek + i)));
                     if (tek + i > turnCount)
                         findViewById(R.id.button55 + i).setVisibility(View.INVISIBLE);
                     else findViewById(R.id.button55 + i).setVisibility(View.VISIBLE);
@@ -1311,8 +1309,7 @@ public class MainActivity extends Activity {
                 bck1.setVisibility(View.VISIBLE);
                 findViewById(R.id.f_n).setVisibility(View.VISIBLE);
                 findViewById(R.id.f_ag).setVisibility(View.VISIBLE);
-                for (int i = 0; i < flines.length; ++i)
-                    findViewById(flines[i]).setVisibility(View.GONE);
+                for (int fline : flines) findViewById(fline).setVisibility(View.GONE);
                 bck1.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         v.setEnabled(false);
@@ -1334,8 +1331,7 @@ public class MainActivity extends Activity {
                 (findViewById(R.id.f_y)).setVisibility(View.GONE);
                 (findViewById(R.id.f_n)).setVisibility(View.GONE);
                 (findViewById(R.id.f_ag)).setVisibility(View.GONE);
-                for (int i = 0; i < flines.length; ++i)
-                    findViewById(flines[i]).setVisibility(View.VISIBLE);
+                for (int fline : flines) findViewById(fline).setVisibility(View.VISIBLE);
                 findViewById(R.id.f_send).setEnabled(yMarksDone == finAmount);
             }
         });
@@ -1347,8 +1343,7 @@ public class MainActivity extends Activity {
                 bck1.setVisibility(View.VISIBLE);
                 findViewById(R.id.f_n).setVisibility(View.VISIBLE);
                 findViewById(R.id.f_ag).setVisibility(View.VISIBLE);
-                for (int i = 0; i < flines.length; ++i)
-                    findViewById(flines[i]).setVisibility(View.GONE);
+                for (int fline : flines) findViewById(fline).setVisibility(View.GONE);
                 bck1.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         (findViewById(R.id.f_y)).setVisibility(View.GONE);
@@ -1405,7 +1400,7 @@ public class MainActivity extends Activity {
                 if(pairsState.get(0)[i]==0)
                     if(marksDone[j]==0) {
                         ((Button) findViewById(fbutton[i] + j)).setWidth(470 / (finAmount - yMarksDone));
-                        findViewById(fbutton[i] + j).setBackgroundResource(android.support.v7.appcompat.R.color.material_grey_100);
+                        findViewById(fbutton[i] + j).setBackgroundResource(R.color.grey100);
                         LinearLayout.LayoutParams lp=(LinearLayout.LayoutParams)findViewById(fbutton[i] + j).getLayoutParams();
                         lp.leftMargin=1;lp.rightMargin=1;
                     }
@@ -1428,13 +1423,13 @@ public class MainActivity extends Activity {
                 }
             }
         }
-        ((TextView)findViewById(R.id.fcount)).setText(Integer.toString(yMarksDone));
+        ((TextView)findViewById(R.id.fcount)).setText(String.format("%d",yMarksDone));
         findViewById(R.id.f_send).setEnabled(yMarksDone == finAmount);
-        findViewById(R.id.f_send).setBackgroundResource((yMarksDone == finAmount) ? R.color.tvYes : R.color.material_grey_300);
-        String logtest="";
+        findViewById(R.id.f_send).setBackgroundResource((yMarksDone == finAmount) ? R.color.tvYes : R.color.grey300);
+        String logTest="";
         for(int ij=0;ij<finAmount;++ij)
-            logtest+=Integer.toString(pairsState.get(0)[ij])+";";
-
+            logTest+=Integer.toString(pairsState.get(0)[ij])+";";
+        log(logTest);
     }
 
     private boolean isOnline() {
@@ -1463,8 +1458,8 @@ public class MainActivity extends Activity {
         MessageDigest mDigest = MessageDigest.getInstance("SHA1");
         byte[] result = mDigest.digest(input.getBytes());
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < result.length; i++) {
-            sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
+        for (byte aResult : result) {
+            sb.append(Integer.toString((aResult & 0xff) + 0x100, 16).substring(1));
         }
 
         return sb.toString();
@@ -1520,8 +1515,8 @@ public class MainActivity extends Activity {
             MessageDigest mDigest = MessageDigest.getInstance("SHA1");
             byte[] result = mDigest.digest(shas);
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < result.length; i++)
-                sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
+            for (byte aResult : result)
+                sb.append(Integer.toString((aResult & 0xff) + 0x100, 16).substring(1));
             String str=sb.toString().substring(sb.length()-4);
             finsha=Integer.toString(Integer.parseInt(str, 16) % 10000);
         }catch (Exception e){log("Exception in mainsha:" + e.getMessage());}
@@ -1679,7 +1674,7 @@ public class MainActivity extends Activity {
             try {
                 if(debug) {
                     BufferedWriter b = new BufferedWriter(new FileWriter(logger2, true));
-                    b.append(Calendar.getInstance().getTime() + "$");
+                    b.append((CharSequence) Calendar.getInstance().getTime()).append("$");
                     b.append(s);
                     b.newLine();
                     b.close();
@@ -1844,7 +1839,7 @@ public class MainActivity extends Activity {
                     c.setState(3);
                     count++;
                     Thread.sleep(5000);
-                }catch (Exception e){}
+                }catch (Exception e){log(e.getMessage());}
             }
         })).start();
     }
@@ -1856,7 +1851,7 @@ public class MainActivity extends Activity {
                 public void run() {
                     TextView charge = (TextView) findViewById(R.id.charge);
                     if(charge!=null) {
-                        charge.setText(battery_lvl + "%");
+                        charge.setText(String.format("%d%",battery_lvl));
                         if(battery_lvl>60)charge.setBackgroundResource(R.color.tvYes);
                         else if(battery_lvl>30)charge.setBackgroundResource(R.color.tvMb);
                         else charge.setBackgroundResource(R.color.tvRed);
@@ -1865,19 +1860,19 @@ public class MainActivity extends Activity {
             };
             @Override
             public void run() {
-                while (true) {
+                while (state>=0) {
                     try {
                         runOnUiThread(settext);
                         Thread.sleep(30000);
                         //c.setState(10);
-                    } catch (Exception e) {}
+                    } catch (Exception e) {log(e.getMessage());}
                     try {
                         URL url = new URL(c.host);
                         URLConnection con = url.openConnection();
                         con.setConnectTimeout(2000);
                         con.setReadTimeout(2000);
                         con.connect();
-                    } catch (Exception e) {}
+                    } catch (Exception e) {log(e.getMessage());}
                 }
             }
         })).start();
@@ -1890,7 +1885,7 @@ public class MainActivity extends Activity {
             BufferedReader br = new BufferedReader(new FileReader(settings));
             debug = Boolean.valueOf(br.readLine());
             br.close();
-        }catch(Exception e){}
+        }catch(Exception e){log(e.getMessage());}
     }
 
     public void SaveSettings(){
@@ -1900,7 +1895,7 @@ public class MainActivity extends Activity {
                 br.write(Boolean.toString(debug));
                 br.newLine();
                 br.close();
-            }catch(Exception e){}
+            }catch(Exception e){log(e.getMessage());}
     }
 
 }
@@ -1974,7 +1969,7 @@ class Connecter implements Runnable{
         try {
             try {
                 ftp.disconnect();
-            }catch(Exception e){}
+            }catch(Exception e){mac.log(e.getMessage());}
             ftp = new FTPClient();
             ftp.connect(addr);
             boolean sucs = ftp.login(user, pass);
@@ -1986,7 +1981,8 @@ class Connecter implements Runnable{
                     ftp.enterLocalPassiveMode();
             }
             if(sucs)run();
-        }catch (Exception e){}
+        }catch (Exception e) {
+            mac.log(e.getMessage());}
     }
     @Override
     public void run() {
@@ -2152,7 +2148,8 @@ class Connecter implements Runnable{
                         if(unames.size()>0) {
                             try {
                                 Thread.sleep(5000);
-                            }catch(Exception e){}
+                            }catch(Exception e) {
+                                mac.log(e.getMessage());}
                             this.setState(8);
                         }
                         mac.log("Reuploading ends with " + errors + "errors");
@@ -2161,8 +2158,7 @@ class Connecter implements Runnable{
                     case 9: {
                         files = ftp.listFiles(pth);
                         mac.log(ftp.getReplyString());
-                        for(int i=0;i< files.length;++i)
-                            strs.add(files[i].getName());
+                        for (FTPFile file : files) strs.add(file.getName());
                         mac.log("Exist lock " + files.length + " files");
                         tstate = 0;
                         cl=true;
