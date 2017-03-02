@@ -1120,7 +1120,7 @@ public class MainActivity extends Activity {
                     c.setUFile(name);
                     c.setUPath("/airdance/" + String.valueOf(nomination_num) + "/results");
                     c.setState(3);
-                    lostconncetion = SynWait(2);
+                    lostconncetion = SynWait(0.5);
                 }
                 if (lostconncetion)
                     c.addreupload(f, "/airdance/" + String.valueOf(nomination_num) + "/results/" + name);
@@ -1158,6 +1158,7 @@ public class MainActivity extends Activity {
         }
         findViewById(R.id.button54).setEnabled(false);
         findViewById(R.id.button60).setEnabled(turnNumber>5);
+        findViewById(R.id.legend).setVisibility(View.GONE);
     }
 
     private boolean Questioned(int turn){
@@ -1817,7 +1818,7 @@ public class MainActivity extends Activity {
             return true;}
     }
 
-    private boolean SynWait(float sec){
+    private boolean SynWait(double sec){
         int count=(int)(sec*50);
         try{
             while(!c.Done()&&(count!=0)) {
