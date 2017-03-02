@@ -44,6 +44,7 @@ import org.w3c.dom.Text;
 import java.net.*;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.Locale;
 import java.util.Stack;
 
@@ -1110,6 +1111,7 @@ public class MainActivity extends Activity {
             File f=new File(nomPath,name);
             BufferedWriter bw=new BufferedWriter(new FileWriter(f));
             if(last)bw.write("tour lock\n"+finsha);
+            else bw.write(getIp());
             bw.close();
             if(!lostconncetion) {
                 c.setFile(f);
@@ -1878,6 +1880,22 @@ public class MainActivity extends Activity {
                 br.newLine();
                 br.close();
             }catch(Exception e){}
+    }
+
+    private String getIp(){
+        String ipAddress = null;
+        try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
+                NetworkInterface intf = en.nextElement();
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+                    InetAddress inetAddress = enumIpAddr.nextElement();
+                    if (!inetAddress.isLoopbackAddress()) {
+                        ipAddress = inetAddress.getHostAddress().toString();
+                    }
+                }
+            }
+        } catch (SocketException ex) {ipAddress= "0.0.0.0";}
+        return  ipAddress;
     }
 
 }
