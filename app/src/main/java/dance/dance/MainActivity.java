@@ -2293,13 +2293,13 @@ public class MainActivity extends Activity {
     }
 
     private String getIp(){
-        String ipAddress = null;
+        String ipAddress= "0.0.0.0";
         try {
             for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
                 NetworkInterface intf = en.nextElement();
                 for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
                     InetAddress inetAddress = enumIpAddr.nextElement();
-                    if (!inetAddress.isLoopbackAddress()) {
+                    if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
                         ipAddress = inetAddress.getHostAddress().toString();
                     }
                 }
