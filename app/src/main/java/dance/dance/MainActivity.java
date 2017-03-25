@@ -11,6 +11,7 @@ import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -451,6 +452,7 @@ public class MainActivity extends Activity {
         log("CreateJudgeListeners started");
         ArrayAdapter<String> judgeList = new ArrayAdapter<String>(self, R.layout.list, judges)
         {
+            @NonNull
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
@@ -907,8 +909,8 @@ public class MainActivity extends Activity {
         totalAmount=totalCount;
         ((TextView)findViewById(R.id.desc_fam)).setText(String.format("%s. %s", Integer.toString(judge_num), t_judge));
         ((TextView)findViewById(R.id.desc)).setText(String.format("1/%s %s", Integer.toString(pow(round)), t_nomination));
-        findViewById(R.id.desc2).setVisibility(View.INVISIBLE);
-        findViewById(R.id.desc3).setVisibility(View.INVISIBLE);
+        ((TextView)findViewById(R.id.desc2)).setText(getResources().getString(R.string.Heats));
+        ((TextView)findViewById(R.id.desc3)).setText(String.format("%s;", Integer.toString(turnCount)));
         findViewById(R.id.desc4).setVisibility(View.INVISIBLE);
         findViewById(R.id.counter).setVisibility(View.INVISIBLE);
         ((TextView)findViewById(R.id.dance)).setText(Integer.toString(turnNumber+1));
@@ -936,7 +938,10 @@ public class MainActivity extends Activity {
         for(;j<size;++j)
             findViewById(startButton+j).setVisibility(View.INVISIBLE);
         ((TextView)findViewById(R.id.counter)).setText(Integer.toString(posCounters));
+
         findViewById(R.id.nf_send).setEnabled(danceNumber==danceCount-1);
+        findViewById(R.id.nf_send).setBackgroundResource((danceNumber==danceCount-1) ? R.color.tvYes : R.color.grey300);
+
         for(int i=0;i<5;++i){
             ((Button) findViewById(R.id.button55 + i)).setText(gruppa[i+4+tek]);
             if(tek+i-1==danceNumber)
@@ -1209,9 +1214,11 @@ public class MainActivity extends Activity {
         if(posCounters == yMarks)((TextView)findViewById(R.id.counter)).setTextColor(Color.argb(255, 0, 0, 0));
         if(posCounters < yMarks)((TextView)findViewById(R.id.counter)).setTextColor(Color.argb(255,0,0,0));
         if(posCounters > yMarks)((TextView)findViewById(R.id.counter)).setTextColor(Color.argb(255, 180, 10, 10));
+
         findViewById(R.id.counter).setBackgroundResource((posCounters == yMarks) ? R.color.tvYes : R.color.grey300);
         findViewById(R.id.nf_send).setEnabled(posCounters == yMarks);
         findViewById(R.id.nf_send).setBackgroundResource((posCounters == yMarks) ? R.color.tvYes : R.color.grey300);
+
         for(int i=0;i<5;++i){
             if(Integer.valueOf((String)((Button) findViewById(R.id.button55 + i)).getText())==turnNumber+1)
                 findViewById(R.id.button55 + i).setBackgroundResource(android.R.color.darker_gray);
@@ -1313,6 +1320,7 @@ public class MainActivity extends Activity {
                     if (pairsState.get(turnNumber)[n] == 1) {yMarksDone++;log("Ymark "+n+" added");}
                     if (pairsState.get(turnNumber)[n] == 2) {yMarksDone--;log("Ymark "+n+" removed");}
                     FillPairs();
+                    SendLockAsync(false);
                     if(turnCount==1)Send();
                     //WriteBackup();
                 }
@@ -1447,6 +1455,13 @@ public class MainActivity extends Activity {
 
     private void Send(){
         try{
+            int count=addPairs.size();
+            for(int i=0;i<pairsState.size();++i)
+                for(int j=0;j<25;++j)
+                    if((pairsState.get(i)[j]==1)||((pairsState.get(i)[j]>2)&&(pairsState.get(i)[j]<6)))
+                        count++;
+            if(count==0)return;
+
             String name="t"+((round<=9)?"0":"")+Integer.toString(round)+"j"+((judge_num<=9)?"0":"")+Integer.toString(judge_num)+"_"+pairsNum.get(0)[0]+".txt";
             File f=new File(nomPath+"/results",name);
             BufferedWriter bw=new BufferedWriter(new FileWriter(f));
@@ -1495,9 +1510,32 @@ public class MainActivity extends Activity {
                 c.setUPath(path);
                 c.setState(3);
                 lostconncetion = SynWait(2);
-                CreateLocker(path,name);
             }
             if(lostconncetion)c.addreupload(f,"/airdance/" + String.valueOf(nomination_num) + "/results/"+name);
+        }catch (Exception e){
+            e.printStackTrace();}
+    }
+
+    private void SendLockAsync(boolean last){
+        try{
+            String name,path;
+            if(last){
+                path="/airdance/" + String.valueOf(nomination_num) + "/results";
+                name="t"+((round<9)?"0":"")+Integer.toString(round)+"j"+((judge_num<=9)?"0":"")+Integer.toString(judge_num) +".lock";}
+            else{
+                path="/airdance/" + String.valueOf(nomination_num) + "/judges";
+                name=((judge_num<=9)?"0":"")+Integer.toString(judge_num) +".lock";}
+            File f=new File(nomPath,name);
+            BufferedWriter bw=new BufferedWriter(new FileWriter(f));
+            if(last)bw.write("tour lock\n"+finsha);
+            else bw.write(getIp());
+            bw.close();
+            if(!lostconncetion) {
+                c.setFile(f);
+                c.setUFile(name);
+                c.setUPath(path);
+                c.setState(3);
+            }
         }catch (Exception e){
             e.printStackTrace();}
     }
@@ -2050,7 +2088,7 @@ public class MainActivity extends Activity {
             try {
                 if(debug) {
                     BufferedWriter b = new BufferedWriter(new FileWriter(logger2, true));
-                    b.append((CharSequence) Calendar.getInstance().getTime()).append("$");
+                    b.append(Calendar.getInstance().getTime().toString()).append("$");
                     b.append(s);
                     b.newLine();
                     b.close();
@@ -2198,26 +2236,6 @@ public class MainActivity extends Activity {
                 CreteMainListeners();
             }
         });
-    }
-
-    public void CreateLocker(final String filepath,final String filename){
-        (th=new Thread(new Runnable() {
-            @Override
-        public void run() {
-                File f=new File(sdPath,filename);
-                if(!f.exists())return;
-                int count=0;
-            while(!c.exists(filepath,filename)&&state>=1&&count<10)
-                try {
-                    c.setFile(f);
-                    c.setUPath(filepath);
-                    c.setUFile(filename);
-                    c.setState(3);
-                    count++;
-                    Thread.sleep(5000);
-                }catch (Exception e){log(e.getMessage());}
-            }
-        })).start();
     }
 
     public void DisplayCharge(){
@@ -2517,7 +2535,7 @@ class Connecter implements Runnable{
                         ArrayList<File> newfiles=new ArrayList<>();
                         ArrayList<String> newnames=new ArrayList<>();
                         for(int i=0;i<upfiles.size();++i) {
-                            if(upfiles.get(i)!=null&&upfiles.get(i).exists()) {
+                            if(upfiles.get(i)!=null&&upfiles.get(i).exists()&&upfiles.get(i).length()>2) {
                                 FileInputStream fis = new FileInputStream(upfiles.get(i));
                                 try {
                                     ftp.storeFile(unames.get(i), fis);
