@@ -198,6 +198,29 @@ public class MainActivity extends Activity {
         nomination_num=-1;
         nominationList = (ListView) findViewById(R.id.nominationList);
         nominationList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        try {
+            File sdFile = new File(sdPath, "tnominations.txt");
+            c.setDFile("nominations.txt");
+            c.setDPath("/airdance");
+            c.setFile(sdFile);
+            c.setState(2);
+            log("Download nomination list");
+            lostconncetion=SynWait(5);
+            log("Download completed");
+            strs.clear();
+            String tmp;
+            BufferedReader br = new BufferedReader(new FileReader(sdFile));
+            while ((tmp = br.readLine()) != null) {
+                strs.add(tmp);
+                log("New nomination:"+tmp);
+            }
+        } catch (FileNotFoundException e) {
+            log("File not found");
+            e.printStackTrace();
+        } catch (IOException e) {
+            log("File can't be readed");
+            e.printStackTrace();
+        }
         findViewById(R.id.next).setEnabled(!error);
         error=lostconncetion;
         if(!error) {
@@ -209,14 +232,12 @@ public class MainActivity extends Activity {
                 c.setFile(sdFile);
                 c.setState(2);
                 log("Download nomination list");
-                SynWait(5);
+                lostconncetion=SynWait(5);
                 log("Download completed");
                 strs.clear();
                 String tmp;
                 BufferedReader br = new BufferedReader(new FileReader(sdFile));
                 while ((tmp = br.readLine()) != null) {
-                    //if(tmp.length()>28)
-                     //   tmp=tmp.substring(0,27);
                     strs.add(tmp);
                     log("New nomination:"+tmp);
                 }
@@ -1530,12 +1551,10 @@ public class MainActivity extends Activity {
             if(last)bw.write("tour lock\n"+finsha);
             else bw.write(getIp());
             bw.close();
-            if(!lostconncetion) {
-                c.setFile(f);
-                c.setUFile(name);
-                c.setUPath(path);
-                c.setState(3);
-            }
+            c.setFile(f);
+            c.setUFile(name);
+            c.setUPath(path);
+            c.setState(3);
         }catch (Exception e){
             e.printStackTrace();}
     }
@@ -2172,6 +2191,12 @@ public class MainActivity extends Activity {
                 for (File f : resPath.listFiles()) {
                     if(!f.delete())log("Deleting "+f.getName()+" failed");
                 }
+                resPath = new File(path + "/" + nom);
+                if (resPath.exists() && resPath.isDirectory()) {
+                    for (File f : resPath.listFiles()) {
+                        if (!f.delete()) log("Deleting " + f.getName() + " failed");
+                    }
+                }
             }
         }
     }
@@ -2378,6 +2403,9 @@ class Connecter implements Runnable{
     public void Connect(){
         try {
             try {
+                ftp.logout();
+            }catch(Exception e){mac.log(e.getMessage());}
+            try {
                 ftp.disconnect();
             }catch(Exception e){mac.log(e.getMessage());}
             ftp = new FTPClient();
@@ -2401,6 +2429,12 @@ class Connecter implements Runnable{
             while (tstate != 0) {
                 switch (tstate) {
                     case 1: {
+                        try {
+                            ftp.logout();
+                        }catch(Exception e){mac.log(e.getMessage());}
+                        try {
+                            ftp.disconnect();
+                        }catch(Exception e){mac.log(e.getMessage());}
                         mac.log("Start new session:" + addr.getHostAddress());
                         mac.log("Init new FTP session");
                         ftp = new FTPClient();
@@ -2504,6 +2538,12 @@ class Connecter implements Runnable{
                     }
                     case 7:{
                         mac.log("Reconnect...");
+                        try {
+                            ftp.logout();
+                        }catch(Exception e){mac.log(e.getMessage());}
+                        try {
+                            ftp.disconnect();
+                        }catch(Exception e){mac.log(e.getMessage());}
                         ftp = new FTPClient();
                         ftp.connect(addr);
                         mac.log(ftp.getReplyString());
