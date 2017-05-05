@@ -20,5 +20,6 @@
     <string name="On">On</string>
     <string name="Off">Off</string>
     <string name="SmRefresh">R</string>
-    <string name="Completed">Task completed</string>
+    <string name="Completed">Sending completed</string>
+    <string name="CompletedRescue">Rescue completed</string>
 </resources>

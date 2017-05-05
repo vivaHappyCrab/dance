@@ -87,7 +87,7 @@ public class MainActivity extends Activity {
     File backup,logger,config,logger2;
     BufferedWriter bWriter,logWriter;
     Connecter c=new Connecter();
-    boolean restore,lang,newinit,starter;
+    boolean restore,lang,newinit,starter,checked;
     Thread th=null;
     Random rnd=new Random();
 
@@ -197,6 +197,29 @@ public class MainActivity extends Activity {
         nomination_num=-1;
         nominationList = (ListView) findViewById(R.id.nominationList);
         nominationList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        try {
+            File sdFile = new File(sdPath, "tnominations.txt");
+            c.setDFile("nominations.txt");
+            c.setDPath("/airdance");
+            c.setFile(sdFile);
+            c.setState(2);
+            log("Download nomination list");
+            lostconncetion=SynWait(5);
+            log("Download completed");
+            strs.clear();
+            String tmp;
+            BufferedReader br = new BufferedReader(new FileReader(sdFile));
+            while ((tmp = br.readLine()) != null) {
+                strs.add(tmp);
+                log("New nomination:"+tmp);
+            }
+        } catch (FileNotFoundException e) {
+            log("File not found");
+            e.printStackTrace();
+        } catch (IOException e) {
+            log("File can't be readed");
+            e.printStackTrace();
+        }
         findViewById(R.id.next).setEnabled(!error);
         error=lostconncetion;
         if(!error) {
@@ -208,14 +231,12 @@ public class MainActivity extends Activity {
                 c.setFile(sdFile);
                 c.setState(2);
                 log("Download nomination list");
-                SynWait(5);
+                lostconncetion=SynWait(5);
                 log("Download completed");
                 strs.clear();
                 String tmp;
                 BufferedReader br = new BufferedReader(new FileReader(sdFile));
                 while ((tmp = br.readLine()) != null) {
-                    //if(tmp.length()>28)
-                     //   tmp=tmp.substring(0,27);
                     strs.add(tmp);
                     log("New nomination:"+tmp);
                 }
@@ -521,6 +542,20 @@ public class MainActivity extends Activity {
                         findViewById(R.id.sa_1).setVisibility(View.GONE);
                         bck1.setOnClickListener(new View.OnClickListener() {
                             public void onClick(View v) {
+                                c.strs.clear();
+                                c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/judges/*.lock");
+                                c.setState(9);
+                                lostconncetion = SynWait(2);
+                                String tour = (round < 10 ? "0" : "") + round;
+                                c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/results/t" + tour + "*.lock");
+                                c.setState(9);
+                                lostconncetion = SynWait(2);
+                                if (exists(judge_num)) {
+                                    setContentView(R.layout.second_activ);
+                                    state = 1;
+                                    CreateJudgeListeners();
+                                    return;
+                                }
                                 danceNumber = 1;
                                 restore = CheckJudge();
                                 SendLock(false);
@@ -546,6 +581,20 @@ public class MainActivity extends Activity {
                         bck.setOnClickListener(new View.OnClickListener() {
                             public void onClick(View v) {
                                 if ((t_parol[judge_num - 1].equals(t_key)) || (t_key.equals("2222"))) {
+                                    c.strs.clear();
+                                    c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/judges/*.lock");
+                                    c.setState(9);
+                                    lostconncetion = SynWait(2);
+                                    String tour = (round < 10 ? "0" : "") + round;
+                                    c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/results/t" + tour + "*.lock");
+                                    c.setState(9);
+                                    lostconncetion = SynWait(2);
+                                    if (exists(judge_num)) {
+                                        setContentView(R.layout.second_activ);
+                                        state = 1;
+                                        CreateJudgeListeners();
+                                        return;
+                                    }
                                     danceNumber = 1;
                                     restore = CheckJudge();
                                     SendLock(false);
@@ -617,6 +666,20 @@ public class MainActivity extends Activity {
                         findViewById(R.id.sa_1).setVisibility(View.GONE);
                         bck1.setOnClickListener(new View.OnClickListener() {
                             public void onClick(View v) {
+                                c.strs.clear();
+                                c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/judges/*.lock");
+                                c.setState(9);
+                                lostconncetion = SynWait(2);
+                                String tour = (round < 10 ? "0" : "") + round;
+                                c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/results/t" + tour + "*.lock");
+                                c.setState(9);
+                                lostconncetion = SynWait(2);
+                                if (exists(judge_num)) {
+                                    setContentView(R.layout.second_activ);
+                                    state = 1;
+                                    CreateJudgeListeners();
+                                    return;
+                                }
                                 turnNumber = 0;
                                 danceNumber=0;
                                 restore = CheckJudge();
@@ -635,6 +698,20 @@ public class MainActivity extends Activity {
                         bck.setOnClickListener(new View.OnClickListener() {
                             public void onClick(View v) {
                                 if ((t_parol[judge_num-1].equals(t_key)) || (t_key.equals("2222"))) {
+                                    c.strs.clear();
+                                    c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/judges/*.lock");
+                                    c.setState(9);
+                                    lostconncetion = SynWait(2);
+                                    String tour = (round < 10 ? "0" : "") + round;
+                                    c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/results/t" + tour + "*.lock");
+                                    c.setState(9);
+                                    lostconncetion = SynWait(2);
+                                    if (exists(judge_num)) {
+                                        setContentView(R.layout.second_activ);
+                                        state = 1;
+                                        CreateJudgeListeners();
+                                        return;
+                                    }
                                     turnNumber = 0;
                                     danceNumber=0;
                                     restore = CheckJudge();
@@ -856,7 +933,7 @@ public class MainActivity extends Activity {
     }
 
     //Starter
-        private void ReadAll () {
+    private void ReadAll () {
         allnums.clear();
         turnCount = 0;
         yMarksDone = 0;
@@ -878,7 +955,7 @@ public class MainActivity extends Activity {
                 totals.add(j);
             }
             br.close();
-            if (totals.get(danceNumber) > 19) {
+            if (totals.get(turnNumber) > 19) {
                 setContentView(R.layout.prom);
                 nfLayout = R.layout.prom;
                 size = 25;
@@ -895,6 +972,7 @@ public class MainActivity extends Activity {
             end = danceCount - 4;
             if (end <= 0) end = 1;
             tek = 1;
+            RestoreMarks();
             SendInfo();
             FillTitlesStarter(0);
             FillPairsStarter();
@@ -903,7 +981,34 @@ public class MainActivity extends Activity {
         }
     }
 
-        private void FillTitlesStarter(int totalCount){
+    private void RestoreMarks(){
+        String str;
+        for(int i=0;i<danceCount;++i)
+            try{
+                restore = false;
+                String check="t0" + Integer.toString(round) + ((judge_num < 10) ? "j0" : "j") + Integer.toString(judge_num) + "_" + gruppa[i + 5] + ".txt";
+                if(c.exists("/airdance/" + String.valueOf(nomination_num) + "/results",check)) {
+                    File sdFile = new File(sdPath, "tres.txt");
+                    c.setDFile(check);
+                    c.setDPath("/airdance/" + String.valueOf(nomination_num) + "/results");
+                    c.setFile(sdFile);
+                    c.setState(2);
+                    SynWait(4);
+                    BufferedReader br = new BufferedReader(new FileReader(sdFile));
+                    while ((str = br.readLine()) != null)
+                        for (Pair pair: allnums) {
+                            if((pair.name.equals(String.valueOf(Integer.valueOf(str.substring(1,4))))))
+                                pair.value[i]= Integer.valueOf(str.substring(0,1))-1;
+                        }
+                    br.close();
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+
+    }
+
+    private void FillTitlesStarter(int totalCount){
         totalAmount=totalCount;
         ((TextView)findViewById(R.id.desc_fam)).setText(String.format("%s. %s", Integer.toString(judge_num), t_judge));
         ((TextView)findViewById(R.id.desc)).setText(String.format("1/%s %s", Integer.toString(pow(round)), t_nomination));
@@ -1172,10 +1277,11 @@ public class MainActivity extends Activity {
     }
 
     private void FillPairs(){
+        SendLock(false);
         log("Fill pairs{dance:"+danceNumber+";turn:"+turnNumber+";Ymarks:"+posCounters+";Declined:"+declined+";}");
         findViewById(R.id.button54).setEnabled(!(tek == strt));
         findViewById(R.id.button60).setEnabled(!(tek >= end));
-        if(declined+yMarks==totalAmount){for(int i=0;i<pairsState.size();i++)for(int j=0;j<size;j++)
+        if(declined+yMarks==totalAmount && checked){for(int i=0;i<pairsState.size();i++)for(int j=0;j<size;j++)
             if((pairsState.get(i)[j]<3)&&(!pairsNum.get(i)[j+1].equals("0")))
                 pairsState.get(i)[j]+=3;}
         else for(int i=0;i<pairsState.size();i++)for(int j=0;j<size;j++)if((pairsState.get(i)[j]>2)&&(pairsState.get(i)[j]<6))pairsState.get(i)[j]-=3;
@@ -1312,6 +1418,7 @@ public class MainActivity extends Activity {
                     pairsState.get(turnNumber)[n] = (pairsState.get(turnNumber)[n] + 1) % 3;
                     if (pairsState.get(turnNumber)[n] == 1) {yMarksDone++;log("Ymark "+n+" added");}
                     if (pairsState.get(turnNumber)[n] == 2) {yMarksDone--;log("Ymark "+n+" removed");}
+                    checked=true;
                     FillPairs();
                     if(turnCount==1)Send();
                     //WriteBackup();
@@ -1329,6 +1436,7 @@ public class MainActivity extends Activity {
                         }
                         pairsState.get(turnNumber)[n] = 8;
                         declined++;
+                        checked=true;
                         log("Declined " + n + " added");
                         red.add(pairsNum.get(turnNumber)[n + 1]);
                     }
@@ -1359,6 +1467,7 @@ public class MainActivity extends Activity {
                         Send();
                         if (danceNumber != danceCount) {
                             danceNumber++;
+                            checked=false;
                             log("Next dance is " + danceNumber);
                             int n = ReadDance();
                             FillTitles(n);
@@ -1489,14 +1598,11 @@ public class MainActivity extends Activity {
             if(last)bw.write("tour lock\n"+finsha);
             else bw.write(getIp());
             bw.close();
-            if(!lostconncetion) {
-                c.setFile(f);
-                c.setUFile(name);
-                c.setUPath(path);
-                c.setState(3);
-                lostconncetion = SynWait(2);
-                CreateLocker(path,name);
-            }
+            c.setFile(f);
+            c.setUFile(name);
+            c.setUPath(path);
+            c.setState(3);
+            lostconncetion = SynWait(2);
             if(lostconncetion)c.addreupload(f,"/airdance/" + String.valueOf(nomination_num) + "/results/"+name);
         }catch (Exception e){
             e.printStackTrace();}
@@ -2135,6 +2241,13 @@ public class MainActivity extends Activity {
                     if(!f.delete())log("Deleting "+f.getName()+" failed");
                 }
             }
+            resPath = new File(path + "/" + nom);
+            if (resPath.exists() && resPath.isDirectory()) {
+                for (File f : resPath.listFiles()) {
+                    if(!f.isDirectory())
+                        if(!f.delete())log("Deleting "+f.getName()+" failed");
+                }
+            }
         }
     }
 
@@ -2149,6 +2262,7 @@ public class MainActivity extends Activity {
                 for (int i = 0; i < childcount; i++)
                     ll.getChildAt(i).setVisibility(View.GONE);
                 findViewById(R.id.s_ok).setVisibility(View.VISIBLE);
+                ((Button)findViewById(R.id.s_ok)).setText(getResources().getText(R.string.CompletedRescue));
             }
             });
         btn = (Button) findViewById(R.id.s_clear);
@@ -2168,6 +2282,7 @@ public class MainActivity extends Activity {
                 for (int i = 0; i < childcount; i++)
                     ll.getChildAt(i).setVisibility(View.GONE);
                 findViewById(R.id.s_ok).setVisibility(View.VISIBLE);
+                ((Button)findViewById(R.id.s_ok)).setText(getResources().getText(R.string.Completed));
             }
         });
         btn = (Button) findViewById(R.id.s_debug);
@@ -2379,10 +2494,16 @@ class Connecter implements Runnable{
     @Override
     public void run() {
         try {
-        int tstate=state;
+            int tstate=state;
             while (tstate != 0) {
                 switch (tstate) {
                     case 1: {
+                        try {
+                            ftp.logout();
+                        }catch(Exception e){mac.log(e.getMessage());}
+                        try {
+                            ftp.disconnect();
+                        }catch(Exception e){mac.log(e.getMessage());}
                         mac.log("Start new session:" + addr.getHostAddress());
                         mac.log("Init new FTP session");
                         ftp = new FTPClient();
@@ -2440,8 +2561,8 @@ class Connecter implements Runnable{
                             boolean sucsu=ftp.storeFile(upath + "/" + ufile, fis);
                             mac.log("Uploaded "+ufile+":"+ftp.getReplyString());
                             if(sucsu){
-                            cl=true;
-                            tstate=0;}
+                                cl=true;
+                                tstate=0;}
                         }catch (Exception e){
                             mac.log(e.getMessage());
                             mac.log("Lost connection, can't upload " + upath + "/" + ufile);
@@ -2486,6 +2607,12 @@ class Connecter implements Runnable{
                     }
                     case 7:{
                         mac.log("Reconnect...");
+                        try {
+                            ftp.logout();
+                        }catch(Exception e){mac.log(e.getMessage());}
+                        try {
+                            ftp.disconnect();
+                        }catch(Exception e){mac.log(e.getMessage());}
                         ftp = new FTPClient();
                         ftp.connect(addr);
                         mac.log(ftp.getReplyString());
@@ -2517,7 +2644,7 @@ class Connecter implements Runnable{
                         ArrayList<File> newfiles=new ArrayList<>();
                         ArrayList<String> newnames=new ArrayList<>();
                         for(int i=0;i<upfiles.size();++i) {
-                            if(upfiles.get(i)!=null&&upfiles.get(i).exists()) {
+                            if(upfiles.get(i)!=null&&upfiles.get(i).exists()&&upfiles.get(i).length()>2) {
                                 FileInputStream fis = new FileInputStream(upfiles.get(i));
                                 try {
                                     ftp.storeFile(unames.get(i), fis);

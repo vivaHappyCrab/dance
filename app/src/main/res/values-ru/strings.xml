@@ -21,5 +21,6 @@
     <string name="On">Включен</string>
     <string name="Off">Выключен</string>
     <string name="SmRefresh">R</string>
-    <string name="Completed">Задача выполнена</string>
+    <string name="Completed">Очистка выполнена</string>
+    <string name="CompletedRescue">Отправка файлов завершена</string>
 </resources>
