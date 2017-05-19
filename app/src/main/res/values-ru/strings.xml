@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<?xml version="1.0" encoding="UTF-8"?>
+    <resources>
     <string name="app_name">Danceprog</string>
     <string name="Aus">Вы уверены?</string>
     <string name="Back">Назад</string>
@@ -21,4 +21,6 @@
     <string name="On">Включен</string>
     <string name="Off">Выключен</string>
     <string name="SmRefresh">R</string>
+    <string name="Completed">Очистка выполнена</string>
+    <string name="CompletedRescue">Отправка файлов завершена</string>
 </resources>

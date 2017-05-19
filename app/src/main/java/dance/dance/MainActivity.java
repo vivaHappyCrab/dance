@@ -44,6 +44,7 @@ import org.w3c.dom.Text;
 import java.net.*;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.Locale;
 import java.util.Stack;
 
@@ -73,6 +74,7 @@ public class MainActivity extends Activity {
     boolean isSha=false;
     boolean lostconncetion=false;
     boolean debug=true;
+    boolean checked=false;
     ArrayList<String[]> pairsNum=new ArrayList<>();
     ArrayList<Integer[]> pairsState=new ArrayList<>();
     ArrayList<String> addPairs=new ArrayList<>();
@@ -798,7 +800,7 @@ public class MainActivity extends Activity {
         log("Fill pairs{dance:"+danceNumber+";turn:"+turnNumber+";Ymarks:"+posCounters+";Declined:"+declined+";}");
         findViewById(R.id.button54).setEnabled(!(tek == strt));
         findViewById(R.id.button60).setEnabled(!(tek >= end));
-        if(declined+yMarks==totalAmount){for(int i=0;i<pairsState.size();i++)for(int j=0;j<size;j++)
+        if(declined+yMarks==totalAmount && checked){for(int i=0;i<pairsState.size();i++)for(int j=0;j<size;j++)
             if((pairsState.get(i)[j]<3)&&(!pairsNum.get(i)[j+1].equals("0")))
                 pairsState.get(i)[j]+=3;}
         else for(int i=0;i<pairsState.size();i++)for(int j=0;j<size;j++)if((pairsState.get(i)[j]>2)&&(pairsState.get(i)[j]<6))pairsState.get(i)[j]-=3;
@@ -935,6 +937,7 @@ public class MainActivity extends Activity {
                     pairsState.get(turnNumber)[n] = (pairsState.get(turnNumber)[n] + 1) % 3;
                     if (pairsState.get(turnNumber)[n] == 1) {yMarksDone++;log("Ymark "+n+" added");}
                     if (pairsState.get(turnNumber)[n] == 2) {yMarksDone--;log("Ymark "+n+" removed");}
+                    checked=true;
                     FillPairs();
                     if(turnCount==1)Send();
                     //WriteBackup();
@@ -952,6 +955,7 @@ public class MainActivity extends Activity {
                         }
                         pairsState.get(turnNumber)[n] = 8;
                         declined++;
+                        checked=true;
                         log("Declined " + n + " added");
                         red.add(pairsNum.get(turnNumber)[n + 1]);
                     }
@@ -982,6 +986,7 @@ public class MainActivity extends Activity {
                         Send();
                         if (danceNumber != danceCount) {
                             danceNumber++;
+                            checked=false;
                             log("Next dance is " + danceNumber);
                             int n = ReadDance();
                             FillTitles(n);
@@ -1110,6 +1115,7 @@ public class MainActivity extends Activity {
             File f=new File(nomPath,name);
             BufferedWriter bw=new BufferedWriter(new FileWriter(f));
             if(last)bw.write("tour lock\n"+finsha);
+            else bw.write(getIp());
             bw.close();
             if(!lostconncetion) {
                 c.setFile(f);
@@ -1760,6 +1766,13 @@ public class MainActivity extends Activity {
                     if(!f.delete())log("Deleting "+f.getName()+" failed");
                 }
             }
+            resPath = new File(path + "/" + nom);
+            if (resPath.exists() && resPath.isDirectory()) {
+                for (File f : resPath.listFiles()) {
+                    if(!f.isDirectory())
+                        if(!f.delete())log("Deleting "+f.getName()+" failed");
+                }
+            }
         }
     }
 
@@ -1769,8 +1782,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Rescue();
+                LinearLayout ll=(LinearLayout)findViewById(R.id.s_layout);
+                final int childcount = ll.getChildCount();
+                for (int i = 0; i < childcount; i++)
+                    ll.getChildAt(i).setVisibility(View.GONE);
+                findViewById(R.id.s_ok).setVisibility(View.VISIBLE);
+                ((Button)findViewById(R.id.s_ok)).setText(getResources().getText(R.string.CompletedRescue));
             }
-            });
+        });
         btn = (Button) findViewById(R.id.s_clear);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -1783,6 +1802,12 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 DeleteAll();
+                LinearLayout ll=(LinearLayout)findViewById(R.id.s_layout);
+                final int childcount = ll.getChildCount();
+                for (int i = 0; i < childcount; i++)
+                    ll.getChildAt(i).setVisibility(View.GONE);
+                findViewById(R.id.s_ok).setVisibility(View.VISIBLE);
+                ((Button)findViewById(R.id.s_ok)).setText(getResources().getText(R.string.Completed));
             }
         });
         btn = (Button) findViewById(R.id.s_debug);
@@ -1796,6 +1821,15 @@ public class MainActivity extends Activity {
             }
         });
         btn = (Button) findViewById(R.id.s_tomain);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (newinit) Init();
+                setContentView(R.layout.activity_main);
+                CreteMainListeners();
+            }
+        });
+        btn = (Button) findViewById(R.id.s_ok);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1878,6 +1912,22 @@ public class MainActivity extends Activity {
                 br.newLine();
                 br.close();
             }catch(Exception e){}
+    }
+
+    private String getIp(){
+        String ipAddress = null;
+        try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
+                NetworkInterface intf = en.nextElement();
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+                    InetAddress inetAddress = enumIpAddr.nextElement();
+                    if (!inetAddress.isLoopbackAddress()) {
+                        ipAddress = inetAddress.getHostAddress().toString();
+                    }
+                }
+            }
+        } catch (SocketException ex) {ipAddress= "0.0.0.0";}
+        return  ipAddress;
     }
 
 }
