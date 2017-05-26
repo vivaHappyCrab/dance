@@ -39,7 +39,6 @@ import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import org.apache.commons.net.ftp.*;
-import org.w3c.dom.Text;
 
 import java.net.*;
 import java.util.Calendar;
@@ -180,6 +179,7 @@ public class MainActivity extends Activity {
 
     private void CreteMainListeners(){
         log("Creating main menu");
+        DeleteTmp();
         nomination_num=-1;
         nominationList = (ListView) findViewById(R.id.nominationList);
         nominationList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
@@ -909,7 +909,10 @@ public class MainActivity extends Activity {
                         findViewById(R.id.button55 + i).setVisibility(View.INVISIBLE);
                     else findViewById(R.id.button55 + i).setVisibility(View.VISIBLE);
                 }
+                SendInfo();
+                Send();
                 FillPairs();
+                SendLock(false);
             }
         });
         bck = (Button) findViewById(R.id.button54);
@@ -924,7 +927,10 @@ public class MainActivity extends Activity {
                         findViewById(R.id.button55 + i).setVisibility(View.INVISIBLE);
                     else findViewById(R.id.button55 + i).setVisibility(View.VISIBLE);
                 }
+                SendInfo();
+                Send();
                 FillPairs();
+                SendLock(false);
             }
         });
         for(int i=0;i<size;++i){
@@ -1125,7 +1131,7 @@ public class MainActivity extends Activity {
                 lostconncetion = SynWait(2);
                 CreateLocker(path,name);
             }
-            if(lostconncetion)c.addreupload(f,"/airdance/" + String.valueOf(nomination_num) + "/results/"+name);
+            if(lostconncetion)c.addreupload(f,path + "/"+name);
         }catch (Exception e){
             e.printStackTrace();}
     }
