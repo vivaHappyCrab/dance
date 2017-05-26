@@ -188,14 +188,36 @@ public class MainActivity extends Activity {
             c.setState(8);
             SynWait(5);
         } catch (Exception e) {log("Error detected in Connect:"+e.getMessage());}
-    } 
+    }
 
     private void CreteMainListeners(){
         log("Creating main menu");
-        DeleteTmp();
         nomination_num=-1;
         nominationList = (ListView) findViewById(R.id.nominationList);
         nominationList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        try {
+            File sdFile = new File(sdPath, "tnominations.txt");
+            c.setDFile("nominations.txt");
+            c.setDPath("/airdance");
+            c.setFile(sdFile);
+            c.setState(2);
+            log("Download nomination list");
+            lostconncetion=SynWait(5);
+            log("Download completed");
+            strs.clear();
+            String tmp;
+            BufferedReader br = new BufferedReader(new FileReader(sdFile));
+            while ((tmp = br.readLine()) != null) {
+                strs.add(tmp);
+                log("New nomination:"+tmp);
+            }
+        } catch (FileNotFoundException e) {
+            log("File not found");
+            e.printStackTrace();
+        } catch (IOException e) {
+            log("File can't be readed");
+            e.printStackTrace();
+        }
         findViewById(R.id.next).setEnabled(!error);
         error=lostconncetion;
         if(!error) {
@@ -207,14 +229,12 @@ public class MainActivity extends Activity {
                 c.setFile(sdFile);
                 c.setState(2);
                 log("Download nomination list");
-                SynWait(5);
+                lostconncetion=SynWait(5);
                 log("Download completed");
                 strs.clear();
                 String tmp;
                 BufferedReader br = new BufferedReader(new FileReader(sdFile));
                 while ((tmp = br.readLine()) != null) {
-                    //if(tmp.length()>28)
-                     //   tmp=tmp.substring(0,27);
                     strs.add(tmp);
                     log("New nomination:"+tmp);
                 }
@@ -351,10 +371,10 @@ public class MainActivity extends Activity {
                 bck = (Button) findViewById(R.id.key_back);
                 bck.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                            setContentView(R.layout.activity_main);
-                            state = 0;
-                            recurseMain();
-                        }
+                        setContentView(R.layout.activity_main);
+                        state = 0;
+                        recurseMain();
+                    }
                 });
             }
         });
@@ -523,7 +543,9 @@ public class MainActivity extends Activity {
         findViewById(R.id.desc3).setVisibility(View.INVISIBLE);
         findViewById(R.id.desc4).setVisibility(View.INVISIBLE);
         findViewById(R.id.counter).setVisibility(View.INVISIBLE);
-        ((TextView)findViewById(R.id.dance)).setText(Integer.toString(turnNumber+1));
+        ((TextView)findViewById(R.id.dance)).setText(String.format("%s\n%d",getResources().getString(R.string.Turn),turnNumber+1));
+        ((TextView)findViewById(R.id.dance)).setTextSize(30);
+        findViewById(R.id.titlelayout).getLayoutParams().width-=25;
         for(int i=0;i<5;++i){
             findViewById(R.id.button55+i).setVisibility(i < danceCount ? View.VISIBLE : View.INVISIBLE);
         }

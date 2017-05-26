@@ -23,4 +23,5 @@
     <string name="SmRefresh">R</string>
     <string name="Completed">Sending completed</string>
     <string name="CompletedRescue">Rescue completed</string>
+    <string name="Turn">Heat:</string>
 </resources>
