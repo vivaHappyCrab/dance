@@ -55,6 +55,8 @@ public class MainActivity extends Activity {
     ArrayList<String> judges=new ArrayList<>();
     ArrayList<String> sha=new ArrayList<>();
     ArrayList<String> dord=new ArrayList<>();
+    ArrayList<Pair> allnums=new ArrayList<>();
+    ArrayList<Integer> totals=new ArrayList<>();
     byte[] shas;
     String finsha;
     String[] gruppa;
@@ -85,8 +87,19 @@ public class MainActivity extends Activity {
     File backup,logger,config,logger2;
     BufferedWriter bWriter,logWriter;
     Connecter c=new Connecter();
-    boolean restore,lang,newinit;
+    boolean restore,lang,newinit,starter;
     Thread th=null;
+
+    class Pair{
+        public int[] value;
+        public int turn=0;
+        public String name="";
+        Pair(int _turn,String _name,int dnum){
+            value=new int[dnum];
+            for(int i=0;i<dnum;++i)value[i]=0;
+            turn=_turn;
+            name=_name;}
+    }
 
 
     @Override
@@ -427,6 +440,308 @@ public class MainActivity extends Activity {
         return tmp;
     }
 
+    private void ReadAll () {
+        allnums.clear();
+        turnCount = 0;
+        yMarksDone = 0;
+        addPairs.clear();
+        totals.clear();
+        try {
+            File sdFile = new File(sdPath, "tdance1.txt");
+            BufferedReader br = new BufferedReader(new FileReader(sdFile));
+            String str;
+            while ((str = br.readLine()) != null) {
+                String[] tmp = str.split(";");
+                tmp[0] = tmp[0].substring(tmp[0].charAt(0) == '\uFEFF' ? 2 : 1, tmp[0].length() - 1);
+                Integer j = 1;
+                while ((j < tmp.length) && (!tmp[j].equals("0"))) {
+                    allnums.add(new Pair(turnCount, tmp[j], danceCount));
+                    j++;
+                }
+                turnCount++;
+                totals.add(j);
+            }
+            br.close();
+            if (totals.get(turnNumber) > 19) {
+                setContentView(R.layout.prom);
+                nfLayout = R.layout.prom;
+                size = 25;
+                startButton = R.id.button;
+            } else {
+                setContentView(R.layout.prom16);
+                nfLayout = R.layout.prom16;
+                size = 20;
+                startButton = R.id.button61;
+            }
+            CreateEventsStarter();
+            state = 3;
+            strt = 1;
+            end = danceCount - 4;
+            if (end <= 0) end = 1;
+            tek = 1;
+            RestoreMarks();
+            SendInfo();
+            FillTitlesStarter(0);
+            FillPairsStarter();
+        } catch (Exception e) {
+            log("Exception in ReadDance:" + e.getMessage());
+        }
+    }
+
+    private void RestoreMarks(){
+        String str;
+        for(int i=0;i<danceCount;++i)
+            try{
+                restore = false;
+                String check="t0" + Integer.toString(round) + ((judge_num < 10) ? "j0" : "j") + Integer.toString(judge_num) + "_" + gruppa[i + 5] + ".txt";
+                if(c.exists("/airdance/" + String.valueOf(nomination_num) + "/results",check)) {
+                    File sdFile = new File(sdPath, "tres.txt");
+                    c.setDFile(check);
+                    c.setDPath("/airdance/" + String.valueOf(nomination_num) + "/results");
+                    c.setFile(sdFile);
+                    c.setState(2);
+                    SynWait(4);
+                    BufferedReader br = new BufferedReader(new FileReader(sdFile));
+                    while ((str = br.readLine()) != null)
+                        for (Pair pair: allnums) {
+                            if((pair.name.equals(String.valueOf(Integer.valueOf(str.substring(1,4))))))
+                                pair.value[i]= Integer.valueOf(str.substring(0,1))-1;
+                        }
+                    br.close();
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+
+    }
+
+    private void FillTitlesStarter(int totalCount){
+        totalAmount=totalCount;
+        ((TextView)findViewById(R.id.desc_fam)).setText(String.format("%s. %s", Integer.toString(judge_num), t_judge));
+        ((TextView)findViewById(R.id.desc)).setText(String.format("1/%s %s", Integer.toString(pow(round)), t_nomination));
+        findViewById(R.id.desc2).setVisibility(View.INVISIBLE);
+        findViewById(R.id.desc3).setVisibility(View.INVISIBLE);
+        findViewById(R.id.desc4).setVisibility(View.INVISIBLE);
+        findViewById(R.id.counter).setVisibility(View.INVISIBLE);
+        ((TextView)findViewById(R.id.dance)).setText(Integer.toString(turnNumber+1));
+        for(int i=0;i<5;++i){
+            findViewById(R.id.button55+i).setVisibility(i < danceCount ? View.VISIBLE : View.INVISIBLE);
+        }
+        findViewById(R.id.button54).setEnabled(false);
+        findViewById(R.id.button60).setEnabled(danceCount>5);
+    }
+
+    private void FillPairsStarter(){
+        log("Fill pairs{dance:"+danceNumber+";turn:"+turnNumber+";Ymarks:"+posCounters+";Declined:"+declined+";}");
+        findViewById(R.id.button54).setEnabled(!(tek == strt));
+        findViewById(R.id.button60).setEnabled(!(tek >= end));
+        int j=0;
+        for(int i=0;i<allnums.size();++i)
+            if(allnums.get(i).turn==turnNumber){
+                ((Button)findViewById(startButton + j)).setText(allnums.get(i).name);
+                if(allnums.get(i).value[danceNumber]==0)findViewById(startButton + j).setBackgroundResource(android.R.color.background_light);
+                else if(allnums.get(i).value[danceNumber]==2)findViewById(startButton + j).setBackgroundResource(R.color.tvYes);
+                else if(allnums.get(i).value[danceNumber]==1)findViewById(startButton + j).setBackgroundResource(R.color.tvMb);
+                findViewById(startButton+j).setVisibility(View.VISIBLE);
+                j++;
+            }
+        for(;j<size;++j)
+            findViewById(startButton+j).setVisibility(View.INVISIBLE);
+        ((TextView)findViewById(R.id.counter)).setText(Integer.toString(posCounters));
+        findViewById(R.id.nf_send).setEnabled(danceNumber==danceCount-1);
+        for(int i=0;i<5;++i){
+            ((Button) findViewById(R.id.button55 + i)).setText(gruppa[i+4+tek]);
+            if(tek+i-1==danceNumber)
+                findViewById(R.id.button55 + i).setBackgroundResource(android.R.color.darker_gray);
+            else
+                findViewById(R.id.button55 + i).setBackgroundResource(android.R.color.background_light);
+        }
+    }
+
+    private void CreateEventsStarter(){
+        for(int i=0;i<5;++i) {
+            Button bck = (Button) findViewById(R.id.button55+i);
+            bck.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    for(int i=0;i<5;++i)
+                        if(v==findViewById(R.id.button55+i))
+                            danceNumber = Integer.valueOf(tek+i-1);
+                    log("Turn setted to "+danceNumber);
+                    WriteBackup();
+                    SendInfo();
+                    SendStarter();
+                    FillPairsStarter();
+                    SendLock(false);
+                }
+            });
+        }
+        Button bck = (Button) findViewById(R.id.nf_exit);
+        bck.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                log("X pressed");
+                Button bck1 = (Button) findViewById(R.id.nf_y);
+                bck1.setVisibility(View.VISIBLE);
+                findViewById(R.id.nf_n).setVisibility(View.VISIBLE);
+                findViewById(R.id.nf_tb).setVisibility(View.GONE);
+                bck1.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        log("ok pressed");
+                        state = 0;
+                        setContentView(R.layout.activity_main);
+                        SendStarter();
+                        WriteBackup();
+                        c.setDeletefiles("/airdance/" + String.valueOf(nomination_num) + "/judges", ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + ".lock");
+                        c.setState(6);
+                        SynWait(1);
+                        recurseMain();
+                    }
+                });
+            }
+        });
+        bck = (Button) findViewById(R.id.nf_n);
+        bck.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                log("cancel pressed");
+                (findViewById(R.id.nf_y)).setVisibility(View.INVISIBLE);
+                (findViewById(R.id.nf_n)).setVisibility(View.INVISIBLE);
+                (findViewById(R.id.nf_tb)).setVisibility(View.VISIBLE);
+                findViewById(R.id.nf_send).setEnabled(posCounters == yMarks);
+            }
+        });
+        bck = (Button) findViewById(R.id.button60);
+        bck.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                tek = tek + 5;
+                //if(tek>end)tek=end;
+                danceNumber = tek - 1;
+                log("Turn setted to "+danceNumber);
+                for (int i = 0; i < 5; ++i) {
+                    ((Button) findViewById(R.id.button55 + i)).setText(Integer.toString(tek + i));
+                    if (tek + i > danceCount)
+                        findViewById(R.id.button55 + i).setVisibility(View.INVISIBLE);
+                    else findViewById(R.id.button55 + i).setVisibility(View.VISIBLE);
+                }
+                FillPairsStarter();
+            }
+        });
+        bck = (Button) findViewById(R.id.button54);
+        bck.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                tek = tek - 5;
+                danceNumber = tek + 3;
+                log("Turn setted to " + danceNumber);
+                for (int i = 0; i < 5; ++i) {
+                    ((Button) findViewById(R.id.button55 + i)).setText(pairsNum.get(tek + i)[0]);
+                    if (tek + i > danceCount)
+                        findViewById(R.id.button55 + i).setVisibility(View.INVISIBLE);
+                    else findViewById(R.id.button55 + i).setVisibility(View.VISIBLE);
+                }
+                FillPairsStarter();
+            }
+        });
+        for(int i=0;i<size;++i){
+            findViewById(startButton+i).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    log("Button clicked");
+                    yMarks++;
+                    for(int i=0;i<allnums.size();++i)
+                        if(allnums.get(i).name.equals(((Button)v).getText()))
+                            allnums.get(i).value[danceNumber]=(allnums.get(i).value[danceNumber]+2)%3;
+                    FillPairsStarter();
+                    if(danceCount==1)SendStarter();
+                }
+            });
+        }
+        bck = (Button) findViewById(R.id.nf_send);
+        bck.setOnClickListener(null);
+        bck.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                log("Send clicked on " + danceNumber + "/" + danceCount + " dance");
+                v.setEnabled(false);
+                Button bck1 = (Button) findViewById(R.id.nf_y);
+                bck1.setVisibility(View.VISIBLE);
+                findViewById(R.id.nf_n).setVisibility(View.VISIBLE);
+                findViewById(R.id.nf_tb).setVisibility(View.GONE);
+                bck1.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        log("Ok pressed");
+                        v.setVisibility(View.INVISIBLE);
+                        findViewById(R.id.nf_n).setVisibility(View.INVISIBLE);
+                        (findViewById(R.id.nf_tb)).setVisibility(View.VISIBLE);
+                        if (yMarks==0) return;
+                        SendStarter();
+                        turnNumber++;
+                        if (turnNumber < turnCount) {
+                            danceNumber=0;
+                            log("Next turn is " + turnNumber);
+                            WriteBackup();
+                            SendInfo();
+                            if(totals.get(danceNumber)>19) {
+                                setContentView(R.layout.prom);
+                                nfLayout=R.layout.prom;
+                                size = 25;
+                                startButton=R.id.button;
+                            }
+                            else {
+                                setContentView(R.layout.prom16);
+                                nfLayout=R.layout.prom16;
+                                size=20;
+                                startButton=R.id.button61;
+                            }
+                            FillTitlesStarter(0);
+                            FillPairsStarter();
+                            CreateEventsStarter();
+                        } else {
+                            c.setDeletefiles("/airdance/" + String.valueOf(nomination_num) + "/judges", ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + ".lock");
+                            c.setState(6);
+                            SynWait(1);
+                            SendLock(true);
+                            state = 0;
+                            setContentView(R.layout.activity_main);
+                            recurseMain();
+                        }
+                    }
+                });
+            }
+        });
+        bck = (Button) findViewById(R.id.nf_add);
+        bck.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                return;
+            }
+        });
+    }
+
+    private void SendStarter(){
+        try{
+            for(int dnc=0;dnc<danceCount;++dnc) {
+                String name = "t" + ((round <= 9) ? "0" : "") + Integer.toString(round) + "j" + ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + "_" + (gruppa[dnc+5]) + ".txt";
+                File f = new File(nomPath + "/results", name);
+                BufferedWriter bw = new BufferedWriter(new FileWriter(f));
+                for (int i = 0; i < allnums.size(); ++i) {
+                    String val=allnums.get(i).name;
+                    while(val.length()<3)val="0"+val;
+                    bw.write(String.format("%s%s", allnums.get(i).value[dnc] + 1, val));
+                    bw.write(13);
+                    bw.write(10);
+                }
+                bw.close();
+                if (!lostconncetion) {
+                    c.setFile(f);
+                    c.setUFile(name);
+                    c.setUPath("/airdance/" + String.valueOf(nomination_num) + "/results");
+                    c.setState(3);
+                    lostconncetion = SynWait(0.5);
+                }
+                if (lostconncetion)
+                    c.addreupload(f, "/airdance/" + String.valueOf(nomination_num) + "/results/" + name);
+            }
+        }catch (Exception e){
+            log("Exception in Send:"+e.getMessage());
+            e.printStackTrace();}
+    }
+
     private void CreateJudgeListeners() {
         findViewById(R.id.sa_no).setVisibility(View.GONE);
         findViewById(R.id.sa_yes).setVisibility(View.GONE);
@@ -470,101 +785,240 @@ public class MainActivity extends Activity {
         });
         ((TextView)findViewById(R.id.jnom)).setText(t_nomination.length() > 27 ? t_nomination.substring(0, 27) : t_nomination);
         Button judgeOk = (Button) findViewById(R.id.next);
-        judgeOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (t_judge == null) return;
-                c.strs.clear();
-                c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/judges/*.lock");
-                c.setState(9);
-                lostconncetion = SynWait(2);
-                String tour = (round< 10 ? "0" : "") + round;
-                c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/results/t" + tour + "*.lock");
-                c.setState(9);
-                lostconncetion = SynWait(2);
-                if (exists(judge_num)) {
-                    return;
-                }
-                        if (!paroled) {
-                            Button bck1 = (Button) findViewById(R.id.sa_yes);
-                            findViewById(R.id.sa_2).setVisibility(View.GONE);
-                            bck1.setVisibility(View.VISIBLE);
-                            findViewById(R.id.desc).setVisibility(View.VISIBLE);
-                            findViewById(R.id.sa_3).setVisibility(View.VISIBLE);
-                            ((TextView) findViewById(R.id.desc)).setText(String.format(getResources().getString(R.string.r_u),t_judge));
-                            findViewById(R.id.sa_no).setVisibility(View.VISIBLE);
-                            findViewById(R.id.sa_no).setOnClickListener(new View.OnClickListener() {
-                                public void onClick(View v) {
-                                    findViewById(R.id.sa_no).setVisibility(View.GONE);
-                                    findViewById(R.id.sa_yes).setVisibility(View.GONE);
-                                    findViewById(R.id.desc).setVisibility(View.GONE);
-                                    findViewById(R.id.sa_3).setVisibility(View.GONE);
-                                    findViewById(R.id.sa_2).setVisibility(View.VISIBLE);
-                                    findViewById(R.id.sa_1).setVisibility(View.VISIBLE);
-                                }
-                            });
-                            findViewById(R.id.sa_1).setVisibility(View.GONE);
-                            bck1.setOnClickListener(new View.OnClickListener() {
-                                public void onClick(View v) {
-                            danceNumber = 1;
-                            restore = CheckJudge();
-                            SendLock(false);
-                            if (round != 1) {
-                                ReadDance();
-                            } else {
-                                setContentView(R.layout.fin);
-                                state = 4;
-                                ReadDanceF();
-                                SendInfo();
-                                CreateEventsF();
+        if(!starter)
+            judgeOk.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (t_judge == null) return;
+                    c.strs.clear();
+                    c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/judges/*.lock");
+                    c.setState(9);
+                    lostconncetion = SynWait(2);
+                    String tour = (round < 10 ? "0" : "") + round;
+                    c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/results/t" + tour + "*.lock");
+                    c.setState(9);
+                    lostconncetion = SynWait(2);
+                    if (exists(judge_num)) {
+                        return;
+                    }
+                    if (!paroled) {
+                        Button bck1 = (Button) findViewById(R.id.sa_yes);
+                        findViewById(R.id.sa_2).setVisibility(View.GONE);
+                        bck1.setVisibility(View.VISIBLE);
+                        findViewById(R.id.desc).setVisibility(View.VISIBLE);
+                        findViewById(R.id.sa_3).setVisibility(View.VISIBLE);
+                        ((TextView) findViewById(R.id.desc)).setText(String.format(getResources().getString(R.string.r_u), t_judge));
+                        findViewById(R.id.sa_no).setVisibility(View.VISIBLE);
+                        findViewById(R.id.sa_no).setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                findViewById(R.id.sa_no).setVisibility(View.GONE);
+                                findViewById(R.id.sa_yes).setVisibility(View.GONE);
+                                findViewById(R.id.desc).setVisibility(View.GONE);
+                                findViewById(R.id.sa_3).setVisibility(View.GONE);
+                                findViewById(R.id.sa_2).setVisibility(View.VISIBLE);
+                                findViewById(R.id.sa_1).setVisibility(View.VISIBLE);
                             }
+                        });
+                        findViewById(R.id.sa_1).setVisibility(View.GONE);
+                        bck1.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                c.strs.clear();
+                                c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/judges/*.lock");
+                                c.setState(9);
+                                lostconncetion = SynWait(2);
+                                String tour = (round < 10 ? "0" : "") + round;
+                                c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/results/t" + tour + "*.lock");
+                                c.setState(9);
+                                lostconncetion = SynWait(2);
+                                if (exists(judge_num)) {
+                                    setContentView(R.layout.second_activ);
+                                    state = 1;
+                                    CreateJudgeListeners();
+                                    return;
                                 }
-                            });
-                        } else {
-                            setContentView(R.layout.keyboard);
-                            t_key = "";
-                            ((EditText) findViewById(R.id.txt)).setText(t_key);
-                            mask = 4;
-                            auto = true;
-                            CreateKeyBoard();
-                            Button bck = (Button) findViewById(R.id.bo);
-                            bck.setOnClickListener(new View.OnClickListener() {
-                                public void onClick(View v) {
-                                    if ((t_parol[judge_num-1].equals(t_key)) || (t_key.equals("2222"))) {
-                                        danceNumber = 1;
-                                        restore = CheckJudge();
-                                        SendLock(false);
-                                        if (round != 1) {
-                                            ReadDance();
-                                        } else {
-                                            setContentView(R.layout.fin);
-                                            state = 4;
-                                            ReadDanceF();
-                                            SendInfo();
-                                            CreateEventsF();
-                                        }
-                                    } else if (t_key.equals(""))
-                                        ((EditText) findViewById(R.id.txt)).setText(t_key);
-                                    else {
-                                        ((EditText) findViewById(R.id.txt)).setText(getResources().getString(R.string.wrongkey));
-                                        t_key = "";
-                                    }
+                                danceNumber = 1;
+                                restore = CheckJudge();
+                                SendLock(false);
+                                if (round != 1) {
+                                    ReadDance();
+                                } else {
+                                    setContentView(R.layout.fin);
+                                    state = 4;
+                                    ReadDanceF();
+                                    SendInfo();
+                                    CreateEventsF();
                                 }
-                            });
-                            bck = (Button) findViewById(R.id.key_back);
-                            bck.setOnClickListener(new View.OnClickListener() {
-                                public void onClick(View v) {
-                                    if ((nomination_num > 0) && (t_nomination.length() > 2)) {
+                            }
+                        });
+                    } else {
+                        setContentView(R.layout.keyboard);
+                        t_key = "";
+                        ((EditText) findViewById(R.id.txt)).setText(t_key);
+                        mask = 4;
+                        auto = true;
+                        CreateKeyBoard();
+                        Button bck = (Button) findViewById(R.id.bo);
+                        bck.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                if ((t_parol[judge_num - 1].equals(t_key)) || (t_key.equals("2222"))) {
+                                    c.strs.clear();
+                                    c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/judges/*.lock");
+                                    c.setState(9);
+                                    lostconncetion = SynWait(2);
+                                    String tour = (round < 10 ? "0" : "") + round;
+                                    c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/results/t" + tour + "*.lock");
+                                    c.setState(9);
+                                    lostconncetion = SynWait(2);
+                                    if (exists(judge_num)) {
                                         setContentView(R.layout.second_activ);
                                         state = 1;
                                         CreateJudgeListeners();
+                                        return;
                                     }
+                                    danceNumber = 1;
+                                    restore = CheckJudge();
+                                    SendLock(false);
+                                    if (round != 1) {
+                                        ReadDance();
+                                    } else {
+                                        setContentView(R.layout.fin);
+                                        state = 4;
+                                        ReadDanceF();
+                                        SendInfo();
+                                        CreateEventsF();
+                                    }
+                                } else if (t_key.equals(""))
+                                    ((EditText) findViewById(R.id.txt)).setText(t_key);
+                                else {
+                                    ((EditText) findViewById(R.id.txt)).setText(getResources().getString(R.string.wrongkey));
+                                    t_key = "";
                                 }
-                            });
-                        }
+                            }
+                        });
+                        bck = (Button) findViewById(R.id.key_back);
+                        bck.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                if ((nomination_num > 0) && (t_nomination.length() > 2)) {
+                                    setContentView(R.layout.second_activ);
+                                    state = 1;
+                                    CreateJudgeListeners();
+                                }
+                            }
+                        });
+                    }
 
-            }
-        });
+                }
+            });
+        else
+            judgeOk.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (t_judge == null) return;
+                    c.strs.clear();
+                    c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/judges/*.lock");
+                    c.setState(9);
+                    lostconncetion = SynWait(2);
+                    String tour = (round< 10 ? "0" : "") + round;
+                    c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/results/t" + tour + "*.lock");
+                    c.setState(9);
+                    lostconncetion = SynWait(2);
+                    if (exists(judge_num)) {
+                        return;
+                    }
+                    if (!paroled) {
+                        Button bck1 = (Button) findViewById(R.id.sa_yes);
+                        findViewById(R.id.sa_2).setVisibility(View.GONE);
+                        bck1.setVisibility(View.VISIBLE);
+                        findViewById(R.id.desc).setVisibility(View.VISIBLE);
+                        findViewById(R.id.sa_3).setVisibility(View.VISIBLE);
+                        ((TextView) findViewById(R.id.desc)).setText(String.format(getResources().getString(R.string.r_u),t_judge));
+                        findViewById(R.id.sa_no).setVisibility(View.VISIBLE);
+                        findViewById(R.id.sa_no).setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                findViewById(R.id.sa_no).setVisibility(View.GONE);
+                                findViewById(R.id.sa_yes).setVisibility(View.GONE);
+                                findViewById(R.id.desc).setVisibility(View.GONE);
+                                findViewById(R.id.sa_3).setVisibility(View.GONE);
+                                findViewById(R.id.sa_2).setVisibility(View.VISIBLE);
+                                findViewById(R.id.sa_1).setVisibility(View.VISIBLE);
+                            }
+                        });
+                        findViewById(R.id.sa_1).setVisibility(View.GONE);
+                        bck1.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                c.strs.clear();
+                                c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/judges/*.lock");
+                                c.setState(9);
+                                lostconncetion = SynWait(2);
+                                String tour = (round < 10 ? "0" : "") + round;
+                                c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/results/t" + tour + "*.lock");
+                                c.setState(9);
+                                lostconncetion = SynWait(2);
+                                if (exists(judge_num)) {
+                                    setContentView(R.layout.second_activ);
+                                    state = 1;
+                                    CreateJudgeListeners();
+                                    return;
+                                }
+                                turnNumber = 0;
+                                danceNumber=0;
+                                restore = CheckJudge();
+                                SendLock(false);
+                                ReadAll();
+                            }
+                        });
+                    } else {
+                        setContentView(R.layout.keyboard);
+                        t_key = "";
+                        ((EditText) findViewById(R.id.txt)).setText(t_key);
+                        mask = 4;
+                        auto = true;
+                        CreateKeyBoard();
+                        Button bck = (Button) findViewById(R.id.bo);
+                        bck.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                if ((t_parol[judge_num-1].equals(t_key)) || (t_key.equals("2222"))) {
+                                    c.strs.clear();
+                                    c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/judges/*.lock");
+                                    c.setState(9);
+                                    lostconncetion = SynWait(2);
+                                    String tour = (round < 10 ? "0" : "") + round;
+                                    c.setCPath("/airdance/" + String.valueOf(nomination_num) + "/results/t" + tour + "*.lock");
+                                    c.setState(9);
+                                    lostconncetion = SynWait(2);
+                                    if (exists(judge_num)) {
+                                        setContentView(R.layout.second_activ);
+                                        state = 1;
+                                        CreateJudgeListeners();
+                                        return;
+                                    }
+                                    turnNumber = 0;
+                                    danceNumber=0;
+                                    restore = CheckJudge();
+                                    SendLock(false);
+                                    ReadAll();
+                                } else if (t_key.equals(""))
+                                    ((EditText) findViewById(R.id.txt)).setText(t_key);
+                                else {
+                                    ((EditText) findViewById(R.id.txt)).setText(getResources().getString(R.string.wrongkey));
+                                    t_key = "";
+                                }
+                            }
+                        });
+                        bck = (Button) findViewById(R.id.key_back);
+                        bck.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                if ((nomination_num > 0) && (t_nomination.length() > 2)) {
+                                    setContentView(R.layout.second_activ);
+                                    state = 1;
+                                    CreateJudgeListeners();
+                                }
+                            }
+                        });
+                    }
+
+                }
+            });
         Button bck = (Button) findViewById(R.id.back);
         bck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -659,9 +1113,13 @@ public class MainActivity extends Activity {
                 if(lostconncetion)return;
             }
             for(int j=5;j<gruppa.length;++j)gruppa[j]=gruppa[j].substring(1,gruppa[j].length()-1);
+
+            starter=c.exists("/airdance/"+String.valueOf(nomination_num),"nn.txt");
+
             isSha=false;
             if(!c.exists("/airdance/"+String.valueOf(nomination_num),"sha1.txt"))
                 return;
+            
             isSha=true;
             sdFile = new File(sdPath, "tsha1.txt");
             c.setDFile("sha1.txt");
@@ -1455,7 +1913,7 @@ public class MainActivity extends Activity {
             return true;}
     }
 
-    private boolean SynWait(float sec){
+    private boolean SynWait(double sec){
         int count=(int)(sec*50);
         try{
             while(!c.Done()&&(count!=0)) {
