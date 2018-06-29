@@ -25,27 +25,14 @@ import android.widget.TextView;
 import android.view.Window;
 import android.view.WindowManager;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import org.apache.commons.net.ftp.*;
-
+import java.util.*;
 import java.net.*;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.Locale;
-import java.util.Stack;
+
+import org.apache.commons.net.ftp.*;
 
 
 public class MainActivity extends Activity {
@@ -88,7 +75,6 @@ public class MainActivity extends Activity {
     BufferedWriter bWriter,logWriter;
     Connecter c=new Connecter();
     boolean restore,lang,newinit,starter;
-    Thread th=null;
 
     class Pair{
         public int[] value;
@@ -381,8 +367,8 @@ public class MainActivity extends Activity {
         TextView charge = (TextView) findViewById(R.id.charge);
         if(charge!=null) {
             charge.setText(String.format("%d%%", battery_lvl));
-            if(battery_lvl>60)charge.setBackgroundResource(R.color.tvYes);
-            else if(battery_lvl>30)charge.setBackgroundResource(R.color.tvMb);
+            if(battery_lvl>29)charge.setBackgroundResource(R.color.tvYes);
+            else if(battery_lvl>19)charge.setBackgroundResource(R.color.tvMb);
             else charge.setBackgroundResource(R.color.tvRed);
         }
         log("Main menu created");
@@ -499,8 +485,9 @@ public class MainActivity extends Activity {
             end = danceCount - 4;
             if (end <= 0) end = 1;
             tek = 1;
+            if(danceNumber!=0)danceNumber--;
             RestoreMarks();
-            SendInfo();
+            SendInfo(true);
             FillTitlesStarter(0);
             FillPairsStarter();
         } catch (Exception e) {
@@ -590,7 +577,7 @@ public class MainActivity extends Activity {
                             danceNumber = Integer.valueOf(tek+i-1);
                     log("Turn setted to "+danceNumber);
                     WriteBackup();
-                    SendInfo();
+                    SendInfo(false);
                     SendStarter();
                     FillPairsStarter();
                     SendLock(false);
@@ -653,7 +640,7 @@ public class MainActivity extends Activity {
                 danceNumber = tek + 3;
                 log("Turn setted to " + danceNumber);
                 for (int i = 0; i < 5; ++i) {
-                    ((Button) findViewById(R.id.button55 + i)).setText(pairsNum.get(tek + i)[0]);
+                    ((Button) findViewById(R.id.button55 + i)).setText(Integer.toString(tek + i));
                     if (tek + i > danceCount)
                         findViewById(R.id.button55 + i).setVisibility(View.INVISIBLE);
                     else findViewById(R.id.button55 + i).setVisibility(View.VISIBLE);
@@ -698,7 +685,7 @@ public class MainActivity extends Activity {
                             danceNumber=0;
                             log("Next turn is " + turnNumber);
                             WriteBackup();
-                            SendInfo();
+                            SendInfo(false);
                             if(totals.get(danceNumber)>19) {
                                 setContentView(R.layout.prom);
                                 nfLayout=R.layout.prom;
@@ -860,6 +847,8 @@ public class MainActivity extends Activity {
                                 }
                                 danceNumber = 1;
                                 restore = CheckJudge();
+                                if(!restore)return;
+
                                 SendLock(false);
                                 if (round != 1) {
                                     ReadDance();
@@ -867,7 +856,7 @@ public class MainActivity extends Activity {
                                     setContentView(R.layout.fin);
                                     state = 4;
                                     ReadDanceF();
-                                    SendInfo();
+                                    SendInfo(false);
                                     CreateEventsF();
                                 }
                             }
@@ -899,6 +888,15 @@ public class MainActivity extends Activity {
                                     }
                                     danceNumber = 1;
                                     restore = CheckJudge();
+                                    restore = CheckJudge();
+                                    if(!restore)
+                                        if ((nomination_num > 0) && (t_nomination.length() > 2)) {
+                                            setContentView(R.layout.second_activ);
+                                            state = 1;
+                                            CreateJudgeListeners();
+                                            return;
+                                        }
+
                                     SendLock(false);
                                     if (round != 1) {
                                         ReadDance();
@@ -906,7 +904,7 @@ public class MainActivity extends Activity {
                                         setContentView(R.layout.fin);
                                         state = 4;
                                         ReadDanceF();
-                                        SendInfo();
+                                        SendInfo(false);
                                         CreateEventsF();
                                     }
                                 } else if (t_key.equals(""))
@@ -985,6 +983,9 @@ public class MainActivity extends Activity {
                                 turnNumber = 0;
                                 danceNumber=0;
                                 restore = CheckJudge();
+                                restore = CheckJudge();
+                                if(!restore)return;
+
                                 SendLock(false);
                                 ReadAll();
                             }
@@ -1017,6 +1018,15 @@ public class MainActivity extends Activity {
                                     turnNumber = 0;
                                     danceNumber=0;
                                     restore = CheckJudge();
+                                    restore = CheckJudge();
+                                    if(!restore)
+                                        if ((nomination_num > 0) && (t_nomination.length() > 2)) {
+                                            setContentView(R.layout.second_activ);
+                                            state = 1;
+                                            CreateJudgeListeners();
+                                            return;
+                                        }
+
                                     SendLock(false);
                                     ReadAll();
                                 } else if (t_key.equals(""))
@@ -1190,6 +1200,8 @@ public class MainActivity extends Activity {
             if(end<=0)end=1;
             tek=1;
             declined=0;
+            if(restore)
+                restore=CheckJudge();
             if(restore){
                 try{
                     restore = false;
@@ -1227,7 +1239,7 @@ public class MainActivity extends Activity {
             CreateEventsNF();
             state = 3;
             SetRed();
-            SendInfo();
+            SendInfo(true);
             FillTitles(totalCount);
             FillPairs();
         } catch (Exception e) {
@@ -1237,6 +1249,7 @@ public class MainActivity extends Activity {
     }
 
     private boolean setPair(String pairnum){
+        if(pairnum.equals("0")|| pairnum.length()==0)return false;
         boolean q=false;
         for(int i=0;i<pairsNum.size();++i)
             for(int j=1;j<pairsNum.get(i).length;++j)
@@ -1264,6 +1277,7 @@ public class MainActivity extends Activity {
         }
         findViewById(R.id.button54).setEnabled(false);
         findViewById(R.id.button60).setEnabled(turnNumber>5);
+        findViewById(R.id.imageView).setVisibility(View.GONE);
     }
 
     private boolean Questioned(int turn){
@@ -1336,7 +1350,7 @@ public class MainActivity extends Activity {
                     turnNumber = Integer.valueOf((String)(((Button)v).getText()))-1;
                     log("Turn setted to "+turnNumber);
                     WriteBackup();
-                    SendInfo();
+                    SendInfo(false);
                     Send();
                     FillPairs();
                     SendLock(false);
@@ -1389,7 +1403,7 @@ public class MainActivity extends Activity {
                         findViewById(R.id.button55 + i).setVisibility(View.INVISIBLE);
                     else findViewById(R.id.button55 + i).setVisibility(View.VISIBLE);
                 }
-                SendInfo();
+                SendInfo(false);
                 Send();
                 FillPairs();
                 SendLock(false);
@@ -1407,7 +1421,7 @@ public class MainActivity extends Activity {
                         findViewById(R.id.button55 + i).setVisibility(View.INVISIBLE);
                     else findViewById(R.id.button55 + i).setVisibility(View.VISIBLE);
                 }
-                SendInfo();
+                SendInfo(false);
                 Send();
                 FillPairs();
                 SendLock(false);
@@ -1478,7 +1492,7 @@ public class MainActivity extends Activity {
                             FillTitles(n);
                             FillPairs();
                             WriteBackup();
-                            SendInfo();
+                            SendInfo(false);
                         } else {
                             c.setDeletefiles("/airdance/" + String.valueOf(nomination_num) + "/judges", ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + ".lock");
                             c.setState(6);
@@ -1520,7 +1534,7 @@ public class MainActivity extends Activity {
                 bck.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         boolean q = setPair(t_key);
-                        if (!q) {
+                        if (!q && addPairs.indexOf(t_key)==-1 && t_key.length()>0 && !t_key.equals("0")) {
                             addPairs.add(t_key);
                             yMarksDone++;
                         }
@@ -1601,7 +1615,7 @@ public class MainActivity extends Activity {
             File f=new File(nomPath,name);
             BufferedWriter bw=new BufferedWriter(new FileWriter(f));
             if(last)bw.write("tour lock\n"+finsha);
-            else bw.write(getIp());
+            else bw.write(getIp(true));
             bw.close();
             if(!lostconncetion) {
                 c.setFile(f);
@@ -1616,12 +1630,13 @@ public class MainActivity extends Activity {
             e.printStackTrace();}
     }
 
-    private void SendInfo(){
+    private void SendInfo(boolean autoSend){
         try{
             String name=Integer.toString(round)+"_"+Integer.toString(judge_num) +".txt";
             File f=new File(nomPath,name);
             BufferedWriter bw=new BufferedWriter(new FileWriter(f));
-            bw.write(Integer.toString(danceNumber) + ":" + Integer.toString(turnNumber + 1));
+            int dn=starter?danceNumber+1:danceNumber;
+            bw.write(Integer.toString(dn) + ":" + Integer.toString(turnNumber + 1));
             bw.close();
             c.setFile(f);
             c.setUFile(name);
@@ -1629,18 +1644,26 @@ public class MainActivity extends Activity {
             c.setState(3);
             SynWait(1);
             if(lostconncetion)c.addreupload(f,"/airdance/" + String.valueOf(nomination_num) + "/judges/"+name);
-            name=((judge_num<=9) ? "0" : "") + Integer.toString(judge_num) + ".stat";
-            f=new File(sdPath,name);
-            bw=new BufferedWriter(new FileWriter(f));
-            bw.write(Integer.toString(battery_lvl));
-            bw.close();
-            if(!lostconncetion) {
-                c.setFile(f);
-                c.setUFile(name);
-                c.setState(3);
-                SynWait(1);
+            boolean predicate;
+            if(starter||round==1)
+                predicate=(danceNumber%2==judge_num%2) && turnNumber!=turnCount;
+                        else
+                predicate=(turnNumber%2==judge_num%2) && danceNumber!=danceCount;
+            if(predicate||autoSend) {
+                name = ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + ".stat";
+                f = new File(sdPath, name);
+                bw = new BufferedWriter(new FileWriter(f));
+                bw.write(Integer.toString(battery_lvl));
+                bw.close();
+                if (!lostconncetion) {
+                    c.setFile(f);
+                    c.setUFile(name);
+                    c.setState(3);
+                    SynWait(1);
+                }
+                if (lostconncetion)
+                    c.addreupload(f, "/airdance/" + String.valueOf(nomination_num) + "/judges/" + name);
             }
-            if(lostconncetion)c.addreupload(f,"/airdance/" + String.valueOf(nomination_num) + "/judges/"+name);
         }catch (Exception e){
             e.printStackTrace();}
     }
@@ -1765,6 +1788,10 @@ public class MainActivity extends Activity {
         (findViewById(R.id.f_y)).setVisibility(View.GONE);
         (findViewById(R.id.f_n)).setVisibility(View.GONE);
         (findViewById(R.id.f_ag)).setVisibility(View.GONE);
+
+        if(danceNumber!=1)
+            SendInfo(true);
+
         Button[][] mrks=new Button[9][9];
         for(int i=0;i<finAmount;++i)
             for(int j=0;j<finAmount;++j) {
@@ -1851,7 +1878,7 @@ public class MainActivity extends Activity {
                             ReadDanceF();
                             FillFinal();
                             WriteBackupF();
-                            SendInfo();
+                            SendInfo(false);
                         } else {
                             if (isSha) mainsha();
                             SendLock(true);
@@ -1919,9 +1946,6 @@ public class MainActivity extends Activity {
         ((TextView)findViewById(R.id.fcount)).setText(Integer.toString(yMarksDone));
         findViewById(R.id.f_send).setEnabled(yMarksDone == finAmount);
         findViewById(R.id.f_send).setBackgroundResource((yMarksDone == finAmount) ? R.color.tvYes : R.color.material_grey_300);
-        String logtest="";
-        for(int ij=0;ij<finAmount;++ij)
-            logtest+=Integer.toString(pairsState.get(0)[ij])+";";
 
     }
 
@@ -2164,15 +2188,8 @@ public class MainActivity extends Activity {
     }
 
     public void log(String s){
-            try {
-                if(debug) {
-                    BufferedWriter b = new BufferedWriter(new FileWriter(logger2, true));
-                    b.append(Calendar.getInstance().getTime() + "$");
-                    b.append(s);
-                    b.newLine();
-                    b.close();
-                }
-            }catch (Exception e){e.printStackTrace();}
+        if(debug)
+            new Thread(new LogThread(s,logger2)).start();
     }
 
     public void CreateLangListners(){
@@ -2245,7 +2262,7 @@ public class MainActivity extends Activity {
 
     public void DeleteAll(){
         DeleteTmp();
-        for(int nom=1;nom<100;++nom) {
+        for(int nom=1;nom<1000;++nom) {
             resPath = new File(path + "/" + nom + "/results");
             if (resPath.exists() && resPath.isDirectory()) {
                 for (File f : resPath.listFiles()) {
@@ -2327,7 +2344,7 @@ public class MainActivity extends Activity {
     }
 
     public void CreateLocker(final String filepath,final String filename){
-        (th=new Thread(new Runnable() {
+        (new Thread(new Runnable() {
             @Override
         public void run() {
                 File f=new File(sdPath,filename);
@@ -2341,21 +2358,21 @@ public class MainActivity extends Activity {
                     c.setState(3);
                     count++;
                     Thread.sleep(5000);
-                }catch (Exception e){}
+                }catch (Exception e){log(e.getMessage());}
             }
         })).start();
     }
 
     public void DisplayCharge(){
-        (th=new Thread(new Runnable() {
+        (new Thread(new Runnable() {
             Runnable settext=new Runnable() {
                 @Override
                 public void run() {
                     TextView charge = (TextView) findViewById(R.id.charge);
                     if(charge!=null) {
                         charge.setText(battery_lvl + "%");
-                        if(battery_lvl>60)charge.setBackgroundResource(R.color.tvYes);
-                        else if(battery_lvl>30)charge.setBackgroundResource(R.color.tvMb);
+                        if(battery_lvl>29)charge.setBackgroundResource(R.color.tvYes);
+                        else if(battery_lvl>19)charge.setBackgroundResource(R.color.tvMb);
                         else charge.setBackgroundResource(R.color.tvRed);
                     }
                 }
@@ -2367,14 +2384,14 @@ public class MainActivity extends Activity {
                         runOnUiThread(settext);
                         Thread.sleep(30000);
                         //c.setState(10);
-                    } catch (Exception e) {}
+                    } catch (Exception e) {log(e.getMessage());}
                     try {
                         URL url = new URL(c.host);
                         URLConnection con = url.openConnection();
                         con.setConnectTimeout(2000);
                         con.setReadTimeout(2000);
                         con.connect();
-                    } catch (Exception e) {}
+                    } catch (Exception e) {log(e.getMessage());}
                 }
             }
         })).start();
@@ -2387,7 +2404,7 @@ public class MainActivity extends Activity {
             BufferedReader br = new BufferedReader(new FileReader(settings));
             debug = Boolean.valueOf(br.readLine());
             br.close();
-        }catch(Exception e){}
+        }catch(Exception e){log(e.getMessage());}
     }
 
     public void SaveSettings(){
@@ -2397,23 +2414,34 @@ public class MainActivity extends Activity {
                 br.write(Boolean.toString(debug));
                 br.newLine();
                 br.close();
-            }catch(Exception e){}
+            }catch(Exception e){log(e.getMessage());}
     }
 
-    private String getIp(){
-        String ipAddress = null;
+    public static String getIp(boolean useIPv4) {
         try {
-            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
-                NetworkInterface intf = en.nextElement();
-                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
-                    InetAddress inetAddress = enumIpAddr.nextElement();
-                    if (!inetAddress.isLoopbackAddress()) {
-                        ipAddress = inetAddress.getHostAddress().toString();
+            List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
+            for (NetworkInterface intf : interfaces) {
+                List<InetAddress> addrs = Collections.list(intf.getInetAddresses());
+                for (InetAddress addr : addrs) {
+                    if (!addr.isLoopbackAddress()) {
+                        String sAddr = addr.getHostAddress();
+                        //boolean isIPv4 = InetAddressUtils.isIPv4Address(sAddr);
+                        boolean isIPv4 = sAddr.indexOf(':')<0;
+
+                        if (useIPv4) {
+                            if (isIPv4)
+                                return sAddr;
+                        } else {
+                            if (!isIPv4) {
+                                int delim = sAddr.indexOf('%'); // drop ip6 zone suffix
+                                return delim<0 ? sAddr.toUpperCase() : sAddr.substring(0, delim).toUpperCase();
+                            }
+                        }
                     }
                 }
             }
-        } catch (SocketException ex) {ipAddress= "0.0.0.0";}
-        return  ipAddress;
+        } catch (Exception ex) { } // for now eat exceptions
+        return "";
     }
 
 }
@@ -2422,7 +2450,7 @@ class Connecter implements Runnable{
     private int state=0;
     private InetAddress addr;
     private FTPClient ftp;
-    public String host,user,pass;
+    String host,user,pass;
     private String dfile,f;
     private String dpath,pth;
     private String ufile;
@@ -2434,19 +2462,19 @@ class Connecter implements Runnable{
     private boolean q,cl,ex;
     private BufferedWriter logger;
     private MainActivity mac;
-    public ArrayList<String> strs=new ArrayList<>();
-    public boolean Done(){return cl;}
-    public synchronized void setState(int st){state=st;(new Thread(this)).start();cl=false;}
+    ArrayList<String> strs=new ArrayList<>();
+    boolean Done(){return cl;}
+    synchronized void setState(int st){state=st;(new Thread(this)).start();cl=false;}
     public void setFile(File f){locfile=f;}
-    public void setLog(BufferedWriter f){logger=f;}
-    public void setDFile(String f){dfile=f;}
-    public void setDPath(String f){dpath=f;}
-    public void setUFile(String f){ufile=f;}
-    public void setUPath(String f){upath=f;}
-    public void setCPath(String f){pth=f;}
-    public void setGlobals(String h,String u, String p){host=h;user=u;pass=p;}
-    public void setDeletefiles(String dlpath,String dlname){deletefiles.push(dlpath+"/"+dlname);}
-    public boolean exists(String _pth,String _f)  {
+    void setLog(BufferedWriter f){logger=f;}
+    void setDFile(String f){dfile=f;}
+    void setDPath(String f){dpath=f;}
+    void setUFile(String f){ufile=f;}
+    void setUPath(String f){upath=f;}
+    void setCPath(String f){pth=f;}
+    void setGlobals(String h, String u, String p){host=h;user=u;pass=p;}
+    void setDeletefiles(String dlpath,String dlname){deletefiles.push(dlpath+"/"+dlname);}
+    boolean exists(String _pth,String _f)  {
         q=false;
         pth=_pth;
         f=_f;
@@ -2459,11 +2487,11 @@ class Connecter implements Runnable{
         catch (Exception e){mac.log("Exception when try to check file:"+e.getMessage());}
         return q;
     }
-    public void startReconnect(MainActivity ma){
+    void startReconnect(MainActivity ma){
         new Thread(new Reconnect(this,20,ma)).start();
         mac.log("Recconect thread started");
     }
-    public void addreupload(File f,String name){
+    void addreupload(File f,String name){
         int n=-1;
         for(int i=0;i<unames.size();++i){
             if(unames.get(i).equals(name))
@@ -2476,14 +2504,14 @@ class Connecter implements Runnable{
             unames.add(name);
         }
     }
-    public void init(MainActivity ma){
+    void init(MainActivity ma){
         mac=ma;
         try {
             addr = InetAddress.getByName(host);
         }catch (Exception e){mac.log("Init of connecter failed");}
     }
 
-    public void Connect(){
+    private void Connect(){
         try {
             try {
                 ftp.disconnect();
