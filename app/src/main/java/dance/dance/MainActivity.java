@@ -847,11 +847,11 @@ public class MainActivity extends Activity {
                                 }
                                 danceNumber = 1;
                                 restore = CheckJudge();
-                                if(!restore)return;
+//                                if(!restore)return;
 
                                 SendLock(false);
                                 if (round != 1) {
-                                    ReadDance();
+                                    tc=ReadDance();
                                 } else {
                                     setContentView(R.layout.fin);
                                     state = 4;
@@ -888,18 +888,18 @@ public class MainActivity extends Activity {
                                     }
                                     danceNumber = 1;
                                     restore = CheckJudge();
-                                    restore = CheckJudge();
-                                    if(!restore)
-                                        if ((nomination_num > 0) && (t_nomination.length() > 2)) {
-                                            setContentView(R.layout.second_activ);
-                                            state = 1;
-                                            CreateJudgeListeners();
-                                            return;
-                                        }
+//                                    restore = CheckJudge();
+//                                    if(!restore)
+//                                        if ((nomination_num > 0) && (t_nomination.length() > 2)) {
+//                                            setContentView(R.layout.second_activ);
+//                                            state = 1;
+//                                            CreateJudgeListeners();
+//                                            return;
+//                                        }
 
                                     SendLock(false);
                                     if (round != 1) {
-                                        ReadDance();
+                                        tc=ReadDance();
                                     } else {
                                         setContentView(R.layout.fin);
                                         state = 4;
@@ -984,7 +984,7 @@ public class MainActivity extends Activity {
                                 danceNumber=0;
                                 restore = CheckJudge();
                                 restore = CheckJudge();
-                                if(!restore)return;
+//                                if(!restore)return;
 
                                 SendLock(false);
                                 ReadAll();
@@ -1018,14 +1018,14 @@ public class MainActivity extends Activity {
                                     turnNumber = 0;
                                     danceNumber=0;
                                     restore = CheckJudge();
-                                    restore = CheckJudge();
-                                    if(!restore)
-                                        if ((nomination_num > 0) && (t_nomination.length() > 2)) {
-                                            setContentView(R.layout.second_activ);
-                                            state = 1;
-                                            CreateJudgeListeners();
-                                            return;
-                                        }
+//                                    restore = CheckJudge();
+//                                    if(!restore)
+//                                        if ((nomination_num > 0) && (t_nomination.length() > 2)) {
+//                                            setContentView(R.layout.second_activ);
+//                                            state = 1;
+//                                            CreateJudgeListeners();
+//                                            return;
+//                                        }
 
                                     SendLock(false);
                                     ReadAll();
@@ -1488,8 +1488,8 @@ public class MainActivity extends Activity {
                             danceNumber++;
                             checked=false;
                             log("Next dance is " + danceNumber);
-                            int n = ReadDance();
-                            FillTitles(n);
+                            tc = ReadDance();
+                            FillTitles(tc);
                             FillPairs();
                             WriteBackup();
                             SendInfo(false);
