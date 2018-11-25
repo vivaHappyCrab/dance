@@ -442,7 +442,7 @@ public class MainActivity extends Activity {
             if (v == x)
                 tmp = true;
         }
-        log(x+" file"+(tmp?"":" doesn't")+" exists");
+        log(x + " file" + (tmp ? "" : " doesn't") + " exists");
         return tmp;
     }
 
@@ -537,7 +537,7 @@ public class MainActivity extends Activity {
             findViewById(R.id.button55+i).setVisibility(i < danceCount ? View.VISIBLE : View.INVISIBLE);
         }
         findViewById(R.id.button54).setEnabled(false);
-        findViewById(R.id.button60).setEnabled(danceCount>5);
+        findViewById(R.id.button60).setEnabled(danceCount > 5);
     }
 
     private void FillPairsStarter(){
@@ -557,7 +557,7 @@ public class MainActivity extends Activity {
         for(;j<size;++j)
             findViewById(startButton+j).setVisibility(View.INVISIBLE);
         ((TextView)findViewById(R.id.counter)).setText(Integer.toString(posCounters));
-        findViewById(R.id.nf_send).setEnabled(danceNumber==danceCount-1);
+        findViewById(R.id.nf_send).setEnabled(danceNumber == danceCount - 1);
         for(int i=0;i<5;++i){
             ((Button) findViewById(R.id.button55 + i)).setText(gruppa[i+4+tek]);
             if(tek+i-1==danceNumber)
@@ -1993,9 +1993,19 @@ public class MainActivity extends Activity {
         Collections.sort(x);
         for(int i=0;i<x.size();++i)start+=Integer.toString(x.get(i));
         try {
-            sha.add(sha1(start));
+            String shaRes=sha1(start);
+            sha.add(shaRes);
+            String name = "t" + ((round <= 9) ? "0" : "") + Integer.toString(round) + "j" + ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + "_" + gruppa[danceNumber+4] + "sha.txt";
+            File file = new File(nomPath + "/results", name);
+            BufferedWriter bw=new BufferedWriter(new FileWriter(file));
+            bw.write(shaRes);
+            bw.flush();
+            bw.close();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
+        } catch (IOException ioe)
+        {
+            ioe.printStackTrace();
         }
     }
 
@@ -2004,9 +2014,19 @@ public class MainActivity extends Activity {
         for(int i=0;i<finAmount;++i)
             start+=pairsNum.get(0)[marksDone[i]];
         try {
-            sha.add(sha1(start));
+            String shaRes=sha1(start);
+            sha.add(shaRes);
+            String name = "t" + ((round <= 9) ? "0" : "") + Integer.toString(round) + "j" + ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + "_" + gruppa[danceNumber+4] + "sha.txt";
+            File file = new File(nomPath + "/results", name);
+            BufferedWriter bw=new BufferedWriter(new FileWriter(file));
+            bw.write(shaRes);
+            bw.flush();
+            bw.close();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
+        } catch (IOException ioe)
+        {
+            ioe.printStackTrace();
         }
     }
 
@@ -2018,6 +2038,25 @@ public class MainActivity extends Activity {
         while ((gruppa[max].length()>0)&&(max<gruppa.length))
             max++;
         shas=new byte[20*(max-min)];
+        if(sha.size()!=(max-min)){
+            sha.clear();
+            for (int dnc = 0; dnc < danceCount; dnc++){
+                String name = "t" + ((round <= 9) ? "0" : "") + Integer.toString(round) + "j" + ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + "_" + gruppa[dnc+5] + "sha.txt";
+                File file = new File(nomPath + "/results", name);
+                if(!file.exists())
+                    continue;
+                try {
+                    BufferedReader br = new BufferedReader(new FileReader(file));
+                    String danceSha=br.readLine();
+                    br.close();
+                    sha.add(danceSha);
+                }
+                catch (Exception ex){
+                    log(ex.getMessage());
+                    sha.add("0000000000000000000000000000000000000000");
+                }
+            }
+        }
         for(int t=0;t<max-min;++t) {
             s=-1;
             for (int i = min; i < max; ++i)
