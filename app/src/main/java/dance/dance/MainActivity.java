@@ -75,6 +75,7 @@ public class MainActivity extends Activity {
     BufferedWriter bWriter,logWriter;
     Connecter c=new Connecter();
     boolean restore,lang,newinit,starter;
+    String shaLog="";
 
     class Pair{
         public int[] value;
@@ -378,7 +379,9 @@ public class MainActivity extends Activity {
         try {
             log("Read Judges started");
             File sdFile = new File(sdPath, "tjudges.txt");
-            sdFile.delete();
+            Boolean result=sdFile.delete();
+            if(!result)
+                log("File wasn't deleted.");
             c.setDFile("judge.txt");
             c.setDPath("/airdance/" + String.valueOf(nomination_num));
             c.setFile(sdFile);
@@ -574,7 +577,7 @@ public class MainActivity extends Activity {
                 public void onClick(View v) {
                     for(int i=0;i<5;++i)
                         if(v==findViewById(R.id.button55+i))
-                            danceNumber = Integer.valueOf(tek+i-1);
+                            danceNumber = tek+i-1;
                     log("Turn setted to "+danceNumber);
                     WriteBackup();
                     SendInfo(false);
@@ -717,7 +720,6 @@ public class MainActivity extends Activity {
         bck = (Button) findViewById(R.id.nf_add);
         bck.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                return;
             }
         });
     }
@@ -1486,7 +1488,7 @@ public class MainActivity extends Activity {
                         Send();
                         if (danceNumber != danceCount) {
                             danceNumber++;
-                            checked=false;
+                            checked = false;
                             log("Next dance is " + danceNumber);
                             int n = ReadDance();
                             FillTitles(n);
@@ -1500,6 +1502,7 @@ public class MainActivity extends Activity {
                             if (isSha) mainsha();
                             SendLock(true);
                             if (isSha) {
+                                shaLog = "";
                                 setContentView(R.layout.sha1);
                                 ((TextView) findViewById(R.id.sha1)).setText(finsha);
                                 Button bck = (Button) findViewById(R.id.returnmain);
@@ -1534,7 +1537,7 @@ public class MainActivity extends Activity {
                 bck.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         boolean q = setPair(t_key);
-                        if (!q && addPairs.indexOf(t_key)==-1 && t_key.length()>0 && !t_key.equals("0")) {
+                        if (!q && addPairs.indexOf(t_key) == -1 && t_key.length() > 0 && !t_key.equals("0")) {
                             addPairs.add(t_key);
                             yMarksDone++;
                         }
@@ -1603,6 +1606,28 @@ public class MainActivity extends Activity {
             e.printStackTrace();}
     }
 
+    private void SendLog(){
+        try{
+            String name,path;
+            path="/airdance/" + String.valueOf(nomination_num) + "/signatures";
+            name="t"+((round<9)?"0":"")+Integer.toString(round)+"j"+((judge_num<=9)?"0":"")+Integer.toString(judge_num) +"_sha.txt";
+
+            File f=new File(nomPath,name);
+            BufferedWriter bw=new BufferedWriter(new FileWriter(f));
+            bw.write(shaLog);
+            bw.close();
+            if(!lostconncetion) {
+                c.setFile(f);
+                c.setUFile(name);
+                c.setUPath(path);
+                c.setState(3);
+                lostconncetion = SynWait(2);
+            }
+            if(lostconncetion)c.addreupload(f,path + "/"+name);
+        }catch (Exception e){
+            e.printStackTrace();}
+    }
+
     private void SendLock(boolean last){
         try{
             String name,path;
@@ -1614,7 +1639,10 @@ public class MainActivity extends Activity {
                 name=((judge_num<=9)?"0":"")+Integer.toString(judge_num) +".lock";}
             File f=new File(nomPath,name);
             BufferedWriter bw=new BufferedWriter(new FileWriter(f));
-            if(last)bw.write("tour lock\n"+finsha);
+            if(last)
+            {
+                bw.write("tour lock\n"+finsha);
+            }
             else bw.write(getIp(true));
             bw.close();
             if(!lostconncetion) {
@@ -1625,6 +1653,8 @@ public class MainActivity extends Activity {
                 lostconncetion = SynWait(2);
                 CreateLocker(path,name);
             }
+            if(last)
+                SendLog();
             if(lostconncetion)c.addreupload(f,path + "/"+name);
         }catch (Exception e){
             e.printStackTrace();}
@@ -1646,7 +1676,7 @@ public class MainActivity extends Activity {
             if(lostconncetion)c.addreupload(f,"/airdance/" + String.valueOf(nomination_num) + "/judges/"+name);
             boolean predicate;
             if(starter||round==1)
-                predicate=(danceNumber%2==judge_num%2) && turnNumber!=turnCount;
+                predicate=(danceNumber%2==judge_num%2) && !turnNumber.equals(turnCount);
                         else
                 predicate=(turnNumber%2==judge_num%2) && danceNumber!=danceCount;
             if(predicate||autoSend) {
@@ -1826,8 +1856,7 @@ public class MainActivity extends Activity {
                 bck1.setVisibility(View.VISIBLE);
                 findViewById(R.id.f_n).setVisibility(View.VISIBLE);
                 findViewById(R.id.f_ag).setVisibility(View.VISIBLE);
-                for (int i = 0; i < flines.length; ++i)
-                    findViewById(flines[i]).setVisibility(View.GONE);
+                for (int fline : flines) findViewById(fline).setVisibility(View.GONE);
                 bck1.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         v.setEnabled(false);
@@ -1849,8 +1878,7 @@ public class MainActivity extends Activity {
                 (findViewById(R.id.f_y)).setVisibility(View.GONE);
                 (findViewById(R.id.f_n)).setVisibility(View.GONE);
                 (findViewById(R.id.f_ag)).setVisibility(View.GONE);
-                for (int i = 0; i < flines.length; ++i)
-                    findViewById(flines[i]).setVisibility(View.VISIBLE);
+                for (int fline : flines) findViewById(fline).setVisibility(View.VISIBLE);
                 findViewById(R.id.f_send).setEnabled(yMarksDone == finAmount);
             }
         });
@@ -1862,8 +1890,7 @@ public class MainActivity extends Activity {
                 bck1.setVisibility(View.VISIBLE);
                 findViewById(R.id.f_n).setVisibility(View.VISIBLE);
                 findViewById(R.id.f_ag).setVisibility(View.VISIBLE);
-                for (int i = 0; i < flines.length; ++i)
-                    findViewById(flines[i]).setVisibility(View.GONE);
+                for (int fline : flines) findViewById(fline).setVisibility(View.GONE);
                 bck1.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         (findViewById(R.id.f_y)).setVisibility(View.GONE);
@@ -1983,68 +2010,76 @@ public class MainActivity extends Activity {
     }
 
     public void addsha(){
+        shaLog+="Sha started for tour "+Integer.toString(round)+" judge number "+ Integer.toString(judge_num)+"\r\n";
         String start= "";
         ArrayList<Integer> x=new ArrayList<>();
         for(int i=0;i<pairsState.size();++i)
             for(int j=0;j<25;++j)
                 if(pairsState.get(i)[j]==1) {
-                    x.add(Integer.valueOf(pairsNum.get(i)[j+1]));
+                    Integer intPairNum=Integer.valueOf(pairsNum.get(i)[j + 1]);
+                    if(intPairNum>0)
+                        x.add(intPairNum);
                 }
         Collections.sort(x);
         for(int i=0;i<x.size();++i)start+=Integer.toString(x.get(i));
         try {
             String shaRes=sha1(start);
             sha.add(shaRes);
+            shaLog+="New sha for dance "+Integer.toString(danceNumber)+":"+shaRes+"\r\n";
             String name = "t" + ((round <= 9) ? "0" : "") + Integer.toString(round) + "j" + ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + "_" + gruppa[danceNumber+4] + "sha.txt";
             File file = new File(nomPath + "/results", name);
             BufferedWriter bw=new BufferedWriter(new FileWriter(file));
             bw.write(shaRes);
             bw.flush();
             bw.close();
-        } catch (NoSuchAlgorithmException e) {
+            shaLog+="Sha written to file:"+name+"\r\n";
+        } catch (NoSuchAlgorithmException | IOException e) {
+            log("Exception in addsha:" + e.getMessage());
             e.printStackTrace();
-        } catch (IOException ioe)
-        {
-            ioe.printStackTrace();
         }
     }
 
     public void addshaF(){
+        shaLog+="Sha started for final tour "+Integer.toString(round)+" judge number "+ Integer.toString(judge_num)+"\r\n";
         String start= "";
         for(int i=0;i<finAmount;++i)
             start+=pairsNum.get(0)[marksDone[i]];
         try {
             String shaRes=sha1(start);
             sha.add(shaRes);
+            shaLog+="New sha for dance "+Integer.toString(danceNumber)+":"+shaRes+"\r\n";
             String name = "t" + ((round <= 9) ? "0" : "") + Integer.toString(round) + "j" + ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + "_" + gruppa[danceNumber+4] + "sha.txt";
             File file = new File(nomPath + "/results", name);
             BufferedWriter bw=new BufferedWriter(new FileWriter(file));
             bw.write(shaRes);
             bw.flush();
             bw.close();
-        } catch (NoSuchAlgorithmException e) {
+            shaLog+="Sha written to file:"+name+"\r\n";
+        } catch (NoSuchAlgorithmException | IOException e) {
+            log("Exception in addsha final:" + e.getMessage());
             e.printStackTrace();
-        } catch (IOException ioe)
-        {
-            ioe.printStackTrace();
         }
     }
 
     public void mainsha(){
-        int min=5;
-        int max=5;
         int val=0;
         int s;
-        while ((gruppa[max].length()>0)&&(max<gruppa.length))
-            max++;
-        shas=new byte[20*(max-min)];
-        if(sha.size()!=(max-min)){
+        shaLog+="Main sha started for tour "+Integer.toString(round)+" judge number "+ Integer.toString(judge_num)+"\r\n";
+
+        shas=new byte[20*danceCount];
+        if(sha.size()!=danceCount){
+            shaLog+="Some dances shas was not found in memory. Read from disk.\r\n";
             sha.clear();
             for (int dnc = 0; dnc < danceCount; dnc++){
                 String name = "t" + ((round <= 9) ? "0" : "") + Integer.toString(round) + "j" + ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + "_" + gruppa[dnc+5] + "sha.txt";
                 File file = new File(nomPath + "/results", name);
-                if(!file.exists())
+                if(!file.exists()) {
+                    shaLog+="File "+name+" was not found on disk.\r\n";
                     continue;
+                }
+                else {
+                    shaLog+="File "+name+" was found on disk.\r\n";
+                }
                 try {
                     BufferedReader br = new BufferedReader(new FileReader(file));
                     String danceSha=br.readLine();
@@ -2053,20 +2088,28 @@ public class MainActivity extends Activity {
                 }
                 catch (Exception ex){
                     log(ex.getMessage());
-                    sha.add("0000000000000000000000000000000000000000");
+                    shaLog+="Exception: "+ex.getMessage()+"\r\n";
+                    sha.add("1234000000000000000000000000000000000000");
                 }
             }
         }
-        for(int t=0;t<max-min;++t) {
+        else
+            shaLog+="All dances shas was found in memory.\r\n";
+
+        String tmpsha="";
+        for(int t=0;t<danceCount;++t) {
             s=-1;
-            for (int i = min; i < max; ++i)
-                if ((gruppa[i].equalsIgnoreCase(dord.get(val)))){s=i-min; break;}
+            for (int i = 5; i < 5+danceCount; ++i)
+                if ((gruppa[i].equalsIgnoreCase(dord.get(val)))){s=i-5; break;}
             if(s>=sha.size())continue;
             if(s<0)continue;
+            shaLog+=Integer.toString(val+1)+" dance to sha is "+gruppa[s+5]+" dance.\r\n";
             for(int j=0;j<20;++j)
                 addbytes(sha.get(s).charAt(2*j),sha.get(s).charAt(2*j+1),20*t+j);
             val++;
+            tmpsha+=sha.get(s);
         }
+        shaLog+="Resulted sha for encoding is "+tmpsha+"\r\n";
         try {
             MessageDigest mDigest = MessageDigest.getInstance("SHA1");
             byte[] result = mDigest.digest(shas);
@@ -2075,7 +2118,11 @@ public class MainActivity extends Activity {
                 sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
             String str=sb.toString().substring(sb.length()-4);
             finsha=Integer.toString(Integer.parseInt(str, 16) % 10000);
-        }catch (Exception e){log("Exception in mainsha:" + e.getMessage());}
+            shaLog+="Displayed sha is "+finsha+"\r\n";
+        }catch (Exception ex){
+            log("Exception in mainsha:" + ex.getMessage());
+            shaLog+="Exception: "+ex.getMessage()+"\r\n";
+        }
         sha.clear();
     }
 
@@ -2479,7 +2526,7 @@ public class MainActivity extends Activity {
                     }
                 }
             }
-        } catch (Exception ex) { } // for now eat exceptions
+        } catch (Exception ignored) { } // for now eat exceptions
         return "";
     }
 
@@ -2554,7 +2601,7 @@ class Connecter implements Runnable{
         try {
             try {
                 ftp.disconnect();
-            }catch(Exception e){}
+            }catch(Exception ignored){}
             ftp = new FTPClient();
             ftp.connect(addr);
             boolean sucs = ftp.login(user, pass);
@@ -2566,7 +2613,7 @@ class Connecter implements Runnable{
                     ftp.enterLocalPassiveMode();
             }
             if(sucs)run();
-        }catch (Exception e){}
+        }catch (Exception ignored){}
     }
     @Override
     public void run() {
@@ -2732,7 +2779,7 @@ class Connecter implements Runnable{
                         if(unames.size()>0) {
                             try {
                                 Thread.sleep(5000);
-                            }catch(Exception e){}
+                            }catch(Exception ignored){}
                             this.setState(8);
                         }
                         mac.log("Reuploading ends with " + errors + "errors");
@@ -2741,8 +2788,7 @@ class Connecter implements Runnable{
                     case 9: {
                         files = ftp.listFiles(pth);
                         mac.log(ftp.getReplyString());
-                        for(int i=0;i< files.length;++i)
-                            strs.add(files[i].getName());
+                        for (FTPFile file : files) strs.add(file.getName());
                         mac.log("Exist lock " + files.length + " files");
                         tstate = 0;
                         cl=true;
