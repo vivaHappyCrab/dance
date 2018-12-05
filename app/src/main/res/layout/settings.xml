@@ -119,13 +119,25 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/s_online"
+        android:textSize="26sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:longClickable="false"
+        android:minHeight="90dp" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:text="@string/clearing"
         android:id="@+id/s_clear"
         android:layout_gravity="center_horizontal"
         android:textSize="26sp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="225dp"
+        android:layout_marginTop="125dp"
         android:layout_marginBottom="5dp"
         android:minHeight="90dp" />
 

@@ -24,4 +24,5 @@
     <string name="Completed">Sending completed</string>
     <string name="CompletedRescue">Rescue completed</string>
     <string name="Turn">Heat:</string>
+    <string name="Online">Online Mode:</string>
 </resources>

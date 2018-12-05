@@ -11,6 +11,7 @@ import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +64,7 @@ public class MainActivity extends Activity {
     boolean lostconncetion=false;
     boolean debug=true;
     boolean checked=false;
+    boolean onlineMode=false;
     ArrayList<String[]> pairsNum=new ArrayList<>();
     ArrayList<Integer[]> pairsState=new ArrayList<>();
     ArrayList<String> addPairs=new ArrayList<>();
@@ -76,10 +78,11 @@ public class MainActivity extends Activity {
     Connecter c=new Connecter();
     boolean restore,lang,newinit,starter;
     String shaLog="";
+    String onlineAddress="http://192.168.1.2:54321";
 
     class Pair{
-        public int[] value;
-        public int turn=0;
+        int[] value;
+        int turn=0;
         public String name="";
         Pair(int _turn,String _name,int dnum){
             value=new int[dnum];
@@ -243,8 +246,9 @@ public class MainActivity extends Activity {
         DeleteTmp();
         ArrayAdapter<String> nominationCount = new ArrayAdapter<String>(this,R.layout.list, strs)
         {
+            @NonNull
             @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
+            public View getView(int position, View convertView, @NonNull ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
                 TextView text = (TextView) view.findViewById(android.R.id.text1);
                 text.setMaxLines(1);
@@ -1499,7 +1503,14 @@ public class MainActivity extends Activity {
                             c.setDeletefiles("/airdance/" + String.valueOf(nomination_num) + "/judges", ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + ".lock");
                             c.setState(6);
                             SynWait(1);
-                            if (isSha) mainsha();
+
+                            if (isSha)
+                                if(onlineMode) {
+                                    finsha="Calculating...";
+                                    GetSha();
+                                }
+                                else
+                                    mainsha();
                             SendLock(true);
                             if (isSha) {
                                 shaLog = "";
@@ -1907,7 +1918,13 @@ public class MainActivity extends Activity {
                             WriteBackupF();
                             SendInfo(false);
                         } else {
-                            if (isSha) mainsha();
+                            if (isSha)
+                                if(onlineMode) {
+                                    finsha="Calculating...";
+                                    GetSha();
+                                }
+                                else
+                                    mainsha();
                             SendLock(true);
                             c.setDeletefiles("/airdance/" + String.valueOf(nomination_num) + "/judges", ((judge_num <= 9) ? "0" : "") + Integer.toString(judge_num) + ".lock");
                             c.setState(6);
@@ -2059,6 +2076,41 @@ public class MainActivity extends Activity {
             log("Exception in addsha final:" + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    public void GetSha(){
+        (new Thread(new Runnable() {
+            Runnable setSha=new Runnable() {
+                @Override
+                public void run() {
+                    TextView shaLabel = (TextView) findViewById(R.id.sha1);
+                    if(shaLabel!=null)
+                        shaLabel.setText(finsha);
+                }
+            };
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        String url = onlineAddress+"/api/Sha?nomination="+nomination_num.toString()+"&tour="+round.toString()+"&judge="+judge_num.toString();
+
+                         URL obj = new URL(url);
+                        HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
+
+                        connection.setRequestMethod("GET");
+
+                        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                        finsha=in.readLine().replace("\"","");
+                        in.close();
+                        runOnUiThread(setSha);
+                    } catch (Exception e) {
+                        log(e.getMessage());
+                        mainsha();
+                        runOnUiThread(setSha);
+                    }
+                }
+            }
+        })).start();
     }
 
     public void mainsha(){
@@ -2409,6 +2461,18 @@ public class MainActivity extends Activity {
                 SaveSettings();
             }
         });
+
+        btn = (Button) findViewById(R.id.s_online);
+        btn.setText(String.format("%s %s", getResources().getText(R.string.Online), getResources().getText(onlineMode?R.string.On:R.string.Off)));
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onlineMode=!onlineMode;
+                ((Button) findViewById(R.id.s_online)).setText(String.format("%s %s", getResources().getText(R.string.Online), getResources().getText(onlineMode?R.string.On:R.string.Off)));
+                SaveSettings();
+            }
+        });
+
         btn = (Button) findViewById(R.id.s_tomain);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -2489,6 +2553,8 @@ public class MainActivity extends Activity {
         try{
             BufferedReader br = new BufferedReader(new FileReader(settings));
             debug = Boolean.valueOf(br.readLine());
+            if(br!=null)
+                onlineMode =Boolean.valueOf(br.readLine());
             br.close();
         }catch(Exception e){log(e.getMessage());}
     }
@@ -2498,6 +2564,8 @@ public class MainActivity extends Activity {
             try{
                 BufferedWriter br = new BufferedWriter(new FileWriter(settings));
                 br.write(Boolean.toString(debug));
+                br.newLine();
+                br.write(Boolean.toString(onlineMode));
                 br.newLine();
                 br.close();
             }catch(Exception e){log(e.getMessage());}

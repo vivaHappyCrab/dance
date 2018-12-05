@@ -24,4 +24,5 @@
     <string name="Completed">Очистка выполнена</string>
     <string name="CompletedRescue">Отправка файлов завершена</string>
     <string name="Turn">Заход:</string>
+    <string name="Online">Режим Онлайн:</string>
 </resources>
