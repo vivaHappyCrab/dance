@@ -11,7 +11,6 @@ import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.os.BatteryManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,6 +78,20 @@ public class MainActivity extends Activity {
     boolean restore,lang,newinit,starter;
     String shaLog="";
     String onlineAddress="http://192.168.1.2:54321";
+
+    int[] prom16={R.id.button61,R.id.button62,R.id.button63,R.id.button64
+                ,R.id.button65,R.id.button66,R.id.button67,R.id.button68
+                ,R.id.button69,R.id.button70,R.id.button71,R.id.button72
+                ,R.id.button73,R.id.button74,R.id.button75,R.id.button76
+                ,R.id.button77,R.id.button78,R.id.button79,R.id.button80
+                                                                            ,-1,-1,-1,-1,-1};
+    int[] prom25={R.id.button,R.id.button2,R.id.button5,R.id.button6,R.id.button7
+            ,R.id.button12,R.id.button15,R.id.button16,R.id.button19,R.id.button22
+            ,R.id.button27,R.id.button28,R.id.button32,R.id.button33,R.id.button37
+            ,R.id.button38,R.id.button39,R.id.button42,R.id.button45,R.id.button46
+            ,R.id.button47,R.id.button48,R.id.button49,R.id.button52,R.id.button53};
+
+    int[] btnList;
 
     class Pair{
         int[] value;
@@ -246,9 +259,8 @@ public class MainActivity extends Activity {
         DeleteTmp();
         ArrayAdapter<String> nominationCount = new ArrayAdapter<String>(this,R.layout.list, strs)
         {
-            @NonNull
             @Override
-            public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+            public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
                 TextView text = (TextView) view.findViewById(android.R.id.text1);
                 text.setMaxLines(1);
@@ -480,11 +492,13 @@ public class MainActivity extends Activity {
                 nfLayout = R.layout.prom;
                 size = 25;
                 startButton = R.id.button;
+                btnList=prom25;
             } else {
                 setContentView(R.layout.prom16);
                 nfLayout = R.layout.prom16;
                 size = 20;
                 startButton = R.id.button61;
+                btnList=prom16;
             }
             CreateEventsStarter();
             state = 3;
@@ -554,15 +568,15 @@ public class MainActivity extends Activity {
         int j=0;
         for(int i=0;i<allnums.size();++i)
             if(allnums.get(i).turn==turnNumber){
-                ((Button)findViewById(startButton + j)).setText(allnums.get(i).name);
-                if(allnums.get(i).value[danceNumber]==0)findViewById(startButton + j).setBackgroundResource(android.R.color.background_light);
-                else if(allnums.get(i).value[danceNumber]==2)findViewById(startButton + j).setBackgroundResource(R.color.tvYes);
-                else if(allnums.get(i).value[danceNumber]==1)findViewById(startButton + j).setBackgroundResource(R.color.tvMb);
-                findViewById(startButton+j).setVisibility(View.VISIBLE);
+                ((Button)findViewById(btnList[j])).setText(allnums.get(i).name);
+                if(allnums.get(i).value[danceNumber]==0)findViewById(btnList[j]).setBackgroundResource(android.R.color.background_light);
+                else if(allnums.get(i).value[danceNumber]==2)findViewById(btnList[j]).setBackgroundResource(R.color.tvYes);
+                else if(allnums.get(i).value[danceNumber]==1)findViewById(btnList[j]).setBackgroundResource(R.color.tvMb);
+                findViewById(btnList[j]).setVisibility(View.VISIBLE);
                 j++;
             }
         for(;j<size;++j)
-            findViewById(startButton+j).setVisibility(View.INVISIBLE);
+            findViewById(btnList[j]).setVisibility(View.INVISIBLE);
         ((TextView)findViewById(R.id.counter)).setText(Integer.toString(posCounters));
         findViewById(R.id.nf_send).setEnabled(danceNumber == danceCount - 1);
         for(int i=0;i<5;++i){
@@ -655,8 +669,8 @@ public class MainActivity extends Activity {
                 FillPairsStarter();
             }
         });
-        for(int i=0;i<size;++i){
-            findViewById(startButton+i).setOnClickListener(new View.OnClickListener() {
+        for(int i=0,n=0;i<size;++i,++n){
+            findViewById(btnList[i]).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     log("Button clicked");
@@ -1307,20 +1321,20 @@ public class MainActivity extends Activity {
         for(int i=0;i<size;++i) {
             String s=((i+1)<pairsNum.get(turnNumber).length)?pairsNum.get(turnNumber)[i + 1]:"0";
             if(s.equals("0")) {
-                ((Button) findViewById(startButton+i)).setText("");
-                findViewById(startButton+i).setVisibility(View.INVISIBLE);
+                ((Button) findViewById(btnList[i])).setText("");
+                findViewById(btnList[i]).setVisibility(View.INVISIBLE);
             }
             else {
-                ((Button) findViewById(startButton + i)).setText(pairsNum.get(turnNumber)[i + 1]);
-                findViewById(startButton+i).setVisibility(View.VISIBLE);
+                ((Button) findViewById(btnList[i])).setText(pairsNum.get(turnNumber)[i + 1]);
+                findViewById(btnList[i]).setVisibility(View.VISIBLE);
             }
-            if(pairsState.get(turnNumber)[i]==1)findViewById(startButton + i).setBackgroundResource(R.color.tvYes);
-            else if(pairsState.get(turnNumber)[i]==4)findViewById(startButton + i).setBackgroundResource(R.color.tvYes);
-            else if(pairsState.get(turnNumber)[i]==2)findViewById(startButton + i).setBackgroundResource(R.color.tvMb);
-            else if(pairsState.get(turnNumber)[i]==5)findViewById(startButton + i).setBackgroundResource(R.color.tvYes);
-            else if(pairsState.get(turnNumber)[i]==0)findViewById(startButton + i).setBackgroundResource(android.R.color.background_light);
-            else if(pairsState.get(turnNumber)[i]==3)findViewById(startButton + i).setBackgroundResource(R.color.tvYes);
-            else findViewById(startButton + i).setBackgroundResource(R.color.tvRed);
+            if(pairsState.get(turnNumber)[i]==1)findViewById(btnList[i]).setBackgroundResource(R.color.tvYes);
+            else if(pairsState.get(turnNumber)[i]==4)findViewById(btnList[i]).setBackgroundResource(R.color.tvYes);
+            else if(pairsState.get(turnNumber)[i]==2)findViewById(btnList[i]).setBackgroundResource(R.color.tvMb);
+            else if(pairsState.get(turnNumber)[i]==5)findViewById(btnList[i]).setBackgroundResource(R.color.tvYes);
+            else if(pairsState.get(turnNumber)[i]==0)findViewById(btnList[i]).setBackgroundResource(android.R.color.background_light);
+            else if(pairsState.get(turnNumber)[i]==3)findViewById(btnList[i]).setBackgroundResource(R.color.tvYes);
+            else findViewById(btnList[i]).setBackgroundResource(R.color.tvRed);
         }
         posCounters=0;
         if(declined!=0) {
@@ -1434,11 +1448,15 @@ public class MainActivity extends Activity {
             }
         });
         for(int i=0;i<size;++i){
-            findViewById(startButton+i).setOnClickListener(new View.OnClickListener() {
+            findViewById(btnList[i]).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     log("Button clicked");
-                    int n = v.getId() - startButton;
+                    int n = 0;
+                    for(int j=0;j<size;++j){
+                        if(btnList[j]==v.getId())
+                            n=j;
+                    }
                     if (pairsState.get(turnNumber)[n] == 8) {declined--;red.remove(pairsNum.get(turnNumber)[n+1]);log("Declined "+n+" removed");}
                     pairsState.get(turnNumber)[n] = (pairsState.get(turnNumber)[n] + 1) % 3;
                     if (pairsState.get(turnNumber)[n] == 1) {yMarksDone++;log("Ymark "+n+" added");}
@@ -1449,11 +1467,15 @@ public class MainActivity extends Activity {
                     //WriteBackup();
                 }
             });
-            findViewById(startButton+ i).setOnLongClickListener(new View.OnLongClickListener() {
+            findViewById(btnList[i]).setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
                     log("Button longclicked");
-                    int n = v.getId() - startButton;
+                    int n = 0;
+                    for(int j=0;j<size;++j){
+                        if(btnList[j]==v.getId())
+                            n=j;
+                    }
                     if (pairsState.get(turnNumber)[n] != 8) {
                         if (pairsState.get(turnNumber)[n] == 1) {
                             yMarksDone--;
